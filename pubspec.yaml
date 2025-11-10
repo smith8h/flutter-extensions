@@ -9,9 +9,10 @@ homepage: https://github.com/smith8h/flutter-extensions
 topics:
   - productivity
   - tools
+  - extensions
 
 environment:
-  sdk: ">=3.9.2"
+  sdk: ">=3.9.2 <4.0.0"
 
 dependencies:
   flutter:
