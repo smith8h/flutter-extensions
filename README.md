@@ -2,7 +2,7 @@
 
 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
-Works great for building responsive UIs — for example, Baghdad news headers, Mosul marketplace cards, or Erbil prayer time widgets.
+Works great for building responsive UIs — for example, News headers, Marketplace cards, or Prayer time widgets.
 
 - 📋 Well Documented
 - ⚔️ Fully Tested

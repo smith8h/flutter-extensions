@@ -1,3 +1,20 @@
+# 0.0.4
+
+## Added
+### DateTimeExtensions
+- `operator +` ads this duration of time to this date and returns the result.
+- `operator -` subtracts this duration of time from this date and returns the result.
+- `fromNow` returns the duration between this date and now.
+- `isPast` returns `true` if this date is in the past.
+- `isFuture` returns `true` if this date is in the future.
+- `isInPreviousMonth` returns `true` if this date is in the previous month.
+- `isInNextMonth` returns `true` if this date is in the next month.
+- `isInNextYear` returns `true` if this date is in the next year.
+- `isInPreviousYear` returns `true` if this date is in the previous year.
+- `isToday` returns `true` if this date is today.
+- `isTomorrow` returns `true` if this date is tomorrow.
+- `isYesterday` returns `true` if this date is yesterday.
+
 # 0.0.3
 
 ## Added
