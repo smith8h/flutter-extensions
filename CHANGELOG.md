@@ -1,3 +1,17 @@
+# 0.0.3
+
+## Added
+### StringExtensions
+- `reverse` now returns the reversed version of this string.
+- `words` now returns a list of words in this string.
+
+## Changes
+### StringExtensions
+- `firstLetterUpperCase` is now deleted. Use `capitalize` instead.
+- `toDate` now returns `DateTime?` to handle invalid formats.
+- `toDouble` now returns `double?` to handle invalid formats.
+- `toInt` now returns `int?` to handle invalid formats.
+
 # 0.0.2
 
 ## Added

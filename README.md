@@ -1,29 +1,28 @@
 # s_extensions
 
-Lightweight, expressive extension methods for Flutter projects. This library adds convenient numeric and string helpers, plus a static context manager that enables property-based screen queries like `0.9.screenWidth` without passing `BuildContext` around.
+A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
 Works great for building responsive UIs — for example, Baghdad news headers, Mosul marketplace cards, or Erbil prayer time widgets.
 
+- 📋 Well Documented
+- ⚔️ Fully Tested
+- 👌 Follows Code Quality Guidelines
+- 🦾 Production Ready
+
 ## Installation
 
-Add to `pubspec.yaml`:
+1. Add to `pubspec.yaml`:
 
-```yaml
-dependencies:
-  s_extensions: ^0.0.2
-```
+    ```yaml
+    dependencies:
+      s_extensions: <latest_version>
+    ```
 
-Import what you need:
+2. Import library into your code.
 
-```dart
-import 'package:s_extensions/s_extensions.dart';
-
-// or import specific files
-import 'package:s_extensions/extensions/number_ext.dart';
-import 'package:s_extensions/extensions/string_ext.dart';
-import 'package:s_extensions/extensions_context.dart';
-import 'package:s_extensions/extensions/datetime_ext.dart';
-```
+    ```dart
+    import 'package:s_extensions/s_extensions.dart';
+    ```
 
 ## Quick Start
 

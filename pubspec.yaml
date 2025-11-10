@@ -1,5 +1,5 @@
 name: s_extensions
-description: A powerful and playful extensions dependency for your flutter projects.
+description: A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
 version: 0.0.2
 

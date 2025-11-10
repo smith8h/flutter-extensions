@@ -1,26 +1,44 @@
+import 'dart:convert';
+
 extension StringExtensions on String {
   // ? ================== Converters ========================
 
-  /// Returns the first letter of this string in uppercase.
+  /// Returns the capitalized version of this string.
   ///
-  /// Example: `'hello'.firstLetterUpperCase` -> `'Hello'`.
-  String get firstLetterUpperCase =>
+  /// Example: `'hello'.capitalize` -> `'Hello'`.
+  String get capitalize =>
       isNotEmpty ? '${this[0].toUpperCase()}${substring(1)}' : this;
+
+  /// Returns the reversed version of this string.
+  ///
+  /// Example: `'hello'.reverse` -> `'olleh'`.
+  String get reverse => isNotEmpty ? substring(1).reverse + this[0] : this;
 
   /// Returns the date time value of this string.
   ///
   /// Example: `'2023-01-01'.toDate` -> `2023-01-01 00:00:00.000`.
-  DateTime get toDate => DateTime.parse(this);
+  DateTime? get toDate => DateTime.tryParse(this);
 
   /// Returns the double value of this string.
   ///
   /// Example: `'123.45'.toDouble` -> `123.45`.
-  double get toDouble => double.tryParse(this) ?? 0.0;
+  double? get toDouble => double.tryParse(this);
 
   /// Returns the int value of this string.
   ///
   /// Example: `'123'.toInt` -> `123`.
-  int get toInt => int.tryParse(this) ?? 0;
+  int? get toInt => int.tryParse(this);
+
+  /// Returns a list of words in this string.
+  ///
+  /// Example: `'hello world'.words` -> `['hello', 'world']`.
+  List<String> get words => split(RegExp(r'\s+'));
+
+  /// Returns a parsed json [map] of this string.
+  ///
+  /// Example: `'{"name": "John", "age": 30}'.parseJson` -> `{'name': 'John', 'age': 30}`.
+  Map<String, dynamic>? get parseJson =>
+      jsonDecode(this) as Map<String, dynamic>?;
 
   // ? ================== Validators ========================
 
