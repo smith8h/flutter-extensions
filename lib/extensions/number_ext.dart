@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 import '../extensions_context.dart';
 
 extension NumExtensions on num {
@@ -140,4 +141,12 @@ extension NumExtensions on num {
   ///
   /// Example: `100.verticalSpace` -> `SizedBox(height: 100.0)`.
   SizedBox get verticalSpace => SizedBox(height: toDouble());
+
+  // ? =================== Formaters ========================
+
+  /// Returns a string representation of this number with the format
+  /// provided as a parameter.
+  ///
+  /// Example: `123.456.format('0.00')` -> `123.46`.
+  String format(String formatStr) => NumberFormat(formatStr).format(toDouble());
 }

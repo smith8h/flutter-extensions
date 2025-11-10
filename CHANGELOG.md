@@ -1,3 +1,9 @@
+# 0.0.2
+
+## Added
+- `NumberExtensions`:  with format helper `format`.
+- `DateTimeExtensions`: with format helpers `format`, `yyyyMMdd`, `yyyyMMddHHmm`, `yyyyMMddHHmmss`, `HHmm`.
+
 # 0.0.1
 
 ## Added

@@ -1,7 +1,7 @@
 name: s_extensions
 description: A powerful and playful extensions dependency for your flutter projects.
 
-version: 0.0.1
+version: 0.0.2
 
 repository: https://github.com/smith8h/flutter-extensions
 homepage: https://github.com/smith8h/flutter-extensions
@@ -17,8 +17,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.20.2
 
 dev_dependencies:
+  flutter_lints: ^3.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0

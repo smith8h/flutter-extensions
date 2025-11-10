@@ -10,7 +10,7 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  s_extensions: ^0.0.1
+  s_extensions: ^0.0.2
 ```
 
 Import what you need:
@@ -22,6 +22,7 @@ import 'package:s_extensions/s_extensions.dart';
 import 'package:s_extensions/extensions/number_ext.dart';
 import 'package:s_extensions/extensions/string_ext.dart';
 import 'package:s_extensions/extensions_context.dart';
+import 'package:s_extensions/extensions/datetime_ext.dart';
 ```
 
 ## Quick Start
@@ -59,6 +60,15 @@ final padding = 80.quarter; // 20.0
 
 // Daily refresh window
 final refreshWindow = 2.hr; // Duration(hours: 2)
+
+// Custom number format
+final customFormat = 1234.567.format('###,###.00'); // 1,234.57
+
+// Custom date format
+final customFormat = DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
+
+// Prayer time format
+final timeFormat = DateTime.now().HHmm; // 12:34
 ```
 
 ## Features
@@ -71,6 +81,7 @@ final refreshWindow = 2.hr; // Duration(hours: 2)
 - `screenWidth`, `screenHeight` — property-based screen size queries using a static context manager.
 - `horizontalSpace`, `verticalSpace` — quick `SizedBox` builders.
 - `fixed00`, `fixed0` — string representations with 2 and 1 decimal places.
+- `format` — format numbers with custom decimal places.
 
 ### String extensions
 
@@ -78,6 +89,11 @@ final refreshWindow = 2.hr; // Duration(hours: 2)
 - `isEmail`, `isPhoneNumber`, `isUrl` — basic validation.
 - `toDouble`, `toInt` — safe parsing with fallbacks.
 - `toDate` — convert string to `DateTime`.
+
+### DateTime extensions
+
+- `format` — format dates with custom patterns.
+- `yyyyMMdd`, `yyyyMMddHHmm`, `yyyyMMddHHmmss`, `HHmm` — common date and time representations.
 
 ## Static Context Manager
 
