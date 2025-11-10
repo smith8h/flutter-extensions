@@ -13,6 +13,10 @@
 ### ListExtensions
 - `toJson` now returns a parsed json [string] of this list.
 
+### NumberExtensions
+- `isBetween` now returns `true` if this number is between the provided [min] and [max] values.
+- `isDivisibleBy` now returns `true` if this number is divisible by the provided [divisor].
+
 ## Changes
 ### StringExtensions
 - `firstLetterUpperCase` is now deleted. Use `capitalize` instead.

@@ -149,4 +149,16 @@ extension NumExtensions on num {
   ///
   /// Example: `123.456.format('0.00')` -> `123.46`.
   String format(String formatStr) => NumberFormat(formatStr).format(toDouble());
+
+  // ? =================== Validators ========================
+
+  /// Returns `true` if this number is between the provided [min] and [max] values.
+  ///
+  /// Example: `123.isBetween(100, 200)` -> `true`.
+  bool isBetween(num min, num max) => this > min && this < max;
+
+  /// Returns `true` if this number is divisible by the provided [divisor].
+  ///
+  /// Example: `123.isDivisibleBy(10)` -> `false`.
+  bool isDivisibleBy(int divisor) => toInt() % divisor == 0;
 }
