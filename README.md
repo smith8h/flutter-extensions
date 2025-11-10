@@ -49,12 +49,27 @@ isLoaded.toggle; // toggles isLoaded to false if true, and true if false
 #### DateTime extensions
 ```dart
 DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
-DateTime.now().yyyyMMdd; // 2023-08-24
-DateTime.now().yyyyMMddHHmmss; // 2023-08-24 12:34:56
-DateTime.now().yyyyMMddHHmm; // 2023-08-24 12:34
-DateTime.now().HHmm; // 12:34
-```
+now().yyyyMMdd; // 2023-08-24
+now().yyyyMMddHHmmss; // 2023-08-24 12:34:56
+now().yyyyMMddHHmm; // 2023-08-24 12:34
+now().HHmm; // 12:34
+now().isPast; // false
+now().isFuture; // false
+now().isToday; // true
+now().isTomorrow; // false
+now().isYesterday; // false
+now().isInPreviousMonth; // false
+now().isInPreviousYear; // false
+now().isInNextMonth; // false
+now().isInNextYear; // false
 
+operator +(Duration duration) // Returns a new DateTime with this duration added.
+(now() + 1.day); // 2023-08-25 12:34:56.000
+operator -(Duration duration) // Returns a new DateTime with this duration subtracted.
+(now() - 1.day); // 2023-08-23 12:34:56.000
+
+(now() - 1.day).fromNow; // Duration(days: 1)
+```
 
 ### Number extensions
 ```dart
