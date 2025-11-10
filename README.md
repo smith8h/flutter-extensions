@@ -38,61 +38,84 @@ MaterialApp(
 );
 ```
 
+## Features
 Usage examples:
 
+#### Bool extensions
 ```dart
-// News header spanning 90% of the screen width
-SizedBox(width: 0.9.screenWidth);
-// or use: 0.9.screenWidth.horizontalSpace
-
-// Marketplace card spacing
-final spacing = 16.half; // 8.0
-
-// Prayer reminder interval
-final interval = 15.min; // Duration(minutes: 15)
-
-// Button ripple timing
-final ripple = 250.msec; // Duration(milliseconds: 250)
-
-// List item padding
-final padding = 80.quarter; // 20.0
-
-// Daily refresh window
-final refreshWindow = 2.hr; // Duration(hours: 2)
-
-// Custom number format
-final customFormat = 1234.567.format('###,###.00'); // 1,234.57
-
-// Custom date format
-final customFormat = DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
-
-// Prayer time format
-final timeFormat = DateTime.now().HHmm; // 12:34
+isLoaded.toggle; // toggles isLoaded to false if true, and true if false
 ```
 
-## Features
+#### DateTime extensions
+```dart
+DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
+DateTime.now().yyyyMMdd; // 2023-08-24
+DateTime.now().yyyyMMddHHmmss; // 2023-08-24 12:34:56
+DateTime.now().yyyyMMddHHmm; // 2023-08-24 12:34
+DateTime.now().HHmm; // 12:34
+```
+
 
 ### Number extensions
+```dart
+8.half; // 4.0
+8.quarter; // 2.0
+8.square; // 64.0
+8.sqRoot; // 2.8284271247461903
 
-- `half`, `quarter` — simple fractions as `double`.
-- `square`, `sqRoot` — square and square root.
-- `misec`, `msec`, `sec`, `min`, `hr`, `day` — `Duration` factories.
-- `screenWidth`, `screenHeight` — property-based screen size queries using a static context manager.
-- `horizontalSpace`, `verticalSpace` — quick `SizedBox` builders.
-- `fixed00`, `fixed0` — string representations with 2 and 1 decimal places.
-- `format` — format numbers with custom decimal places.
+300.misec; // Duration(microseconds: 300)
+300.msec; // Duration(milliseconds: 300)
+300.sec; // Duration(seconds: 300)
+300.min; // Duration(minutes: 300)
+300.hr; // Duration(hours: 300)
+300.day; // Duration(days: 300)
+
+0.5.screenWidth; // half of the screen width
+0.5.screenHeight; // half of the screen height
+
+123.456.fixed00; // 123.46
+123.456.fixed0; // 123.5
+123.456.format('0.00'); // 123.46
+
+16.verticalSpace; // SizedBox(height: 16.0)
+16.horizontalSpace; // SizedBox(width: 16.0)
+
+20.isDivisibleBy(5); // true
+30.isBetween(20, 40); // true
+50.isEven; // true
+```
 
 ### String extensions
 
-- `firstLetterUpperCase` — capitalize the first letter.
-- `isEmail`, `isPhoneNumber`, `isUrl` — basic validation.
-- `toDouble`, `toInt` — safe parsing with fallbacks.
-- `toDate` — convert string to `DateTime`.
+```dart
+'hello'.capitalize; // Hello
+'hello'.reverse; // olleh
+'hello@example.com'.isEmail; // true
+'+1234567890'.isPhoneNumber; // true
+'https://www.example.com'.isUrl; // true
+"23.4".toDouble; // 23.4
+"23.4".toInt; // 23
+"2023-08-24".toDate; // 2023-08-24 00:00:00.000
+"Hello World!".words; // ["Hello", "World!"]
+'{"name": "John", "age": 30}'.parseJson` // {'name': 'John', 'age': 30} as Map
+```
 
-### DateTime extensions
+#### List extensions
+```dart
+[1, 2, 3].sum; // 6
+[1, 2, 3].average; // 2.0
+[1, 2, 3].toJson; // '[1, 2, 3]'
+operator +(element) // Adds new [element] or [elements] to this list.
+[1, 2, 3].random; // 2
+[Widgets].toStack(); // Stack(children: [Widgets])
+[Widgets].toColumn(); // Column(children: [Widgets])
+[Widgets].toRow(); // Row(children: [Widgets])
+```
 
-- `format` — format dates with custom patterns.
-- `yyyyMMdd`, `yyyyMMddHHmm`, `yyyyMMddHHmmss`, `HHmm` — common date and time representations.
+#### Map extensions
+```dart
+{'name': 'John', 'age': 30}.toJson; // '{"name": "John", "age": 30}'
+```
 
 ## Static Context Manager
 

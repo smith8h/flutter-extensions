@@ -2,27 +2,40 @@
 
 ## Added
 ### StringExtensions
-- `reverse` now returns the reversed version of this string.
-- `words` now returns a list of words in this string.
-- `parseJson` now returns a parsed json [map] of this string.
-- `isBlank` now returns `true` if this string is a blank by any chance.
+- `reverse` returns the reversed version of this string.
+- `words` returns a list of words in this string.
+- `parseJson` returns a parsed json [map] of this string.
+- `isBlank` returns `true` if this string is a blank by any chance.
 
 ### MapExtensions
-- `toJson` now returns a parsed json [string] of this map.
+- `toJson` returns a parsed json [string] of this map.
 
 ### ListExtensions
-- `toJson` now returns a parsed json [string] of this list.
+- `toJson` returns a parsed json [string] of this list.
+- `operator +` ads new [element] or [elements] to this list.
+  ```dart
+  [1, 2, 3] + 4; // [1, 2, 3, 4]
+  [1, 2, 3] + [4, 5, 6]; // [1, 2, 3, 4, 5, 6]
+  ```
+- `toStack` returns a stack widget with this list as children.
+- `toColumn` returns a column widget with this list as children.
+- `toRow` returns a row widget with this list as children.
+- `random` returns a random element from this list.
 
 ### NumberExtensions
-- `isBetween` now returns `true` if this number is between the provided [min] and [max] values.
-- `isDivisibleBy` now returns `true` if this number is divisible by the provided [divisor].
+- `isBetween` returns `true` if this number is between the provided [min] and [max] values.
+- `isDivisibleBy` returns `true` if this number is divisible by the provided [divisor].
+- `isEven` returns `true` if this number is a even number.
+
+### BoolExtensions
+- `toggle` returns `false` if this boolean is `true`, and `true` if this boolean is `false`.
 
 ## Changes
 ### StringExtensions
-- `firstLetterUpperCase` is now deleted. Use `capitalize` instead.
-- `toDate` now returns `DateTime?` to handle invalid formats.
-- `toDouble` now returns `double?` to handle invalid formats.
-- `toInt` now returns `int?` to handle invalid formats.
+- `firstLetterUpperCase` is deleted. Use `capitalize` instead.
+- `toDate` returns `DateTime?` to handle invalid formats.
+- `toDouble` returns `double?` to handle invalid formats.
+- `toInt` returns `int?` to handle invalid formats.
 
 # 0.0.2
 

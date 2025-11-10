@@ -120,16 +120,6 @@ extension NumExtensions on num {
     return this * mq.size.height;
   }
 
-  /// Returns a string representation of this number with 2 decimal places.
-  ///
-  /// Example: `123.456.fixed00` -> `123.46`.
-  String get fixed00 => toStringAsFixed(2);
-
-  /// Returns a string representation of this number with 1 decimal place.
-  ///
-  /// Example: `123.456.fixed0` -> `123.5`.
-  String get fixed0 => toStringAsFixed(1);
-
   // ? =================== Widgets ========================
 
   /// Returns a `SizedBox` widget with the width set to this number.
@@ -143,6 +133,16 @@ extension NumExtensions on num {
   SizedBox get verticalSpace => SizedBox(height: toDouble());
 
   // ? =================== Formaters ========================
+
+  /// Returns a string representation of this number with 2 decimal places.
+  ///
+  /// Example: `123.456.fixed00` -> `123.46`.
+  String get fixed00 => toStringAsFixed(2);
+
+  /// Returns a string representation of this number with 1 decimal place.
+  ///
+  /// Example: `123.456.fixed0` -> `123.5`.
+  String get fixed0 => toStringAsFixed(1);
 
   /// Returns a string representation of this number with the format
   /// provided as a parameter.
@@ -161,4 +161,9 @@ extension NumExtensions on num {
   ///
   /// Example: `123.isDivisibleBy(10)` -> `false`.
   bool isDivisibleBy(int divisor) => toInt() % divisor == 0;
+
+  /// Returns `true` if this number is a even number.
+  ///
+  /// Example: `12.isEven` -> `true`.
+  bool get isEven => toInt() % 2 == 0;
 }
