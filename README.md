@@ -1,4 +1,4 @@
-# flutter_extensions
+# s_extensions
 
 Lightweight, expressive extension methods for Flutter projects. This library adds convenient numeric and string helpers, plus a static context manager that enables property-based screen queries like `0.9.screenWidth` without passing `BuildContext` around.
 
@@ -10,18 +10,18 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  flutter_extensions: ^0.0.0
+  s_extensions: ^0.0.0
 ```
 
 Import what you need:
 
 ```dart
-import 'package:flutter_extensions/flutter_extensions.dart';
+import 'package:s_extensions/s_extensions.dart';
 
 // or import specific files
-import 'package:flutter_extensions/extensions/number_ext.dart';
-import 'package:flutter_extensions/extensions/string_ext.dart';
-import 'package:flutter_extensions/extensions_context.dart';
+import 'package:s_extensions/extensions/number_ext.dart';
+import 'package:s_extensions/extensions/string_ext.dart';
+import 'package:s_extensions/extensions_context.dart';
 ```
 
 ## Quick Start

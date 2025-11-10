@@ -1,4 +1,4 @@
-library flutter_extensions;
+library s_extensions;
 
 export 'extensions/number_ext.dart';
 export 'extensions_context.dart';

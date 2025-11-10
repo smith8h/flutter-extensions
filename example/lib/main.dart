@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_extensions/extensions/number_ext.dart';
+import 'package:s_extensions/s_extensions.dart';
 
 void main() {
   runApp(const MyApp());

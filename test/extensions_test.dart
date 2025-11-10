@@ -1,5 +1,5 @@
 
-import 'package:flutter_extensions/extensions/number_ext.dart';
+import 'package:s_extensions/s_extensions.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

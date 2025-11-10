@@ -1,8 +1,10 @@
-name: flutter_extensions
+name: s_extensions
+description: A powerful and playful extensions dependency for your flutter projects.
+
 version: 0.0.0
 
-description: A powerful and playful extensions dependency for your flutter projects.
 repository: https://github.com/smith8h/flutter-extensions
+homepage: https://github.com/smith8h/flutter-extensions
 
 topics:
   - productivity
