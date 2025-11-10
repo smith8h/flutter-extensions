@@ -1,4 +1,10 @@
-# 0.0.0 – Initial release
+# 0.0.1
+
+## Added
+- `StringExtensions`: `toDate`.
+- `NumberExtensions`: `fixed00`, `fixed0`.
+
+# 0.0.0
 
 ## Added
 - `NumExtensions` with numeric helpers: `half`, `quarter`, `square`, `sqRoot`.

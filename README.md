@@ -10,7 +10,7 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  s_extensions: ^0.0.0
+  s_extensions: ^0.0.1
 ```
 
 Import what you need:
@@ -70,12 +70,14 @@ final refreshWindow = 2.hr; // Duration(hours: 2)
 - `misec`, `msec`, `sec`, `min`, `hr`, `day` — `Duration` factories.
 - `screenWidth`, `screenHeight` — property-based screen size queries using a static context manager.
 - `horizontalSpace`, `verticalSpace` — quick `SizedBox` builders.
+- `fixed00`, `fixed0` — string representations with 2 and 1 decimal places.
 
 ### String extensions
 
 - `firstLetterUpperCase` — capitalize the first letter.
 - `isEmail`, `isPhoneNumber`, `isUrl` — basic validation.
 - `toDouble`, `toInt` — safe parsing with fallbacks.
+- `toDate` — convert string to `DateTime`.
 
 ## Static Context Manager
 

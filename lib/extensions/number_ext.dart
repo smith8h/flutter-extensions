@@ -3,6 +3,8 @@ import 'package:flutter/widgets.dart';
 import '../extensions_context.dart';
 
 extension NumExtensions on num {
+  // ? =================== Equations ========================
+
   /// Returns half of this number as `double`.
   ///
   /// Useful for responsive sizing or spacing in layouts.
@@ -24,6 +26,8 @@ extension NumExtensions on num {
   /// Note: for negative values, `sqrt` returns `NaN`.
   /// Example: `81.sqRoot` -> `9.0`.
   double get sqRoot => sqrt(this);
+
+  // ? =================== Durations ========================
 
   /// Converts this number to a `Duration` in microseconds.
   ///
@@ -62,6 +66,8 @@ extension NumExtensions on num {
   /// Fractional values are truncated with `toInt()`.
   /// Example: `2.day` -> `Duration(days: 2)` for news cache TTL.
   Duration get day => Duration(days: toInt());
+
+  // ? =================== Spaces & Fixed Values ========================
 
   /// Get the logical screen width multiplied by this number.
   ///
@@ -112,6 +118,18 @@ extension NumExtensions on num {
     final mq = FlutterExtensions.mediaQuery();
     return this * mq.size.height;
   }
+
+  /// Returns a string representation of this number with 2 decimal places.
+  ///
+  /// Example: `123.456.fixed00` -> `123.46`.
+  String get fixed00 => toStringAsFixed(2);
+
+  /// Returns a string representation of this number with 1 decimal place.
+  ///
+  /// Example: `123.456.fixed0` -> `123.5`.
+  String get fixed0 => toStringAsFixed(1);
+
+  // ? =================== Widgets ========================
 
   /// Returns a `SizedBox` widget with the width set to this number.
   ///
