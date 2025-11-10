@@ -1,3 +1,11 @@
+# 0.0.5
+
+## Added
+### ContextExtensions
+- `hideKeyboard` hides the keyboard.
+- `orientation` returns the device orientation.
+- `isDarkMode` returns `true` if the device is in dark mode.
+
 # 0.0.4
 
 ## Added

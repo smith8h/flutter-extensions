@@ -1,6 +1,7 @@
 library s_extensions;
 
 export 'extensions/bool_ext.dart';
+export 'extensions/context_ext.dart';
 export 'extensions/datetime_ext.dart';
 export 'extensions/list_ext.dart';
 export 'extensions/map_ext.dart';

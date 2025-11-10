@@ -1,5 +1,26 @@
 # s_extensions
 
+<div align="center">
+  <a href="https://pub.dev/packages/s_extensions/">
+    <img src="https://img.shields.io/pub/v/s_extensions.svg" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
+  </a>
+  <a href="https://github.com/smith8h/flutter-extensions/issues" target="_blank">
+    <img alt="GitHub: smith8h" src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat" />
+  </a>
+  <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions" />
+  <a href="https://github.com/smith8h">
+    <img alt="GitHub: smith8h" src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social" />
+  </a>
+  <a href="https://github.com/smith8h/flutter-extensions">
+    <img src="https://img.shields.io/github/stars/smith8h/flutter-extensions?style=social" />
+  </a>
+</div>
+
+---
+
 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
 Works great for building responsive UIs — for example, News headers, Marketplace cards, or Prayer time widgets.
@@ -101,7 +122,6 @@ operator -(Duration duration) // Returns a new DateTime with this duration subtr
 ```
 
 ### String extensions
-
 ```dart
 'hello'.capitalize; // Hello
 'hello'.reverse; // olleh
@@ -130,6 +150,13 @@ operator +(element) // Adds new [element] or [elements] to this list.
 #### Map extensions
 ```dart
 {'name': 'John', 'age': 30}.toJson; // '{"name": "John", "age": 30}'
+```
+
+#### Context extensions
+```dart
+context.hideKeyboard(); // hides the keyboard
+context.orientation; // returns the device orientation
+context.isDarkMode; // returns true if the device is in dark mode
 ```
 
 ## Static Context Manager
