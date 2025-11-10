@@ -1,6 +1,10 @@
-# 1.0.0
+# 0.0.0 – Initial release
 
-- Add `darkerColor` to get a darker color by factor from a already defined color.
-- Add `lighterColor` to get a lighter color by factor from a already defined color.
-- Add `oppositeColor` to get opposite color of a already defined color.
-- Add `rgbToHsv` to convert RGB color to HSV.
+## Added
+- `NumExtensions` with numeric helpers: `half`, `quarter`, `square`, `sqRoot`.
+- Duration helpers: `misec`, `msec`, `sec`, `min`, `hr`, `day`.
+- `screenWidth` extension getter for responsive layouts via property access
+  (e.g., `0.9.screenWidth`).
+- Static initialization and context management with `FlutterExtensions` to support property-based access without passing `BuildContext`.
+- Initialization verification (`isInitialized`), explicit init (`init`), and
+  hot-reload-safe updates (`update`).

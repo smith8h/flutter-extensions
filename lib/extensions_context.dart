@@ -18,7 +18,7 @@ import 'package:flutter/widgets.dart';
 /// ```dart
 /// MaterialApp(
 ///   builder: (context, child) {
-///     FlutterExtensionsContext.update(context); // keeps data fresh on hot reload
+///     FlutterExtensions.update(context); // keeps data fresh on hot reload
 ///     return child!;
 ///   },
 ///   home: const MyHomePage(),
@@ -57,8 +57,8 @@ class FlutterExtensions with WidgetsBindingObserver {
       final views = binding.platformDispatcher.views;
       if (views.isEmpty) {
         throw StateError(
-          'FlutterExtensionsInitializer initialization failed: No FlutterView available. '
-          'Provide a BuildContext to FlutterExtensionsInitializer.init(context).',
+          'FlutterExtensions initialization failed: No FlutterView available. '
+          'Provide a BuildContext to FlutterExtensions.init(context).',
         );
       }
       view = views.first;
@@ -101,7 +101,7 @@ class FlutterExtensions with WidgetsBindingObserver {
     init();
     if (_media != null) return _media!;
     throw StateError(
-      'FlutterExtensions not initialized: call FlutterExtensionsContext.init(context) '
+      'FlutterExtensions not initialized: call FlutterExtensions.init(context) '
       'early (e.g., in MaterialApp.builder) or ensure a FlutterView is available.',
     );
   }

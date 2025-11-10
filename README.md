@@ -1,42 +1,131 @@
-# SColors
+# flutter_extensions
 
-![Builds and tests](https://github.com/smith8h/scolors-flutter/actions/workflows/build.yml/badge.svg)
-![Latest release](https://img.shields.io/github/v/release/smith8h/scolors-flutter?include_prereleases&amp;label=latest%20release)
-![Stable Version](https://img.shields.io/badge/stable_version-1.0.0-blue)
-![Stability](https://img.shields.io/badge/stability-stable-green.svg)
-![repo size](https://img.shields.io/github/repo-size/smith8h/scolors-flutter)
+Lightweight, expressive extension methods for Flutter projects. This library adds convenient numeric and string helpers, plus a static context manager that enables property-based screen queries like `0.9.screenWidth` without passing `BuildContext` around.
 
-A playful dart package to play with colors and get a lighter and darker color from an existing color you provide.
+Works great for building responsive UIs — for example, Baghdad news headers, Mosul marketplace cards, or Erbil prayer time widgets.
 
-## Usage
+## Installation
 
-To use this plugin, add scolors as a dependency in your pubspec.yaml file.
+Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  scolors: ^1.0.0
+  flutter_extensions: ^0.0.0
 ```
 
-## Example
-
-Import the library.
+Import what you need:
 
 ```dart
-import 'package:scolors/scolors.dart';
+import 'package:flutter_extensions/flutter_extensions.dart';
+
+// or import specific files
+import 'package:flutter_extensions/extensions/number_ext.dart';
+import 'package:flutter_extensions/extensions/string_ext.dart';
+import 'package:flutter_extensions/extensions_context.dart';
 ```
 
-Use it anywhere you want to create a Color lighter or darker in cotrast:
+## Quick Start
+
+Recommended initialization (supports hot reload and navigation changes):
 
 ```dart
-// get opposite color of a already defined color:
-  Color? opposite = SColors.oppositeColor(colorStr: '#6a87e3');
-  
-  // get lighter color of a already defined color with factor:
-  Color? lighter = SColors.lighterColor(.3, colorInt: 0xFF6A87E3);
-  
-  // get darker color of an already defined color with factor:
-  Color? darker = SColors.darkerColor(.7, color: const Color(0xff6a87e3));
-  
-  // get hsv color of an already defined color:
-  Color? hsv = SColors.rgbToHsv(colorStr: '#6a87e3');
+MaterialApp(
+  builder: (context, child) {
+    FlutterExtensions.update(context); // keep stored view & media fresh
+    return child!;
+  },
+  home: const MyHomePage(),
+);
 ```
+
+Usage examples:
+
+```dart
+// News header spanning 90% of the screen width
+SizedBox(width: 0.9.screenWidth);
+// or use: 0.9.screenWidth.horizontalSpace
+
+// Marketplace card spacing
+final spacing = 16.half; // 8.0
+
+// Prayer reminder interval
+final interval = 15.min; // Duration(minutes: 15)
+
+// Button ripple timing
+final ripple = 250.msec; // Duration(milliseconds: 250)
+
+// List item padding
+final padding = 80.quarter; // 20.0
+
+// Daily refresh window
+final refreshWindow = 2.hr; // Duration(hours: 2)
+```
+
+## Features
+
+### Number extensions
+
+- `half`, `quarter` — simple fractions as `double`.
+- `square`, `sqRoot` — square and square root.
+- `misec`, `msec`, `sec`, `min`, `hr`, `day` — `Duration` factories.
+- `screenWidth`, `screenHeight` — property-based screen size queries using a static context manager.
+- `horizontalSpace`, `verticalSpace` — quick `SizedBox` builders.
+
+### String extensions
+
+- `firstLetterUpperCase` — capitalize the first letter.
+- `isEmail`, `isPhoneNumber`, `isUrl` — basic validation.
+- `toDouble`, `toInt` — safe parsing with fallbacks.
+
+## Static Context Manager
+
+`FlutterExtensions` is a tiny singleton managing a `FlutterView` and a cached `MediaQueryData`. It powers property access like `0.9.screenWidth` and `0.9.screenHeight` without explicitly passing `BuildContext`.
+
+Initialization patterns:
+
+- Explicit (recommended): call `FlutterExtensions.update(context)` in `MaterialApp.builder`.
+- Lazy: first use attempts `WidgetsBinding.instance.platformDispatcher.views.first`. This works after `runApp`; it throws if no view is available (e.g., too early in tests).
+
+Key API:
+
+- `FlutterExtensions.init([context])` — initialize explicitly; optional `BuildContext`.
+- `FlutterExtensions.update(context)` — refresh stored `FlutterView` and `MediaQueryData` on rebuilds/hot reload.
+- `FlutterExtensions.isInitialized` — check readiness.
+- `FlutterExtensions.mediaQuery()` — get the current `MediaQueryData` (attempts lazy init; may throw).
+- `FlutterExtensions.reset()` — clear cached references (useful for tests).
+
+Hot reload and metrics:
+
+- Implements `WidgetsBindingObserver.didChangeMetrics` to refresh cached `MediaQueryData` on orientation or size changes.
+
+## Error Handling
+
+- `mediaQuery()` may throw `StateError` if Flutter is not fully initialized or no `FlutterView` is available.
+- Ensure your app has started (`runApp`) and prefer using `FlutterExtensions.update(context)` for determinism.
+
+## Testing
+
+- Call `WidgetsFlutterBinding.ensureInitialized()` in tests.
+- Use `FlutterExtensions.reset()` to clear cached state between tests.
+
+## Examples
+
+- Headlines: `SizedBox(width: 0.9.screenWidth)` for responsive title bars.
+- Marketplace grid: `8.verticalSpace` and `8.horizontalSpace` for compact spacing.
+- Prayer times: `15.min` intervals for notifications.
+- UI animations: `250.msec` ripple duration for buttons.
+- List views: `80.quarter` padding for neat item spacing.
+
+## Notes & Best Practices
+
+- Prefer `FlutterExtensions.update(context)` at the app root to avoid edge cases.
+- Values for `screenWidth` and `screenHeight` are typically between `0` and `1` for proportional sizing.
+- Duration conversions truncate fractional values via `toInt()`.
+
+## License
+
+Licensed under the MIT License. See `LICENSE` for details.
+
+## Changelog
+
+See `CHANGELOG.md` for release notes.
