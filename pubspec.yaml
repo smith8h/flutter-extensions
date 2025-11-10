@@ -1,0 +1,21 @@
+name: flutter_extensions
+version: 0.0.0
+
+description: A powerful and playful extensions dependency for your flutter projects.
+repository: https://github.com/smith8h/flutter-extensions
+
+topics:
+  - productivity
+  - tools
+
+environment:
+  sdk: ">=3.9.2"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
