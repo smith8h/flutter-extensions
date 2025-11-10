@@ -4,6 +4,14 @@
 ### StringExtensions
 - `reverse` now returns the reversed version of this string.
 - `words` now returns a list of words in this string.
+- `parseJson` now returns a parsed json [map] of this string.
+- `isBlank` now returns `true` if this string is a blank by any chance.
+
+### MapExtensions
+- `toJson` now returns a parsed json [string] of this map.
+
+### ListExtensions
+- `toJson` now returns a parsed json [string] of this list.
 
 ## Changes
 ### StringExtensions

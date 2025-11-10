@@ -59,4 +59,9 @@ extension StringExtensions on String {
   bool get isUrl => RegExp(
     r'^https?://[\w-]+(\.[\w-]+)+([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?$',
   ).hasMatch(this);
+
+  /// Returns `true` if this string is a blank by any chance.
+  ///
+  /// Example: `'  '.isBlank` -> `true`.
+  bool get isBlank => trim().isBlank;
 }
