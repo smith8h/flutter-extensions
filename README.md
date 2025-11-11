@@ -30,6 +30,19 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 - 👌 Follows Code Quality Guidelines
 - 🦾 Production Ready
 
+| On       | Extensions | Functions | Operators |
+| -------- | --------   | --------  | --------  |
+| Bool     |    1       |    0      |    0      |
+| Context  |    6       |    1      |    0      |
+| DateTime |    15      |    0      |    2      |
+| List     |    4       |    3      |    1      |
+| Map      |    1       |    0      |    0      |
+| Number   |    18      |    2      |    0      |
+| String   |    15      |    0      |    0      |
+| Widget   |    21      |    1      |    0      |
+| **Total**|    **71**  |    **7**  |    **3**  |
+| **All**  |    **81**  |
+
 ## Installation
 
 1. Add to `pubspec.yaml`:
