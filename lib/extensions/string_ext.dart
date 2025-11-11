@@ -100,4 +100,21 @@ extension StringExtensions on String {
     }
     return '${substring(0, length)}...';
   }
+
+  /// Removes all the white spaces from the `String`.
+  ///
+  /// Example:
+  /// ```dart
+  /// String f = 'Hello World';
+  /// String noWhiteSpace = f.removeWhiteSpace; // 'HelloWorld'
+  /// ```
+  String get removeWhiteSpace => replaceAll(RegExp(r'\s+'), '');
+
+  /// Removes all the numbers from the `String`.
+  ///
+  /// Example:
+  /// ```dart
+  /// String f = 'Hello123World'.removeNumbers; // 'HelloWorld'
+  /// ```
+  String get removeNumbers => replaceAll(RegExp(r'[0-9]'), '');
 }

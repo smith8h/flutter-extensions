@@ -163,6 +163,61 @@ operator +(element) // Adds new [element] or [elements] to this list.
 '{"name": "John", "age": 30}'.parseJson` // {'name': 'John', 'age': 30} as Map
 'racecar'.isPalindrome; // true
 'congratolations'.truncate(4); // 'cong...'
+'Hello World!'.removeWhiteSpace; // 'HelloWorld!'
+'Hello123 World!'.removeNumbers; // 'Hello World!'
+```
+
+### Widget extensions
+```dart
+[
+  Text('Hello World!').marginAll(16.0),
+  Text('Hello World!').marginSymmetric(vertical: 16.0, horizontal: 16.0),
+  Text('Hello World!').marginOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
+
+  Text('Hello World!').paddingAll(16.0),
+  Text('Hello World!').paddingSymmetric(vertical: 16.0, horizontal: 16.0),
+  Text('Hello World!').paddingOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
+
+  [
+    Text('Hello World!').expanded(),
+    Text('Hello World!').expanded(),
+  ].toColumn(spacer: 16),
+  Text('Hello World!').flexible(),
+
+  16.verticalSpace.center(),
+  Text('Hello World!').directionality(direction: TextDirection.ltr),
+  Image.asset('path').align(alignment: Alignment.center),
+
+  [
+    Text('Hello World!')
+      .center()
+      .paddingAll(12)
+      .decoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16.0),
+      ),
+  ].toStack(),
+  Text('Hello World!')
+    .constrained(width: 100.0, height: 70.0)
+    .rounded(radius: 16.0),
+  Text('Hello World!')
+    .height(70.0)
+    .roundedTop(radius: 16.0),
+  Text('Hello World!')
+    .width(100.0)
+    .roundedBottom(radius: 16.0)
+    .gestures(
+      onTap: () => print('tap'),
+    ),
+
+  [
+    Widgets...
+  ].toColumn()
+    .scrollable()
+    .refreshable(onRefresh: () async {
+      await Future.delayed(2.seconds),
+    }),
+].toColumn();
 ```
 
 ## Static Context Manager

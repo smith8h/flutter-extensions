@@ -1,3 +1,33 @@
+# 0.0.7
+
+## Added
+### StringExtensions
+- `removeNumbers` removes all the numbers from the `String`.
+- `removeWhiteSpace` removes all the white spaces from the `String`.
+
+### WidgetExtensions
+- `marginAll` returns a new widget with the given margin.
+- `marginSymmetric` returns a new widget with the given margin.
+- `marginOnly` returns a new widget with the given margin.
+- `paddingAll` returns a new widget with the given padding.
+- `paddingSymmetric` returns a new widget with the given padding.
+- `paddingOnly` returns a new widget with the given padding.
+- `expanded` returns a new expanded widget with the given flex.
+- `flexible` returns a new flexible widget with the given flex.
+- `align` returns a new aligned widget with the given alignment.
+- `center` returns a new centered widget.
+- `directionality` returns a new directed text widget with the given text direction.
+- `rounded` returns a new rounded widget with the given radius.
+- `roundedTop` returns a new rounded widget from top with the given radius.
+- `roundedBottom` returns a new rounded widget from bottom with the given radius.
+- `decoration` returns a new decorated widget with the given decoration.
+- `refreshable` returns a new refresh indicator widget.
+- `scrollable` returns a new scrollable widget with the given scroll physics.
+- `constrained` returns a new constrained widget with the given width and height.
+- `width` returns a new constrained widget with the given width.
+- `height` returns a new constrained widget with the given height.
+- `gestures` returns a new [GestureDetector] widget with the given gestures.
+
 # 0.0.6
 
 ## Added
