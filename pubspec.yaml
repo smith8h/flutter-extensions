@@ -1,7 +1,7 @@
 name: s_extensions
 description: A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
-version: 0.0.6
+version: 0.0.7
 
 repository: https://github.com/smith8h/flutter-extensions
 homepage: https://github.com/smith8h/flutter-extensions
