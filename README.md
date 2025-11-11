@@ -62,9 +62,20 @@ MaterialApp(
 ## Features
 Usage examples:
 
-#### Bool extensions
+### Bool extensions
 ```dart
 isLoaded.toggle; // toggles isLoaded to false if true, and true if false
+```
+
+### Context extensions
+```dart
+context.hideKeyboard; // hides the keyboard
+context.orientation; // returns the device orientation
+context.isDarkMode; // returns true if the device is in dark mode
+context.isKeyboardVisible; // returns true if the keyboard is visible
+context.keyboardHeight; // returns the height of the keyboard
+context.isLandscape; // returns true if the device orientation is landscape
+context.isPortrait; // returns true if the device orientation is portrait
 ```
 
 #### DateTime extensions
@@ -90,6 +101,23 @@ operator -(Duration duration) // Returns a new DateTime with this duration subtr
 (now() - 1.day); // 2023-08-23 12:34:56.000
 
 (now() - 1.day).fromNow; // Duration(days: 1)
+```
+
+### List extensions
+```dart
+[1, 2, 3].sum; // 6
+[1, 2, 3].average; // 2.0
+[1, 2, 3].toJson; // '[1, 2, 3]'
+operator +(element) // Adds new [element] or [elements] to this list.
+[1, 2, 3].random; // 2
+[Widgets].toStack(); // Stack(children: [Widgets])
+[Widgets].toColumn(); // Column(children: [Widgets])
+[Widgets].toRow(); // Row(children: [Widgets])
+```
+
+### Map extensions
+```dart
+{'name': 'John', 'age': 30}.toJson; // '{"name": "John", "age": 30}'
 ```
 
 ### Number extensions
@@ -133,30 +161,8 @@ operator -(Duration duration) // Returns a new DateTime with this duration subtr
 "2023-08-24".toDate; // 2023-08-24 00:00:00.000
 "Hello World!".words; // ["Hello", "World!"]
 '{"name": "John", "age": 30}'.parseJson` // {'name': 'John', 'age': 30} as Map
-```
-
-#### List extensions
-```dart
-[1, 2, 3].sum; // 6
-[1, 2, 3].average; // 2.0
-[1, 2, 3].toJson; // '[1, 2, 3]'
-operator +(element) // Adds new [element] or [elements] to this list.
-[1, 2, 3].random; // 2
-[Widgets].toStack(); // Stack(children: [Widgets])
-[Widgets].toColumn(); // Column(children: [Widgets])
-[Widgets].toRow(); // Row(children: [Widgets])
-```
-
-#### Map extensions
-```dart
-{'name': 'John', 'age': 30}.toJson; // '{"name": "John", "age": 30}'
-```
-
-#### Context extensions
-```dart
-context.hideKeyboard(); // hides the keyboard
-context.orientation; // returns the device orientation
-context.isDarkMode; // returns true if the device is in dark mode
+'racecar'.isPalindrome; // true
+'congratolations'.truncate(4); // 'cong...'
 ```
 
 ## Static Context Manager

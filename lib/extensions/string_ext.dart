@@ -64,4 +64,40 @@ extension StringExtensions on String {
   ///
   /// Example: `'  '.isBlank` -> `true`.
   bool get isBlank => trim().isBlank;
+
+  /// Checks whether the `String` is a palindrome.
+  ///
+  /// Example:
+  /// ```dart
+  /// String foo = 'Hello World';
+  /// bool isPalindrome = foo.isPalindrome; // false;
+  /// String foo = 'racecar';
+  /// bool isPalindrome = foo.isPalindrome; // true;
+  /// ```
+  bool get isPalindrome {
+    if (isBlank) {
+      return false;
+    }
+    return this == reverse;
+  }
+
+  // ? ================== Operators ========================
+
+  /// Truncates the `String` when more than `length` characters exist.
+  ///
+  /// [length] must be more than 0.
+  ///
+  /// If [length] > String.length the same `String` is returned without truncation.
+  ///
+  /// Example:
+  /// ```dart
+  /// String f = 'congratulations';
+  /// String truncated = f.truncate(4); // 'cong...'
+  /// ```
+  String truncate(int length) {
+    if (isBlank || length <= 0 || length >= this.length) {
+      return this;
+    }
+    return '${substring(0, length)}...';
+  }
 }

@@ -1,3 +1,16 @@
+# 0.0.6
+
+## Added
+### StringExtensions
+- `isPalindrome` returns `true` if this string is a palindrome.
+- `truncate` truncates the `String` when more than `length` characters exist.
+
+### ContextExtensions
+- `isKeyboardVisible` returns `true` if the keyboard is visible.
+- `keyboardHeight` returns the height of the keyboard.
+- `isLandscape` returns `true` if the device orientation is landscape.
+- `isPortrait` returns `true` if the device orientation is portrait.
+
 # 0.0.5
 
 ## Added
