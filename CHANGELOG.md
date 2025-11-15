@@ -1,3 +1,15 @@
+# 0.0.8
+
+## Added
+### WidgetExtensions
+- `fade` fades the widget.
+- `scale` scales the widget.
+- `slideUp` slides the widget up.
+- `slideDown` slides the widget down.
+- `slideLeft` slides the widget left.
+- `slideRight` slides the widget right.
+- `rotate` rotates the widget.
+
 # 0.0.7
 
 ## Added

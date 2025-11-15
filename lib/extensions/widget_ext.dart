@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:s_extensions/enums/animation_type.dart';
 
 extension WidgetExtensions on Widget {
   // ? ================ Functions ================
@@ -139,6 +140,168 @@ extension WidgetExtensions on Widget {
       onTertiaryTapDown: onTertiaryTapDown,
       onTertiaryTapUp: onTertiaryTapUp,
       child: this,
+    );
+  }
+
+  // ? ================ Animations ================
+
+  /// Animates the widget with the given type.
+  Widget _animate({
+    AnimateType type = AnimateType.fade,
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    double beginScale = 0.95,
+    Offset? beginOffset,
+    double beginAngle = 0.05,
+  }) {
+    switch (type) {
+      case AnimateType.fade:
+        return TweenAnimationBuilder<double>(
+          tween: Tween(begin: beginOpacity, end: 1),
+          duration: duration,
+          curve: curve,
+          child: this,
+          builder: (context, value, child) =>
+              Opacity(opacity: value, child: child),
+        );
+      case AnimateType.scale:
+        return TweenAnimationBuilder<double>(
+          tween: Tween(begin: beginScale, end: 1),
+          duration: duration,
+          curve: curve,
+          child: this,
+          builder: (context, value, child) =>
+              Transform.scale(scale: value, child: child),
+        );
+      case AnimateType.slideUp:
+      case AnimateType.slideDown:
+      case AnimateType.slideLeft:
+      case AnimateType.slideRight:
+        final Offset start =
+            beginOffset ??
+            (type == AnimateType.slideUp
+                ? const Offset(0, 12)
+                : type == AnimateType.slideDown
+                ? const Offset(0, -12)
+                : type == AnimateType.slideLeft
+                ? const Offset(12, 0)
+                : const Offset(-12, 0));
+        return TweenAnimationBuilder<Offset>(
+          tween: Tween(begin: start, end: Offset.zero),
+          duration: duration,
+          curve: curve,
+          child: this,
+          builder: (context, value, child) =>
+              Transform.translate(offset: value, child: child),
+        );
+      case AnimateType.rotate:
+        return TweenAnimationBuilder<double>(
+          tween: Tween(begin: beginAngle, end: 0),
+          duration: duration,
+          curve: curve,
+          child: this,
+          builder: (context, value, child) =>
+              Transform.rotate(angle: value, child: child),
+        );
+    }
+  }
+
+  /// Fades the widget.
+  Widget fade({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+  }) {
+    return _animate(
+      type: AnimateType.fade,
+      duration: duration,
+      curve: curve,
+      beginOpacity: beginOpacity,
+    );
+  }
+
+  /// Scales the widget.
+  Widget scale({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginScale = 0.95,
+  }) {
+    return _animate(
+      type: AnimateType.scale,
+      duration: duration,
+      curve: curve,
+      beginScale: beginScale,
+    );
+  }
+
+  /// Slides the widget up.
+  Widget slideUp({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    Offset? beginOffset,
+  }) {
+    return _animate(
+      type: AnimateType.slideUp,
+      duration: duration,
+      curve: curve,
+      beginOffset: beginOffset ?? const Offset(0, 12),
+    );
+  }
+
+  /// Slides the widget down.
+  Widget slideDown({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    Offset? beginOffset,
+  }) {
+    return _animate(
+      type: AnimateType.slideDown,
+      duration: duration,
+      curve: curve,
+      beginOffset: beginOffset ?? const Offset(0, -12),
+    );
+  }
+
+  /// Slides the widget left.
+  Widget slideLeft({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    Offset? beginOffset,
+  }) {
+    return _animate(
+      type: AnimateType.slideLeft,
+      duration: duration,
+      curve: curve,
+      beginOffset: beginOffset ?? const Offset(12, 0),
+    );
+  }
+
+  /// Slides the widget right.
+  Widget slideRight({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    Offset? beginOffset,
+  }) {
+    return _animate(
+      type: AnimateType.slideRight,
+      duration: duration,
+      curve: curve,
+      beginOffset: beginOffset ?? const Offset(-12, 0),
+    );
+  }
+
+  /// Rotates the widget.
+  Widget rotate({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginAngle = 0.05,
+  }) {
+    return _animate(
+      type: AnimateType.rotate,
+      duration: duration,
+      curve: curve,
+      beginAngle: beginAngle,
     );
   }
 

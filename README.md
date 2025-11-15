@@ -183,20 +183,24 @@ operator +(element) // Adds new [element] or [elements] to this list.
 ### Widget extensions
 ```dart
 [
+  // margin extensions
   Text('Hello World!').marginAll(16.0),
   Text('Hello World!').marginSymmetric(vertical: 16.0, horizontal: 16.0),
   Text('Hello World!').marginOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
 
+  // padding extensions
   Text('Hello World!').paddingAll(16.0),
   Text('Hello World!').paddingSymmetric(vertical: 16.0, horizontal: 16.0),
   Text('Hello World!').paddingOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
 
+  // expanded and flexible extensions
   [
     Text('Hello World!').expanded(),
     Text('Hello World!').expanded(),
   ].toColumn(spacer: 16),
   Text('Hello World!').flexible(),
 
+  // customizations
   16.verticalSpace.center(),
   Text('Hello World!').directionality(direction: TextDirection.ltr),
   Image.asset('path').align(alignment: Alignment.center),
@@ -210,6 +214,8 @@ operator +(element) // Adds new [element] or [elements] to this list.
         borderRadius: BorderRadius.circular(16.0),
       ),
   ].toStack(),
+
+  // shape extensions & gestures
   Text('Hello World!')
     .constrained(width: 100.0, height: 70.0)
     .rounded(radius: 16.0),
@@ -223,6 +229,16 @@ operator +(element) // Adds new [element] or [elements] to this list.
       onTap: () => print('tap'),
     ),
 
+  // animation extensions
+  Text('Hello World!').fade(),
+  Text('Hello World!').scale(beginScale: 0.9),
+  Text('Hello World!').slideUp(),
+  Text('Hello World!').slideDown(),
+  Text('Hello World!').slideLeft(),
+  Text('Hello World!').slideRight(),
+  Text('Hello World!').rotate(beginAngle: 0.05),
+
+  // scroll and refresh extensions
   [
     Widgets...
   ].toColumn()
@@ -230,7 +246,7 @@ operator +(element) // Adds new [element] or [elements] to this list.
     .refreshable(onRefresh: () async {
       await Future.delayed(2.seconds),
     }),
-].toColumn();
+].toColumn(separator: 16);
 ```
 
 ## Static Context Manager
