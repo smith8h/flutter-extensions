@@ -1,16 +1,33 @@
-# s_extensions
+<div align="center">
+  <h1 align="center" style="font-size: 48px;">✨ S-Extensions ✨</h1>
+  <p align="center">
+A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
+
+Works great for building responsive UIs — for example, News headers, Marketplace cards, or Prayer time widgets.
+  </p>
+</div>
 
 <div align="center">
   <a href="https://pub.dev/packages/s_extensions/">
-    <img src="https://img.shields.io/pub/v/s_extensions.svg" />
+    <img src="https://img.shields.io/pub/v/s_extensions?label=Pub&logo=flutter" alt="Pub Package" />
+  </a>
+  <a href="https://pub.dev/packages/s_extensions">
+    <img src="https://img.shields.io/pub/likes/s_extensions?style=flat&logo=flutter&label=Likes" alt="Pub Likes"/>
+  </a>
+  <a href="https://pub.dartlang.org/packages/s_extensions/score">
+    <img src="https://img.shields.io/pub/points/s_extensions?label=Score&logo=flutter"
+      alt="Pub Score" />
+  </a>
+  <a href="https://pub.dev/packages/s_extensions">
+    <img alt="Pub Monthly Downloads" src="https://img.shields.io/pub/dm/s_extensions?style=flat&color=blue&logo=flutter&label=Downloads&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fs_extensions">
   </a>
   <a href="https://opensource.org/licenses/MIT" target="_blank">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg"/>
+    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=Leanpub" alt="MIT License" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions/issues" target="_blank">
-    <img alt="GitHub: smith8h" src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat" />
+    <img alt="GitHub: smith8h" src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat&logo=github&label=Open-Issues" />
   </a>
-  <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions" />
+  <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions?style=flat&logo=github&label=Last-Commit" />
   <a href="https://github.com/smith8h">
     <img alt="GitHub: smith8h" src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social" />
   </a>
@@ -30,6 +47,7 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 - 👌 Follows Code Quality Guidelines
 - 🦾 Production Ready
 
+
 | On       | Extensions | Functions | Operators |
 | -------- | --------   | --------  | --------  |
 | Bool     |    1       |    0      |    0      |
@@ -39,9 +57,9 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 | Map      |    1       |    0      |    0      |
 | Number   |    18      |    2      |    0      |
 | String   |    15      |    0      |    0      |
-| Widget   |    21      |    1      |    0      |
-| **Total**|    **71**  |    **7**  |    **3**  |
-| **All**  |    **81**  |
+| Widget   |    28      |    1      |    0      |
+| **Total**|    **79**  |    **7**  |    **3**  |
+| **All**  |    **89**  |
 
 ## Installation
 
@@ -280,14 +298,6 @@ Hot reload and metrics:
 - Call `WidgetsFlutterBinding.ensureInitialized()` in tests.
 - Use `FlutterExtensions.reset()` to clear cached state between tests.
 
-## Examples
-
-- Headlines: `SizedBox(width: 0.9.screenWidth)` for responsive title bars.
-- Marketplace grid: `8.verticalSpace` and `8.horizontalSpace` for compact spacing.
-- Prayer times: `15.min` intervals for notifications.
-- UI animations: `250.msec` ripple duration for buttons.
-- List views: `80.quarter` padding for neat item spacing.
-
 ## Notes & Best Practices
 
 - Prefer `FlutterExtensions.update(context)` at the app root to avoid edge cases.
@@ -296,8 +306,12 @@ Hot reload and metrics:
 
 ## License
 
-Licensed under the MIT License. See `LICENSE` for details.
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ## Changelog
 
-See `CHANGELOG.md` for release notes.
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
+
+## Analytics
+
+![Alt](https://repobeats.axiom.co/api/embed/f10dfb04cc41778345a50146dcf456d4db44be33.svg "Analytics")
