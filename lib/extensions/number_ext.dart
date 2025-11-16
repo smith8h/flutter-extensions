@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import '../extensions_context.dart';
+import '../utils/extensions_context.dart';
 
 extension NumExtensions on num {
   // ? =================== Equations ========================
