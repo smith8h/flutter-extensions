@@ -8,7 +8,7 @@ This version includes all the extensions and utils from the previous versions.
 
 # 0.0.9
 
-### Added
+## Added
 ### DateTimeExtensions
 - `formatHrMin12` formats the time in 12-hour format.
 - `formatHrMinSec12` formats the time in 12-hour format with seconds.
@@ -162,6 +162,6 @@ This version includes all the extensions and utils from the previous versions.
 - Duration helpers: `misec`, `msec`, `sec`, `min`, `hr`, `day`.
 - `screenWidth` extension getter for responsive layouts via property access
   (e.g., `0.9.screenWidth`).
-- Static initialization and context management with `FlutterExtensions` to support property-based access without passing `BuildContext`.
+- Static initialization and context management with `FlutterSExtensions` to support property-based access without passing `BuildContext`.
 - Initialization verification (`isInitialized`), explicit init (`init`), and
   hot-reload-safe updates (`update`).

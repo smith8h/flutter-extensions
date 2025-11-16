@@ -9,30 +9,40 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 
 <div align="center">
   <a href="https://pub.dev/packages/s_extensions/">
-    <img src="https://img.shields.io/pub/v/s_extensions?label=Pub&logo=flutter" alt="Pub Package" />
+    <img src="https://img.shields.io/pub/v/s_extensions?label=Pub&logo=flutter"
+      alt="Pub Package" />
   </a>
   <a href="https://pub.dev/packages/s_extensions">
-    <img src="https://img.shields.io/pub/likes/s_extensions?style=flat&logo=flutter&label=Likes" alt="Pub Likes"/>
+    <img src="https://img.shields.io/pub/likes/s_extensions?style=flat&logo=flutter&label=Likes"
+      alt="Pub Likes"/>
   </a>
   <a href="https://pub.dartlang.org/packages/s_extensions/score">
     <img src="https://img.shields.io/pub/points/s_extensions?label=Score&logo=flutter"
       alt="Pub Score" />
   </a>
   <a href="https://pub.dev/packages/s_extensions">
-    <img alt="Pub Monthly Downloads" src="https://img.shields.io/pub/dm/s_extensions?style=flat&color=blue&logo=flutter&label=Downloads&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fs_extensions">
+    <img src="https://img.shields.io/pub/dm/s_extensions?style=flat&color=blue&logo=flutter&label=Downloads&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fs_extensions"
+      alt="Pub Monthly Downloads" >
   </a>
-  <a href="https://opensource.org/licenses/MIT" target="_blank">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=Leanpub" alt="MIT License" />
+  <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
+    <img src="https://img.shields.io/badge/License-Apache%202.0-yellow.svg?logo=Apache"
+      alt="Apache License" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions/issues" target="_blank">
-    <img alt="GitHub: smith8h" src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat&logo=github&label=Open-Issues" />
-  </a>
-  <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions?style=flat&logo=github&label=Last-Commit" />
-  <a href="https://github.com/smith8h">
-    <img alt="GitHub: smith8h" src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social" />
+    <img src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat&logo=github&label=Open-Issues"
+      alt="GitHub: smith8h" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions">
-    <img src="https://img.shields.io/github/stars/smith8h/flutter-extensions?style=social" />
+    <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions?style=flat&logo=github&label=Last-Commit"
+      alt="Last Commit" />
+  </a>
+  <a href="https://github.com/smith8h">
+    <img src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social"
+      alt="GitHub: smith8h" />
+  </a>
+  <a href="https://github.com/smith8h/flutter-extensions">
+    <img src="https://img.shields.io/github/stars/smith8h/flutter-extensions?style=social"
+      alt="GitHub Stars" />
   </a>
 </div>
 
@@ -83,7 +93,7 @@ Recommended initialization (supports hot reload and navigation changes):
 ```dart
 MaterialApp(
   builder: (context, child) {
-    FlutterExtensions.update(context); // keep stored view & media fresh
+    FlutterSExtensions.update(context); // keep stored view & media fresh
     return child!;
   },
   home: const MyHomePage(),
@@ -277,20 +287,20 @@ operator +(element) // Adds new [element] or [elements] to this list.
 
 ## Static Context Manager
 
-`FlutterExtensions` is a tiny singleton managing a `FlutterView` and a cached `MediaQueryData`. It powers property access like `0.9.screenWidth` and `0.9.screenHeight` without explicitly passing `BuildContext`.
+`FlutterSExtensions` is a tiny singleton managing a `FlutterView` and a cached `MediaQueryData`. It powers property access like `0.9.screenWidth` and `0.9.screenHeight` without explicitly passing `BuildContext`.
 
 Initialization patterns:
 
-- Explicit (recommended): call `FlutterExtensions.update(context)` in `MaterialApp.builder`.
+- Explicit (recommended): call `FlutterSExtensions.update(context)` in `MaterialApp.builder`.
 - Lazy: first use attempts `WidgetsBinding.instance.platformDispatcher.views.first`. This works after `runApp`; it throws if no view is available (e.g., too early in tests).
 
 Key API:
 
-- `FlutterExtensions.init([context])` — initialize explicitly; optional `BuildContext`.
-- `FlutterExtensions.update(context)` — refresh stored `FlutterView` and `MediaQueryData` on rebuilds/hot reload.
-- `FlutterExtensions.isInitialized` — check readiness.
-- `FlutterExtensions.mediaQuery()` — get the current `MediaQueryData` (attempts lazy init; may throw).
-- `FlutterExtensions.reset()` — clear cached references (useful for tests).
+- `FlutterSExtensions.init([context])` — initialize explicitly; optional `BuildContext`.
+- `FlutterSExtensions.update(context)` — refresh stored `FlutterView` and `MediaQueryData` on rebuilds/hot reload.
+- `FlutterSExtensions.isInitialized` — check readiness.
+- `FlutterSExtensions.mediaQuery()` — get the current `MediaQueryData` (attempts lazy init; may throw).
+- `FlutterSExtensions.reset()` — clear cached references (useful for tests).
 
 Hot reload and metrics:
 
@@ -299,16 +309,16 @@ Hot reload and metrics:
 ## Error Handling
 
 - `mediaQuery()` may throw `StateError` if Flutter is not fully initialized or no `FlutterView` is available.
-- Ensure your app has started (`runApp`) and prefer using `FlutterExtensions.update(context)` for determinism.
+- Ensure your app has started (`runApp`) and prefer using `FlutterSExtensions.update(context)` for determinism.
 
 ## Testing
 
 - Call `WidgetsFlutterBinding.ensureInitialized()` in tests.
-- Use `FlutterExtensions.reset()` to clear cached state between tests.
+- Use `FlutterSExtensions.reset()` to clear cached state between tests.
 
 ## Notes & Best Practices
 
-- Prefer `FlutterExtensions.update(context)` at the app root to avoid edge cases.
+- Prefer `FlutterSExtensions.update(context)` at the app root to avoid edge cases.
 - Values for `screenWidth` and `screenHeight` are typically between `0` and `1` for proportional sizing.
 - Duration conversions truncate fractional values via `toInt()`.
 

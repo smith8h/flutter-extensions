@@ -73,7 +73,7 @@ extension NumExtensions on num {
   /// Get the logical screen width multiplied by this number.
   ///
   /// Initialization requirements:
-  /// - Recommended: call `FlutterExtensions.update(context)` in your
+  /// - Recommended: call `FlutterSExtensions.update(context)` in your
   ///   `MaterialApp.builder` to keep values fresh across hot reloads.
   /// - Lazy init: if no explicit init has occurred, a first view is used
   ///   from `WidgetsBinding.instance.platformDispatcher.views`. This throws
@@ -91,14 +91,14 @@ extension NumExtensions on num {
   ///
   /// Value of this should be between 0 and 1.
   double get screenWidth {
-    final mq = FlutterExtensions.mediaQuery();
+    final mq = FlutterSExtensions.mediaQuery();
     return this * mq.size.width;
   }
 
   /// Get the logical screen height multiplied by this number.
   ///
   /// Initialization requirements:
-  /// - Recommended: call `FlutterExtensions.update(context)` in your
+  /// - Recommended: call `FlutterSExtensions.update(context)` in your
   ///   `MaterialApp.builder` to keep values fresh across hot reloads.
   /// - Lazy init: if no explicit init has occurred, a first view is used
   ///   from `WidgetsBinding.instance.platformDispatcher.views`. This throws
@@ -116,7 +116,7 @@ extension NumExtensions on num {
   ///
   /// Value of this should be between 0 and 1.
   double get screenHeight {
-    final mq = FlutterExtensions.mediaQuery();
+    final mq = FlutterSExtensions.mediaQuery();
     return this * mq.size.height;
   }
 

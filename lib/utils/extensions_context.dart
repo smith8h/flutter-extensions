@@ -18,7 +18,7 @@ import 'package:flutter/widgets.dart';
 /// ```dart
 /// MaterialApp(
 ///   builder: (context, child) {
-///     FlutterExtensions.update(context); // keeps data fresh on hot reload
+///     FlutterSExtensions.update(context); // keeps data fresh on hot reload
 ///     return child!;
 ///   },
 ///   home: const MyHomePage(),
@@ -28,10 +28,10 @@ import 'package:flutter/widgets.dart';
 /// Hot reload: Use [update] inside a widget `builder` to refresh the stored
 /// `FlutterView` and `MediaQueryData` whenever the tree rebuilds, including hot
 /// reloads and route changes.
-class FlutterExtensions with WidgetsBindingObserver {
-  FlutterExtensions._internal();
+class FlutterSExtensions with WidgetsBindingObserver {
+  FlutterSExtensions._internal();
 
-  static final _singleton = FlutterExtensions._internal();
+  static final _singleton = FlutterSExtensions._internal();
 
   static bool _observerRegistered = false;
   static FlutterView? _view;
@@ -57,8 +57,8 @@ class FlutterExtensions with WidgetsBindingObserver {
       final views = binding.platformDispatcher.views;
       if (views.isEmpty) {
         throw StateError(
-          'FlutterExtensions initialization failed: No FlutterView available. '
-          'Provide a BuildContext to FlutterExtensions.init(context).',
+          'FlutterSExtensions initialization failed: No FlutterView available. '
+          'Provide a BuildContext to FlutterSExtensions.init(context).',
         );
       }
       view = views.first;
@@ -101,7 +101,7 @@ class FlutterExtensions with WidgetsBindingObserver {
     init();
     if (_media != null) return _media!;
     throw StateError(
-      'FlutterExtensions not initialized: call FlutterExtensions.init(context) '
+      'FlutterSExtensions not initialized: call FlutterSExtensions.init(context) '
       'early (e.g., in MaterialApp.builder) or ensure a FlutterView is available.',
     );
   }
