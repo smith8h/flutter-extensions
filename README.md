@@ -48,18 +48,18 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 - 🦾 Production Ready
 
 
-| On       | Extensions | Functions | Operators |
-| -------- | --------   | --------  | --------  |
-| Bool     |    1       |    0      |    0      |
-| Context  |    6       |    1      |    0      |
-| DateTime |    15      |    0      |    2      |
-| List     |    4       |    3      |    1      |
-| Map      |    1       |    0      |    0      |
-| Number   |    18      |    2      |    0      |
-| String   |    15      |    0      |    0      |
-| Widget   |    28      |    1      |    0      |
-| **Total**|    **79**  |    **7**  |    **3**  |
-| **All**  |    **89**  |
+| On       | Extensions   | Functions | Operators |
+| -------- | ----------   | --------  | --------  |
+| Bool     |    1         |    0      |    0      |
+| Context  |    6         |    1      |    0      |
+| DateTime |    21 (+5)   |    0      |    2      |
+| List     |    4         |    3      |    1      |
+| Map      |    1         |    0      |    0      |
+| Number   |    18        |    2      |    0      |
+| String   |    15        |    0      |    0      |
+| Widget   |    28        |    1      |    0      |
+| **Total**|    **85**    |    **7**  |    **3**  |
+| **All**  |    **95**    |           |           |
 
 ## Installation
 
@@ -112,26 +112,34 @@ context.isPortrait; // returns true if the device orientation is portrait
 #### DateTime extensions
 ```dart
 DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
-now().yyyyMMdd; // 2023-08-24
-now().yyyyMMddHHmmss; // 2023-08-24 12:34:56
-now().yyyyMMddHHmm; // 2023-08-24 12:34
-now().HHmm; // 12:34
-now().isPast; // false
-now().isFuture; // false
-now().isToday; // true
-now().isTomorrow; // false
-now().isYesterday; // false
-now().isInPreviousMonth; // false
-now().isInPreviousYear; // false
-now().isInNextMonth; // false
-now().isInNextYear; // false
+
+DateTime.now().formatYearMonthDay; // 2023-08-24
+DateTime.now().formatDayMonthYear; // 24-08-2023
+DateTime.now().formatYearMonthDayHrMinSec; // 2023-08-24 12:34:56
+DateTime.now().formatYearMonthDayHrMin; // 2023-08-24 12:34
+DateTime.now().formatHrMin12; // 12:34 PM
+DateTime.now().formatHrMinSec12; // 12:34:56 PM
+DateTime.now().formatHrMin24; // 15:34
+DateTime.now().formatHrMinSec24; // 15:34:56
+DateTime.now().formatDay; // Sunday
+DateTime.now().formatMonth; // August
+
+DateTime.now().isPast; // false
+DateTime.now().isFuture; // false
+DateTime.now().isToday; // true
+DateTime.now().isTomorrow; // false
+DateTime.now().isYesterday; // false
+DateTime.now().isInPreviousMonth; // false
+DateTime.now().isInPreviousYear; // false
+DateTime.now().isInNextMonth; // false
+DateTime.now().isInNextYear; // false
 
 operator +(Duration duration) // Returns a new DateTime with this duration added.
-(now() + 1.day); // 2023-08-25 12:34:56.000
+(DateTime.now() + 1.day); // 2023-08-25 12:34:56.000
 operator -(Duration duration) // Returns a new DateTime with this duration subtracted.
-(now() - 1.day); // 2023-08-23 12:34:56.000
+(DateTime.now() - 1.day); // 2023-08-23 12:34:56.000
 
-(now() - 1.day).fromNow; // Duration(days: 1)
+(DateTime.now() - 1.day).fromNow; // Duration(days: 1)
 ```
 
 ### List extensions

@@ -1,3 +1,21 @@
+# 0.0.9
+
+### Added
+### DateTimeExtensions
+- `formatHrMin12` formats the time in 12-hour format.
+- `formatHrMinSec12` formats the time in 12-hour format with seconds.
+- `formatHrMin24` formats the time in 24-hour format.
+- `formatHrMinSec24` formats the time in 24-hour format with seconds.
+- `formatDay` gets the full name of this day of this date.
+- `formatMonth` gets the full name of this month of this date.
+
+## Changed
+### DateTimeExtensions
+- `yyyyMMdd` changed to `formatYearMonthDay` for better readability.
+- `ddMMyyyy` changed to `formatDayMonthYear` for better readability.
+- `yyyyMMddHHmmss` changed to `formatYearMonthDayHrMinSec` for better readability.
+- `yyyyMMddHHmm` changed to `formatYearMonthDayHrMin` for better readability.
+
 # 0.0.8
 
 ## Added
