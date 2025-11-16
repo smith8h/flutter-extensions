@@ -1,9 +1,9 @@
 <div align="center">
-  <h1 align="center" style="font-size: 48px;">✨ S-Extensions ✨</h1>
-  <p align="center">
-A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
+  <h1 style="font-size: 45px;">✨ S-Extensions ✨</h1>
+  <p>
+🚀 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
-Works great for building responsive UIs — for example, News headers, Marketplace cards, or Prayer time widgets.
+Works great for building responsive UIs - for example, **News headers**, **Marketplace cards** or any widget that requires dynamic sizing.
   </p>
 </div>
 
@@ -24,21 +24,22 @@ Works great for building responsive UIs — for example, News headers, Marketpla
     <img src="https://img.shields.io/pub/dm/s_extensions?style=flat&color=blue&logo=flutter&label=Downloads&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fs_extensions"
       alt="Pub Monthly Downloads" >
   </a>
+  <br/>
   <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
     <img src="https://img.shields.io/badge/License-Apache%202.0-yellow.svg?logo=Apache"
       alt="Apache License" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions/issues" target="_blank">
     <img src="https://img.shields.io/github/issues-raw/smith8h/flutter-extensions?style=flat&logo=github&label=Open-Issues"
-      alt="GitHub: smith8h" />
+      alt="GitHub: Open Issues" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions">
     <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions?style=flat&logo=github&label=Last-Commit"
-      alt="Last Commit" />
+      alt="GitHub: Last Commit" />
   </a>
   <a href="https://github.com/smith8h">
     <img src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social"
-      alt="GitHub: smith8h" />
+      alt="GitHub: Follow" />
   </a>
   <a href="https://github.com/smith8h/flutter-extensions">
     <img src="https://img.shields.io/github/stars/smith8h/flutter-extensions?style=social"
@@ -47,49 +48,44 @@ Works great for building responsive UIs — for example, News headers, Marketpla
 </div>
 
 ---
-
-A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
-
-Works great for building responsive UIs — for example, News headers, Marketplace cards, or Prayer time widgets.
-
 - 📋 Well Documented
 - ⚔️ Fully Tested
 - 👌 Follows Code Quality Guidelines
 - 🦾 Production Ready
 
+| On           | Extensions   | Functions  | Operators  |
+| ------------ | :----------: | :--------: | :--------: |
+| **Bool**     |    1         |    0       |    0       |
+| **Context**  |    6         |    1       |    0       |
+| **DateTime** |    21 (+5)   |    0       |    2       |
+| **List**     |    4         |    3       |    1       |
+| **Map**      |    1         |    0       |    0       |
+| **Number**   |    18        |    2       |    0       |
+| **String**   |    15        |    0       |    0       |
+| **Widget**   |    28        |    1       |    0       |
+| **Total**    |    **85**    |    **7**   |    **3**   |
+| **All**      |    **95**    |            |            |
 
-| On       | Extensions   | Functions | Operators |
-| -------- | ----------   | --------  | --------  |
-| Bool     |    1         |    0      |    0      |
-| Context  |    6         |    1      |    0      |
-| DateTime |    21 (+5)   |    0      |    2      |
-| List     |    4         |    3      |    1      |
-| Map      |    1         |    0      |    0      |
-| Number   |    18        |    2      |    0      |
-| String   |    15        |    0      |    0      |
-| Widget   |    28        |    1      |    0      |
-| **Total**|    **85**    |    **7**  |    **3**  |
-| **All**  |    **95**    |           |           |
+## 📥 Installation
 
-## Installation
+**1**. Add to `pubspec.yaml`:
+```yaml
+dependencies:
+  s_extensions: <latest_version>
+```
 
-1. Add to `pubspec.yaml`:
+**2**. Import library into your code.
+```dart
+import 'package:s_extensions/s_extensions.dart';
+```
 
-    ```yaml
-    dependencies:
-      s_extensions: <latest_version>
-    ```
+## 🔧 Quick Start
 
-2. Import library into your code.
+> [!IMPORTANT]
+> Recommended initialization (supports hot reload and navigation changes)
+> This step is required for `screenWidth` / `screenHeight` extensions to work.
 
-    ```dart
-    import 'package:s_extensions/s_extensions.dart';
-    ```
-
-## Quick Start
-
-Recommended initialization (supports hot reload and navigation changes):
-
+In your `MaterialApp.builder`, add the following code:
 ```dart
 MaterialApp(
   builder: (context, child) {
@@ -100,8 +96,7 @@ MaterialApp(
 );
 ```
 
-## Features
-Usage examples:
+## 🌟 Features
 
 ### Bool extensions
 ```dart
@@ -110,11 +105,13 @@ isLoaded.toggle; // toggles isLoaded to false if true, and true if false
 
 ### Context extensions
 ```dart
-context.hideKeyboard; // hides the keyboard
+context.hideKeyboard(); // hides the keyboard
+
 context.orientation; // returns the device orientation
+context.keyboardHeight; // returns the height of the keyboard
+
 context.isDarkMode; // returns true if the device is in dark mode
 context.isKeyboardVisible; // returns true if the keyboard is visible
-context.keyboardHeight; // returns the height of the keyboard
 context.isLandscape; // returns true if the device orientation is landscape
 context.isPortrait; // returns true if the device orientation is portrait
 ```
@@ -157,8 +154,10 @@ operator -(Duration duration) // Returns a new DateTime with this duration subtr
 [1, 2, 3].sum; // 6
 [1, 2, 3].average; // 2.0
 [1, 2, 3].toJson; // '[1, 2, 3]'
-operator +(element) // Adds new [element] or [elements] to this list.
 [1, 2, 3].random; // 2
+
+operator +(element) // Adds new [element] or [elements] to this list.
+
 [Widgets].toStack(); // Stack(children: [Widgets])
 [Widgets].toColumn(); // Column(children: [Widgets])
 [Widgets].toRow(); // Row(children: [Widgets])
@@ -202,18 +201,20 @@ operator +(element) // Adds new [element] or [elements] to this list.
 ```dart
 'hello'.capitalize; // Hello
 'hello'.reverse; // olleh
-'hello@example.com'.isEmail; // true
-'+1234567890'.isPhoneNumber; // true
-'https://www.example.com'.isUrl; // true
-"23.4".toDouble; // 23.4
-"23.4".toInt; // 23
-"2023-08-24".toDate; // 2023-08-24 00:00:00.000
 "Hello World!".words; // ["Hello", "World!"]
-'{"name": "John", "age": 30}'.parseJson` // {'name': 'John', 'age': 30} as Map
-'racecar'.isPalindrome; // true
 'congratolations'.truncate(4); // 'cong...'
 'Hello World!'.removeWhiteSpace; // 'HelloWorld!'
 'Hello123 World!'.removeNumbers; // 'Hello World!'
+'{"name": "John", "age": 30}'.parseJson` // {'name': 'John', 'age': 30} as Map
+
+"23.4".toDouble; // 23.4
+"23.4".toInt; // 23
+"2023-08-24".toDate; // 2023-08-24 00:00:00.000
+
+'hello@example.com'.isEmail; // true
+'+1234567890'.isPhoneNumber; // true
+'https://www.example.com'.isUrl; // true
+'racecar'.isPalindrome; // true
 ```
 
 ### Widget extensions
@@ -285,16 +286,16 @@ operator +(element) // Adds new [element] or [elements] to this list.
 ].toColumn(separator: 16);
 ```
 
-## Static Context Manager
+## 🔧 Static Context Manager
 
 `FlutterSExtensions` is a tiny singleton managing a `FlutterView` and a cached `MediaQueryData`. It powers property access like `0.9.screenWidth` and `0.9.screenHeight` without explicitly passing `BuildContext`.
 
-Initialization patterns:
+### Initialization patterns:
 
 - Explicit (recommended): call `FlutterSExtensions.update(context)` in `MaterialApp.builder`.
 - Lazy: first use attempts `WidgetsBinding.instance.platformDispatcher.views.first`. This works after `runApp`; it throws if no view is available (e.g., too early in tests).
 
-Key API:
+### Key API:
 
 - `FlutterSExtensions.init([context])` — initialize explicitly; optional `BuildContext`.
 - `FlutterSExtensions.update(context)` — refresh stored `FlutterView` and `MediaQueryData` on rebuilds/hot reload.
@@ -302,34 +303,34 @@ Key API:
 - `FlutterSExtensions.mediaQuery()` — get the current `MediaQueryData` (attempts lazy init; may throw).
 - `FlutterSExtensions.reset()` — clear cached references (useful for tests).
 
-Hot reload and metrics:
+### Hot reload and metrics:
 
 - Implements `WidgetsBindingObserver.didChangeMetrics` to refresh cached `MediaQueryData` on orientation or size changes.
 
-## Error Handling
+## 🔧 Error Handling
 
 - `mediaQuery()` may throw `StateError` if Flutter is not fully initialized or no `FlutterView` is available.
 - Ensure your app has started (`runApp`) and prefer using `FlutterSExtensions.update(context)` for determinism.
 
-## Testing
+## 🔧 Testing
 
 - Call `WidgetsFlutterBinding.ensureInitialized()` in tests.
 - Use `FlutterSExtensions.reset()` to clear cached state between tests.
 
-## Notes & Best Practices
+## ✅ Notes & Best Practices
 
 - Prefer `FlutterSExtensions.update(context)` at the app root to avoid edge cases.
 - Values for `screenWidth` and `screenHeight` are typically between `0` and `1` for proportional sizing.
 - Duration conversions truncate fractional values via `toInt()`.
 
-## License
+## 📜 License
 
-Licensed under the MIT License. See [LICENSE](LICENSE) for details.
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for details.
 
-## Changelog
+## 🕒 Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
-## Analytics
+## 🔍 Analytics
 
 ![Alt](https://repobeats.axiom.co/api/embed/f10dfb04cc41778345a50146dcf456d4db44be33.svg "Analytics")
