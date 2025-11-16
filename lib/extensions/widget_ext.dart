@@ -154,6 +154,7 @@ extension WidgetExtensions on Widget {
     double beginScale = 0.95,
     Offset? beginOffset,
     double beginAngle = 0.05,
+    required Widget child,
   }) {
     switch (type) {
       case AnimateType.fade:
@@ -161,7 +162,7 @@ extension WidgetExtensions on Widget {
           tween: Tween(begin: beginOpacity, end: 1),
           duration: duration,
           curve: curve,
-          child: this,
+          child: child,
           builder: (context, value, child) =>
               Opacity(opacity: value, child: child),
         );
@@ -218,6 +219,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginOpacity: beginOpacity,
+      child: this,
     );
   }
 
@@ -232,6 +234,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginScale: beginScale,
+      child: this,
     );
   }
 
@@ -246,6 +249,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(0, 12),
+      child: this,
     );
   }
 
@@ -260,6 +264,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(0, -12),
+      child: this,
     );
   }
 
@@ -274,6 +279,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(12, 0),
+      child: this,
     );
   }
 
@@ -288,6 +294,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(-12, 0),
+      child: this,
     );
   }
 
@@ -302,6 +309,7 @@ extension WidgetExtensions on Widget {
       duration: duration,
       curve: curve,
       beginAngle: beginAngle,
+      child: this,
     );
   }
 

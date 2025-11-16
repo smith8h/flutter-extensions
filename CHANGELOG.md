@@ -1,3 +1,11 @@
+# 1.0.0
+## Fixes
+This is the first version of the package.
+
+Version `1.0.0` includes a hotfix for the animations extensions for widgets.
+
+This version includes all the extensions and utils from the previous versions.
+
 # 0.0.9
 
 ### Added

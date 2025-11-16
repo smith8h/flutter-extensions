@@ -1,7 +1,5 @@
 library s_extensions;
 
-export 'enums/animation_type.dart';
-
 export 'extensions/bool_ext.dart';
 export 'extensions/context_ext.dart';
 export 'extensions/datetime_ext.dart';
