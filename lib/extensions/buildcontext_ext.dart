@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
 
-extension ContextExt on BuildContext {
+extension BuildContextExt on BuildContext {
   /// Hide keyboard
   ///
   /// Example: `context.hideKeyboard()`

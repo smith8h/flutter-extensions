@@ -1,3 +1,23 @@
+
+## Added
+### MapExtensions
+- `mergeWith` merges two maps, applying a custom combine function when keys overlap.
+- `filterKeys` returns a new map containing only entries whose keys satisfy a predicate.
+- `filterValues` returns a new map containing only entries whose values satisfy a predicate.
+- `excludeKeys` returns a new map containing entries whose keys are not in the [keys] list.
+- `excludeValues` returns a new map containing entries whose values are not in the [values] list.
+- `pickKeys` returns a new map containing entries whose keys are in the [keys] list.
+- `pickValues` returns a new map containing entries whose values are in the [values] list.
+- `mapKeys` transforms all the keys in the map by applying a function, producing a new map.
+- `mapValues` transforms all the values in the map by applying a function, producing a new map.
+- `toQueryString` converts the map into a URL query-string style representation (e.g. ?key1=value1&key2=value2).
+- `invert` swaps keys and values (values must be unique).
+- `safeUpdate` updates the value of the key if it exists. Else, do nothing.
+- `ensureKey` ensures that the map contains the [key].
+  If not, add it with the [value] to prevent null or overriding values.
+- `containsAllKeys` checks if it contains all required keys.
+- `containsAnyKey` checks if it contains any key from a list.
+
 # 1.0.0
 ## Fixes
 This is the first version of the package.
