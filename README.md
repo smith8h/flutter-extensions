@@ -53,18 +53,18 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 - 👌 Follows Code Quality Guidelines
 - 🦾 Production Ready
 
-| On           | Extensions   | Functions  | Operators  |
-| ------------ | :----------: | :--------: | :--------: |
-| **Bool**     |    1         |    0       |    0       |
-| **Context**  |    6         |    1       |    0       |
-| **DateTime** |    21 (+5)   |    0       |    2       |
-| **List**     |    4         |    3       |    1       |
-| **Map**      |    1         |    0       |    0       |
-| **Number**   |    18        |    2       |    0       |
-| **String**   |    15        |    0       |    0       |
-| **Widget**   |    28        |    1       |    0       |
-| **Total**    |    **85**    |    **7**   |    **3**   |
-| **All**      |    **95**    |            |            |
+| On               | Extensions   | Functions  | Operators  |
+| ---------------- | :----------: | :--------: | :--------: |
+| **Bool**         |    1         |    0       |    0       |
+| **BuildContext** |    6         |    1       |    0       |
+| **DateTime**     |    21        |    0       |    2       |
+| **List**         |    4         |    3       |    1       |
+| **Map**          |    14 (+13)  |    2 (+2)  |    0       |
+| **Number**       |    18        |    2       |    0       |
+| **String**       |    15        |    0       |    0       |
+| **Widget**       |    28        |    1       |    0       |
+| **Total**        |    **98**    |    **9**   |    **3**   |
+| **All**          |    **110**   |            |            |
 
 ## 📥 Installation
 
@@ -143,6 +143,7 @@ DateTime.now().isInNextYear; // false
 
 operator +(Duration duration) // Returns a new DateTime with this duration added.
 (DateTime.now() + 1.day); // 2023-08-25 12:34:56.000
+
 operator -(Duration duration) // Returns a new DateTime with this duration subtracted.
 (DateTime.now() - 1.day); // 2023-08-23 12:34:56.000
 
@@ -165,7 +166,29 @@ operator +(element) // Adds new [element] or [elements] to this list.
 
 ### Map extensions
 ```dart
-{'name': 'John', 'age': 30}.toJson; // '{"name": "John", "age": 30}'
+final map1 = <int, dynamic>{'name': 'John', 'age': 30};
+final map2 = <String, int>{'a': 1, 'b': 2};
+final map3 = <int, int>{1: 1, 2: 2, 3: 3};
+
+map1.toJson; // String: '{"name": "John", "age": 30}'
+
+map1.mergeWith(map2); // New Map: {'name': 'John', 'age': 30, 'a': 1, 'b': 2}
+map1.filterKeys((key) => key == 'name'); // {'name': 'John'}
+map1.filterValues((value) => value is int); // {'age': 30}
+map2.excludeKeys(['a']); // {'b': 2}
+map2.excludeValues([2]); // {'a': 1}
+map1.pickKeys(['name']); // {'name': 'John'}
+map1.pickValues([30]); // {'age': 30}
+map3.mapKeys((key) => key.toString()); // <String, int>{'1': 1, '2': 2, '3': 3}
+map2.mapValues((value) => value * 2); // {'a': 2, 'b': 4}
+map1.toQueryString; // '?name=John&age=30'
+map2.invert; // <int, String>{1: 'a', 2: 'b'}
+
+map1.safeUpdate('name', 'Hussein'); // {'name': 'Hussein', 'age': 30}
+map2.ensureKey('c', 0); // {'a': 1, 'b': 2, 'c': 0}
+
+map1.containsAllKeys(['name', 'age']); // true
+map1.containsAnyKeys(['name']); // true
 ```
 
 ### Number extensions

@@ -135,7 +135,7 @@ extension MapExtensions<K, V> on Map<K, V> {
   /// final urlWithQueryString = '$url${map.toQueryString()}';
   /// print(urlWithQueryString); // Output: 'https://www.example.com/search?name=Hussein%20Shakir&job=Flutter%20Developer'
   /// ```
-  String toQueryString() => entries
+  String get toQueryString => entries
       .map((e) => '?${e.key}=${Uri.encodeComponent(e.value.toString())}')
       .join('&');
 
@@ -155,7 +155,7 @@ extension MapExtensions<K, V> on Map<K, V> {
   ///   print(stacktrace); // Output: 'SExtensionsError: Values must be unique, some values are duplicated.'
   /// }
   /// ```
-  Map<V, K> invert() {
+  Map<V, K> get invert {
     if (values.toSet().length != values.length) {
       throw ArgumentError(
         'SExtensionsError: Values must be unique, some values are duplicated.',
