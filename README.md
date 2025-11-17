@@ -1,7 +1,7 @@
 <div align="center">
   <h1 style="font-size: 45px;">✨ S-Extensions ✨</h1>
 
-  <img src="screenshots/1.png" alt="Screenshot" width="260" />
+  <img src="screenshots/1.png" alt="Screenshot" width="220" />
 
   <p>
 🚀 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
@@ -54,20 +54,22 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 
 ---
 
+|         On         |  Extensions  | Functions  | Operations |
+| ------------------ | :----------: | :--------: | :--------: |
+| **Bool**           |    5 (+4)    |   2 (+2)   |    0       |
+| **BuildContext**   |    20 (+14)  |   4 (+3)   |    0       |
+| **DateTime**       |    21        |   0        |    2       |
+| **List**           |    4         |   3        |    1       |
+| **Map**            |    14        |   2        |    0       |
+| **Number**         |    18        |   2        |    0       |
+| **String**         |    15        |   0        |    0       |
+| **Widget**         |    28        |   1        |    0       |
+| **Total Of Each**  |    **125**   |   **14**   |    **3**   |
+| **All Extensions** |    **142**   |
 
-
-| On               | Extensions   | Functions  | Operators  |
-| ---------------- | :----------: | :--------: | :--------: |
-| **Bool**         |    1         |    0       |    0       |
-| **BuildContext** |    6         |    1       |    0       |
-| **DateTime**     |    21        |    0       |    2       |
-| **List**         |    4         |    3       |    1       |
-| **Map**          |    14 (+13)  |    2 (+2)  |    0       |
-| **Number**       |    18        |    2       |    0       |
-| **String**       |    15        |    0       |    0       |
-| **Widget**       |    28        |    1       |    0       |
-| **Total**        |    **98**    |    **9**   |    **3**   |
-| **All**          |    **110**   |            |            |
+|  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
+| ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
+| **Support** |    ✅   | ✅  |  ✅   |  ✅   |  ✅  | ✅  |
 
 ## 📥 Installation
 
@@ -103,20 +105,44 @@ MaterialApp(
 
 ### Bool extensions
 ```dart
-isLoaded.toggle; // toggles isLoaded to false if true, and true if false
+final isLoaded = true;
+isLoaded.toggle; // false
+isLoaded.toInt; // 1
+isLoaded.toOnOff; // "on"
+isLoaded.toYesNo; // "yes"
+isLoaded.toEnabledDisabled; // "enabled"
+isLoaded.whenTrue(() => print("loaded")); // "loaded"
+isLoaded.whenFalse(() => print("not loaded")); // "not loaded"
 ```
 
-### Context extensions
+### BuildContext extensions
 ```dart
 context.hideKeyboard(); // hides the keyboard
+context.pop(); // pops the current route
+context.push(HomeScreen()); // pushes a new route with the given page
+context.pushNamed(AppRoutes.homeScreen); // pushes a new route with the given name
 
 context.orientation; // returns the device orientation
 context.keyboardHeight; // returns the height of the keyboard
+context.theme; // returns the theme of the app
+context.textTheme; // returns the text theme of the app
+context.colorScheme; // returns the color scheme of the app
+context.topPadding; // returns the top padding of the app bar
+context.bottomPadding; // returns the bottom padding of the navigation bar
+context.devicePixelRatio; // returns the device pixel ratio
+context.brightness; // returns the brightness of the app
+context.widgetSize; // returns the size of the widget tied to this context
+context.widgetPosition; // returns the global position of the widget
 
 context.isDarkMode; // returns true if the device is in dark mode
 context.isKeyboardVisible; // returns true if the keyboard is visible
 context.isLandscape; // returns true if the device orientation is landscape
 context.isPortrait; // returns true if the device orientation is portrait
+context.isRTL; // returns true if the device is in right-to-left mode
+context.isLTR; // returns true if the device is in left-to-right mode
+context.isTablet; // returns if the device is tablet-sized (shortestSide ≥ 600)
+context.isScreenSmall; // returns if width < 360px (useful for responsive)
+context.isHighContrast; // returns if device accessibility high contrast is enabled
 ```
 
 #### DateTime extensions

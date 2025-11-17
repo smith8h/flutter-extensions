@@ -1,3 +1,33 @@
+# 1.0.2
+
+## Added
+### BoolExtensions
+- `toInt` returns `1` if this boolean is `true`, and `0` if this boolean is `false`.
+- `toOnOff` returns `'on'` if this boolean is `true`, and `'off'` if this boolean is `false`.
+- `toYesNo` returns `'yes'` if this boolean is `true`, and `'no'` if this boolean is `false`.
+- `toEnabledDisabled` returns `'enabled'` if this boolean is `true`, and `'disabled'` if this boolean is `false`.
+- `whenTrue` executes [action] if this boolean is `true`.
+- `whenFalse` executes [action] if this boolean is `false`.
+
+### BuildContextExtensions
+- `theme` gets the current ThemeData.
+- `textTheme` gets the current TextTheme.
+- `colorScheme` gets the current ColorScheme.
+- `isRTL` gets if the current directionality is right-to-left.
+- `isLTR` gets if the current directionality is left-to-right.
+- `topPadding` returns the top padding of the app bar.
+- `bottomPadding` returns the bottom padding of the navigation bar.
+- `devicePixelRatio` gets the device pixel ratio.
+- `isTablet` gets if the device is tablet-sized (shortestSide ≥ 600).
+- `pop` pops the current route off the navigator stack.
+- `push` pushes a new page with MaterialPageRoute.
+- `pushNamed` pushes a new page with MaterialPageRoute and the given name.
+- `brightness` gets the current brightness independent of the theme.
+- `isHighContrast` gets if device accessibility high contrast is enabled.
+- `isScreenSmall` gets if width < 360px (useful for responsive).
+- `widgetSize` gets the size of the widget tied to this context.
+- `widgetPosition` gets the global position of the widget.
+
 # 1.0.1
 
 ## Added
@@ -94,7 +124,7 @@ This version includes all the extensions and utils from the previous versions.
 - `isPalindrome` returns `true` if this string is a palindrome.
 - `truncate` truncates the `String` when more than `length` characters exist.
 
-### ContextExtensions
+### BuildContextExtensions
 - `isKeyboardVisible` returns `true` if the keyboard is visible.
 - `keyboardHeight` returns the height of the keyboard.
 - `isLandscape` returns `true` if the device orientation is landscape.
@@ -103,7 +133,7 @@ This version includes all the extensions and utils from the previous versions.
 # 0.0.5
 
 ## Added
-### ContextExtensions
+### BuildContextExtensions
 - `hideKeyboard` hides the keyboard.
 - `orientation` returns the device orientation.
 - `isDarkMode` returns `true` if the device is in dark mode.
