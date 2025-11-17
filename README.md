@@ -1,9 +1,14 @@
 <div align="center">
   <h1 style="font-size: 45px;">✨ S-Extensions ✨</h1>
+
+  <img src="screenshots/1.png" alt="Screenshot" width="260" />
+
   <p>
 🚀 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
 
 Works great for building responsive UIs - for example, **News headers**, **Marketplace cards** or any widget that requires dynamic sizing.
+
+📋 Well Documented - ⚔️ Fully Tested - 👌 Follows Code Quality Guidelines - 🦾 Production Ready
   </p>
 </div>
 
@@ -48,10 +53,8 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 </div>
 
 ---
-- 📋 Well Documented
-- ⚔️ Fully Tested
-- 👌 Follows Code Quality Guidelines
-- 🦾 Production Ready
+
+
 
 | On               | Extensions   | Functions  | Operators  |
 | ---------------- | :----------: | :--------: | :--------: |
