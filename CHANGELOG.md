@@ -1,3 +1,22 @@
+# 1.2.0
+
+## Added
+### ListExtensions
+- `toSet` returns a set with all the unique elements in this list (removes duplicates).
+- `toCsv` serializes this list to a CSV line(s).
+- `toStringList` converts each element to its toString().
+- `mostFrequent` returns the most frequent element(s) in this list.
+- `minimum` returns the minimum element in this list.
+- `maximum` returns the maximum element in this list.
+- `safeGet` returns the element at the given index or null if OOB.
+- `removeNulls` removes all null elements from this list.
+- `groupBy` groups this list into a map of lists, where each key is the result of applying [key] to each element.
+- `containsAll` returns true if this list contains all the elements in [other].
+- `containsAny` returns true if this list contains any of the elements in [other].
+- `difference` returns a new list with all the elements in this list that are not in [other].
+- `symmetricDifference` returns a new list with all the elements in either this list or [other], but not both.
+- `wrapWith` wraps each element with a widget builder.
+
 # 1.1.0
 
 ## Added
