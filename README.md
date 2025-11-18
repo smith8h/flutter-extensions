@@ -56,16 +56,16 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 
 |         On         |  Extensions  | Functions  | Operations |
 | ------------------ | :----------: | :--------: | :--------: |
-| **Bool**           |    5 (+4)    |   2 (+2)   |    0       |
-| **BuildContext**   |    20 (+14)  |   4 (+3)   |    0       |
+| **Bool**           |    5         |   2        |    0       |
+| **BuildContext**   |    20        |   4        |    0       |
 | **DateTime**       |    21        |   0        |    2       |
-| **List**           |    4         |   3        |    1       |
+| **List**           |    17 (+13)  |   4 (+1)   |    1       |
 | **Map**            |    14        |   2        |    0       |
 | **Number**         |    18        |   2        |    0       |
 | **String**         |    15        |   0        |    0       |
 | **Widget**         |    28        |   1        |    0       |
-| **Total Of Each**  |    **125**   |   **14**   |    **3**   |
-| **All Extensions** |    **142**   |
+| **Total Of Each**  |    **138**   |   **15**   |    **3**   |
+| **All Extensions** |    **156**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -183,14 +183,29 @@ operator -(Duration duration) // Returns a new DateTime with this duration subtr
 ```dart
 [1, 2, 3].sum; // 6
 [1, 2, 3].average; // 2.0
-[1, 2, 3].toJson; // '[1, 2, 3]'
 [1, 2, 3].random; // 2
+[1, 2, 2, 3].mostFrequent; // [2]
+[1, 2, 3].maximum; // [3]
+[1, 2, 3].minimum; // [1]
+[1, 2].safeGet(2); // at index 2: null
+[1, 2, 3].toJson; // '[1, 2, 3]'
+[1, 2, 3].toCsv; // '1,2,3'
+[1, 2, 2, 3].toSet; // {1, 2, 3}
+[1, 2, 3].toStringList; // ['1', '2', '3']
+[1, 2, 3].groupBy((e) => e.isDivisibleBy(2)); // {0: [2], 1: [1, 3]}
+[1, 2, 3].containsAll([1, 2]); // true
+[1, 2, 3].containsAny([1, 5]); // true
+[1, 2, 3].difference([1, 2]); // [3]
+[1, 2, 3].symmetricDifference([1, 2, 4]); // [3, 4]
+
+[1, 2, null, 3].removeNulls(); // [1, 2, 3]
 
 operator +(element) // Adds new [element] or [elements] to this list.
 
 [Widgets].toStack(); // Stack(children: [Widgets])
 [Widgets].toColumn(); // Column(children: [Widgets])
 [Widgets].toRow(); // Row(children: [Widgets])
+[1, 2, 3].wrapWith((e) => Text(e.toString())); // [Text('1'), Text('2'), Text('3')]
 ```
 
 ### Map extensions
