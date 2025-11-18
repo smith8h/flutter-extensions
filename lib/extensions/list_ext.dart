@@ -6,6 +6,19 @@ import 'package:flutter/widgets.dart';
 extension ListExtensions<T> on List<T> {
   // ? =================== Operators ========================
 
+  /// Ads new [element] to this list.
+  ///
+  /// Example: `[1, 2, 3] + 4` -> `[1, 2, 3, 4]`.
+  void operator +(T element) =>
+      element is List<T> ? addAll(element) : add(element);
+
+  // ? =================== Actions ========================
+
+  /// Returns a random element from this list.
+  ///
+  /// Example: `[1, 2, 3].random` -> `2`.
+  T get random => this[Random().nextInt(length)];
+
   /// Returns the sum of all elements in this list.
   ///
   /// Example: `[1, 2, 3].sum` -> `6`.
@@ -23,23 +36,18 @@ extension ListExtensions<T> on List<T> {
   /// Example: `[1, 2, 3].average` -> `2.0`.
   num get average => (sum / length) as num;
 
+  // ? =================== Converters ========================
+
+  /// Returns a set with all the unique elements in this list
+  /// (removes duplicates).
+  ///
+  /// Example: `[1, 2, 2, 3].toSet` -> `{1, 2, 3}`.
+  Set<T> get toSet => Set<T>.from(this);
+
   /// Returns a parsed json [string] of this list.
   ///
   /// Example: `[1, 2, 3].toJson` -> `'[1, 2, 3]'`.
   String? get toJson => jsonEncode(this);
-
-  /// Ads new [element] to this list.
-  ///
-  /// Example: `[1, 2, 3] + 4` -> `[1, 2, 3, 4]`.
-  void operator +(T element) =>
-      element is List<T> ? addAll(element) : add(element);
-
-  /// Returns a random element from this list.
-  ///
-  /// Example: `[1, 2, 3].random` -> `2`.
-  T get random => this[Random().nextInt(length)];
-
-  // ? =================== Widgets Converters ========================
 
   /// Returns a stack widget with this list as children.
   ///
