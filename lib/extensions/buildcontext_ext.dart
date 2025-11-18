@@ -21,8 +21,7 @@ extension BuildContextExt on BuildContext {
   /// Push a new page with MaterialPageRoute and the given name
   ///
   /// Example: `context.pushNamed(MyPage.routeName)`
-  void pushNamed(String routeName) =>
-      Navigator.of(this).pushNamed(routeName);
+  void pushNamed(String routeName) => Navigator.of(this).pushNamed(routeName);
 
   // ? =============== Getters ===============
   /// Get the device orientation

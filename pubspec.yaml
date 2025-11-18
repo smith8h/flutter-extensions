@@ -7,7 +7,7 @@ repository: https://github.com/smith8h/flutter-extensions
 homepage: https://github.com/smith8h/flutter-extensions
 screenshots:
   - description: "A definition of the package."
-    path: "screenshots/1.png"
+    path: "assets/1.png"
 
 topics:
   - productivity

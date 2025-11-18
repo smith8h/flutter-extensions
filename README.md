@@ -1,7 +1,7 @@
 <div align="center">
   <h1 style="font-size: 45px;">✨ S-Extensions ✨</h1>
 
-  <img src="screenshots/1.png" alt="Screenshot" width="220" />
+  <img src="assets/1.png" alt="Screenshot" width="220" />
 
   <p>
 🚀 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
