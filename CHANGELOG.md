@@ -15,6 +15,7 @@
 - `isLight` returns true if this color is light.
 - `opacity` returns the color with the given opacity.
 - `brightness` returns the color with the given brightness.
+- `oppositeColor` returns the opposite color of this color.
 
 ## Fixes
 ### StringExtensions

@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:flutter/widgets.dart';
 import 'package:scolors/scolors.dart';
 
 extension ColorExtensions on Color {
@@ -9,6 +8,11 @@ extension ColorExtensions on Color {
   ///
   /// Example: `Color(0xFF000000).toHex` -> `'#000000'`.
   String get toHex => '#${toARGB32().toRadixString(16).substring(2)}';
+
+  /// Returns the HSV color representation of this color.
+  ///
+  /// Example: `Color(0xFF000000).toHsv` -> `HSVColor(0.0, 0.0, 0.0)`.
+  HSVColor get toHsv => HSVColor.fromColor(this);
 
   // ? ============== Validators ==============
 
@@ -38,4 +42,9 @@ extension ColorExtensions on Color {
   Color? brightness(double brightness, {bool isLighter = true}) => isLighter
       ? SColors.lighterColor(brightness)
       : SColors.darkerColor(brightness);
+
+  /// Returns the opposite color of this color.
+  ///
+  /// Example: `Color(0xFF000000).oppositeColor` -> `Color(0xFFFFFFFF)`.
+  Color? get oppositeColor => SColors.oppositeColor(color: this);
 }
