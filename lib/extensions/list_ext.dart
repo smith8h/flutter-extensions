@@ -37,7 +37,7 @@ extension ListExtensions<T> on List<T> {
   /// Example: `[1, 2, 3].containsAny([1, 5])` -> `true`.
   bool containsAny(Iterable<T> other) => other.any((e) => contains(e));
 
-  /// Group into Map<key, List>.
+  /// Group into Map&lt;key, List&gt;.
   ///
   /// Example: `[1, 2, 3, 4, 5, 6].groupBy((e) => e % 2)` -> `{0: [2, 4, 6], 1: [1, 3, 5]}`.
   Map<K, List<T>> groupBy<K>(K Function(T element) key) =>
