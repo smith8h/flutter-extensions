@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
+
 extension StringExtensions on String {
   // ? ================== Converters ========================
 
@@ -17,6 +19,21 @@ extension StringExtensions on String {
   ///
   /// Example: `'123'.toInt` -> `123`.
   int? get toInt => int.tryParse(this);
+
+  /// Returns the color value of this string.
+  ///
+  /// Example: `'#FF0000'.toColor` -> `Color(0xFFFF0000)`.
+  Color? get toColor {
+    if (isBlank) return null;
+    var hex = trim();
+    if (hex.startsWith('#')) hex = hex.substring(1);
+    if (hex.startsWith('0x')) hex = hex.substring(2);
+    if (!RegExp(r'^[0-9a-fA-F]{6}$|^[0-9a-fA-F]{8}$').hasMatch(hex)) {
+      return null;
+    }
+    if (hex.length == 6) hex = 'FF$hex';
+    return Color(int.parse(hex, radix: 16));
+  }
 
   // ? ================== Validators ========================
 
@@ -41,7 +58,7 @@ extension StringExtensions on String {
   /// Returns `true` if this string is a blank by any chance.
   ///
   /// Example: `'  '.isBlank` -> `true`.
-  bool get isBlank => trim().isBlank;
+  bool get isBlank => trim().isEmpty;
 
   /// Checks whether the `String` is a palindrome.
   ///
@@ -57,6 +74,34 @@ extension StringExtensions on String {
       return false;
     }
     return this == reverse;
+  }
+
+  /// Checks if this string is digit only.
+  ///
+  /// Example: `'123456'.isDigit` -> `true`.
+  bool get isDigit => RegExp(r'^[0-9]+$').hasMatch(this);
+
+  /// Checks if this string is alphabetic only.
+  ///
+  /// Example: `'abcABC'.isAlpha` -> `true`.
+  bool get isAlpha => RegExp(r'^[a-zA-Z]+$').hasMatch(this);
+
+  /// Checks if this string is alphanumeric only.
+  ///
+  /// Example: `'abc123ABC'.isAlphaNumeric` -> `true`.
+  bool get isAlphaNumeric => RegExp(r'^[a-zA-Z0-9]+$').hasMatch(this);
+
+  /// Checks if this string is a valid JSON string.
+  ///
+  /// Example: `'{"name": "John", "age": 30}'.isJson` -> `true`.
+  bool get isJson {
+    if (isBlank) return false;
+    try {
+      jsonDecode(this);
+      return true;
+    } catch (_) {
+      return false;
+    }
   }
 
   // ? ================== Operators ========================
@@ -117,4 +162,7 @@ extension StringExtensions on String {
   /// Example: `'{"name": "John", "age": 30}'.parseJson` -> `{'name': 'John', 'age': 30}`.
   Map<String, dynamic>? get parseJson =>
       jsonDecode(this) as Map<String, dynamic>?;
+
+  /// Copies this string to the clipboard.
+  void copyToClipboard() => Clipboard.setData(ClipboardData(text: this));
 }

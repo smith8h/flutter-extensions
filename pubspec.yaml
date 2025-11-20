@@ -1,5 +1,6 @@
 name: s_extensions
-description: A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
+description: A dart package aiming to provide useful extensions and helper
+  functions to ease and speed up development.
 
 version: 1.2.0
 
@@ -23,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.20.2
+  scolors: ^1.0.0
 
 dev_dependencies:
   flutter_lints: ^3.0.0

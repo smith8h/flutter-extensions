@@ -1,3 +1,25 @@
+# 1.3.0
+
+# Added
+### StringExtensions
+- `isDigit` returns `true` if this string is digit only.
+- `isAlpha` returns `true` if this string is alphabetic only.
+- `isAlphaNumeric` returns `true` if this string is alphanumeric only.
+- `isJson` returns `true` if this string is a valid JSON string.
+- `copyToClipboard` copies this string to the clipboard.
+- `toColor` returns the color value of this string.
+
+### ColorExtensions
+- `toHex` returns the hexadecimal string representation of this color.
+- `isDark` returns true if this color is dark.
+- `isLight` returns true if this color is light.
+- `opacity` returns the color with the given opacity.
+- `brightness` returns the color with the given brightness.
+
+## Fixes
+### StringExtensions
+- `isBlank` was going in loop when checking for blank string.
+
 # 1.2.0
 
 ## Added

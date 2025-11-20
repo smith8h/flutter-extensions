@@ -2,6 +2,7 @@ library s_extensions;
 
 export 'extensions/bool_ext.dart';
 export 'extensions/buildcontext_ext.dart';
+export 'extensions/color_ext.dart';
 export 'extensions/datetime_ext.dart';
 export 'extensions/list_ext.dart';
 export 'extensions/map_ext.dart';
