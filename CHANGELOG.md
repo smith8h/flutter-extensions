@@ -1,6 +1,6 @@
 # 1.3.0
 
-# Added
+## Added
 ### StringExtensions
 - `isDigit` returns `true` if this string is digit only.
 - `isAlpha` returns `true` if this string is alphabetic only.
@@ -16,6 +16,9 @@
 - `opacity` returns the color with the given opacity.
 - `brightness` returns the color with the given brightness.
 - `oppositeColor` returns the opposite color of this color.
+
+### WidgetExtensions
+- `scaffold` returns a new Scaffold widget with the given body.
 
 ## Fixes
 ### StringExtensions

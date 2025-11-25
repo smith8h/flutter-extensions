@@ -54,18 +54,39 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 
 ---
 
+## Table of Contents
+- [📥 Installation](#📥-installation)
+- [🔧 Quick Start](#🔧-quick-start)
+- [🌟 Features](#🌟-features)
+  - [Bool extensions](#bool-extensions)
+  - [BuildContext extensions](#buildcontext-extensions)
+  - [Color extensions](#color-extensions)
+  - [DateTime extensions](#datetime-extensions)
+  - [List extensions](#list-extensions)
+  - [Map extensions](#map-extensions)
+  - [Number extensions](#number-extensions)
+  - [String extensions](#string-extensions)
+  - [Widget extensions](#widget-extensions)
+- [🔧 Static Context Manager](#🔧-static-context-manager)
+- [🔧 Error Handling](#🔧-error-handling)
+- [🔧 Testing](#🔧-testing)
+- [✅ Notes & Best Practices](#🔧-notes--best-practices)
+
+---
+
 |         On         |  Extensions  | Functions  | Operations |
 | ------------------ | :----------: | :--------: | :--------: |
 | **Bool**           |    5         |   2        |    0       |
 | **BuildContext**   |    20        |   4        |    0       |
+| **Color**          |    6 (+6)    |   0        |    0       |
 | **DateTime**       |    21        |   0        |    2       |
-| **List**           |    17 (+13)  |   4 (+1)   |    1       |
+| **List**           |    17        |   4        |    1       |
 | **Map**            |    14        |   2        |    0       |
 | **Number**         |    18        |   2        |    0       |
-| **String**         |    15        |   0        |    0       |
-| **Widget**         |    28        |   1        |    0       |
-| **Total Of Each**  |    **138**   |   **15**   |    **3**   |
-| **All Extensions** |    **156**   |
+| **String**         |    20 (+5)   |   1 (+1)   |    0       |
+| **Widget**         |    29 (+1)   |   1        |    0       |
+| **Total Of Each**  |    **150**   |   **16**   |    **3**   |
+| **All Extensions** |    **169**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -145,7 +166,21 @@ context.isScreenSmall; // returns if width < 360px (useful for responsive)
 context.isHighContrast; // returns if device accessibility high contrast is enabled
 ```
 
-#### DateTime extensions
+### Color extensions
+```dart
+Colors.red.toHex; // "#FF0000"
+Colors.red.toHsv; // HSVColor color
+Colors.red.oppositeColor; // Colors.white
+
+Colors.red.opacity(0.5); // Colors.red.withOpacity(0.5)
+Colors.red.brightness(0.5, isLighter: true); // Colors.red.withBrightness(0.5) lighter
+Colors.red.brightness(0.5, isLighter: false); // Colors.red.withBrightness(0.5) darker
+
+Colors.red.isDark; // true
+Colors.red.isLight; // false
+```
+
+### DateTime extensions
 ```dart
 DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
 
@@ -277,11 +312,18 @@ map1.containsAnyKeys(['name']); // true
 "23.4".toDouble; // 23.4
 "23.4".toInt; // 23
 "2023-08-24".toDate; // 2023-08-24 00:00:00.000
+"#FF0000".toColor; // Colors.red
+
+'copy me'.copyToClipboard(); // copies 'copy me' to clipboard
 
 'hello@example.com'.isEmail; // true
 '+1234567890'.isPhoneNumber; // true
 'https://www.example.com'.isUrl; // true
 'racecar'.isPalindrome; // true
+'[]'.isJson; // true
+'123'.isDigit; // true
+'abc'.isAlpha; // true
+'abc123'.isAlphaNumeric; // true
 ```
 
 ### Widget extensions
