@@ -149,8 +149,8 @@ extension ListExtensions<T> on List<T> {
     Key? key,
     AlignmentGeometry alignment = AlignmentDirectional.topStart,
     TextDirection? textDirection,
-    StackFit fit = StackFit.loose,
-    Clip clipBehavior = Clip.hardEdge,
+    StackFit fit = .loose,
+    Clip clipBehavior = .hardEdge,
   }) => Stack(
     key: key,
     alignment: alignment,
@@ -165,11 +165,11 @@ extension ListExtensions<T> on List<T> {
   /// Example: `[1, 2, 3].toColumn` -> `Column(children: [1, 2, 3])`.
   Column toColumn({
     Key? key,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    MainAxisAlignment mainAxisAlignment = .start,
+    MainAxisSize mainAxisSize = .max,
+    CrossAxisAlignment crossAxisAlignment = .center,
     TextDirection? textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
+    VerticalDirection verticalDirection = .down,
     TextBaseline? textBaseline,
     double spacing = 0.0,
   }) => Column(
@@ -189,11 +189,11 @@ extension ListExtensions<T> on List<T> {
   /// Example: `[1, 2, 3].toRow` -> `Row(children: [1, 2, 3])`.
   Row toRow({
     Key? key,
-    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
-    MainAxisSize mainAxisSize = MainAxisSize.max,
-    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.center,
+    MainAxisAlignment mainAxisAlignment = .start,
+    MainAxisSize mainAxisSize = .max,
+    CrossAxisAlignment crossAxisAlignment = .center,
     TextDirection? textDirection,
-    VerticalDirection verticalDirection = VerticalDirection.down,
+    VerticalDirection verticalDirection = .down,
     TextBaseline? textBaseline,
     double spacing = 0.0,
   }) => Row(

@@ -8,17 +8,17 @@ extension StringExtensions on String {
   /// Returns the date time value of this string.
   ///
   /// Example: `'2023-01-01'.toDate` -> `2023-01-01 00:00:00.000`.
-  DateTime? get toDate => DateTime.tryParse(this);
+  DateTime? get toDate => .tryParse(this);
 
   /// Returns the double value of this string.
   ///
   /// Example: `'123.45'.toDouble` -> `123.45`.
-  double? get toDouble => double.tryParse(this);
+  double? get toDouble => .tryParse(this);
 
   /// Returns the int value of this string.
   ///
   /// Example: `'123'.toInt` -> `123`.
-  int? get toInt => int.tryParse(this);
+  int? get toInt => .tryParse(this);
 
   /// Returns the color value of this string.
   ///
@@ -32,7 +32,7 @@ extension StringExtensions on String {
       return null;
     }
     if (hex.length == 6) hex = 'FF$hex';
-    return Color(int.parse(hex, radix: 16));
+    return Color(.parse(hex, radix: 16));
   }
 
   // ? ================== Validators ========================

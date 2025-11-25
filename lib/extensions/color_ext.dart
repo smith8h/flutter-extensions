@@ -12,7 +12,7 @@ extension ColorExtensions on Color {
   /// Returns the HSV color representation of this color.
   ///
   /// Example: `Color(0xFF000000).toHsv` -> `HSVColor(0.0, 0.0, 0.0)`.
-  HSVColor get toHsv => HSVColor.fromColor(this);
+  HSVColor get toHsv => .fromColor(this);
 
   // ? ============== Validators ==============
 

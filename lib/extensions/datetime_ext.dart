@@ -77,12 +77,12 @@ extension DateTimeExtensions on DateTime {
   /// Returns `true` if this date is in the past.
   ///
   /// Example: `DateTime.now().isPast` -> `false`.
-  bool get isPast => isBefore(DateTime.now());
+  bool get isPast => isBefore(.now());
 
   /// Returns `true` if this date is in the future.
   ///
   /// Example: `DateTime.now().isFuture` -> `true`.
-  bool get isFuture => isAfter(DateTime.now());
+  bool get isFuture => isAfter(.now());
 
   /// Returns `true` if this date is today.
   ///

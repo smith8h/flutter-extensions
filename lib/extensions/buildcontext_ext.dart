@@ -83,8 +83,7 @@ extension BuildContextExt on BuildContext {
   /// Get the device dark mode
   ///
   /// Example: `context.isDarkMode`
-  bool get isDarkMode =>
-      MediaQuery.of(this).platformBrightness == Brightness.dark;
+  bool get isDarkMode => MediaQuery.of(this).platformBrightness == .dark;
 
   /// Get if keyboard is visible
   ///
@@ -94,22 +93,22 @@ extension BuildContextExt on BuildContext {
   /// Check if the device orientation is landscape
   ///
   /// Example: `context.isLandscape`
-  bool get isLandscape => orientation == Orientation.landscape;
+  bool get isLandscape => orientation == .landscape;
 
   /// Check if the device orientation is portrait
   ///
   /// Example: `context.isPortrait`
-  bool get isPortrait => orientation == Orientation.portrait;
+  bool get isPortrait => orientation == .portrait;
 
   /// Check if the current directionality is right-to-left
   ///
   /// Example: `context.isRTL`
-  bool get isRTL => Directionality.of(this) == TextDirection.rtl;
+  bool get isRTL => Directionality.of(this) == .rtl;
 
   /// Check if the current directionality is left-to-right
   ///
   /// Example: `context.isLTR`
-  bool get isLTR => Directionality.of(this) == TextDirection.ltr;
+  bool get isLTR => Directionality.of(this) == .ltr;
 
   /// Check if the device is tablet-sized (shortestSide ≥ 600)
   ///

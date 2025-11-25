@@ -147,7 +147,7 @@ extension WidgetExtensions on Widget {
 
   /// Animates the widget with the given type.
   Widget _animate({
-    AnimateType type = AnimateType.fade,
+    AnimateType type = .fade,
     Duration duration = const Duration(milliseconds: 300),
     Curve curve = Curves.easeOut,
     double beginOpacity = 0,
@@ -157,7 +157,7 @@ extension WidgetExtensions on Widget {
     required Widget child,
   }) {
     switch (type) {
-      case AnimateType.fade:
+      case .fade:
         return TweenAnimationBuilder<double>(
           tween: Tween(begin: beginOpacity, end: 1),
           duration: duration,
@@ -166,7 +166,7 @@ extension WidgetExtensions on Widget {
           builder: (context, value, child) =>
               Opacity(opacity: value, child: child),
         );
-      case AnimateType.scale:
+      case .scale:
         return TweenAnimationBuilder<double>(
           tween: Tween(begin: beginScale, end: 1),
           duration: duration,
@@ -175,28 +175,28 @@ extension WidgetExtensions on Widget {
           builder: (context, value, child) =>
               Transform.scale(scale: value, child: child),
         );
-      case AnimateType.slideUp:
-      case AnimateType.slideDown:
-      case AnimateType.slideLeft:
-      case AnimateType.slideRight:
+      case .slideUp:
+      case .slideDown:
+      case .slideLeft:
+      case .slideRight:
         final Offset start =
             beginOffset ??
-            (type == AnimateType.slideUp
+            (type == .slideUp
                 ? const Offset(0, 12)
-                : type == AnimateType.slideDown
+                : type == .slideDown
                 ? const Offset(0, -12)
-                : type == AnimateType.slideLeft
+                : type == .slideLeft
                 ? const Offset(12, 0)
                 : const Offset(-12, 0));
         return TweenAnimationBuilder<Offset>(
-          tween: Tween(begin: start, end: Offset.zero),
+          tween: Tween(begin: start, end: .zero),
           duration: duration,
           curve: curve,
           child: this,
           builder: (context, value, child) =>
               Transform.translate(offset: value, child: child),
         );
-      case AnimateType.rotate:
+      case .rotate:
         return TweenAnimationBuilder<double>(
           tween: Tween(begin: beginAngle, end: 0),
           duration: duration,
@@ -215,7 +215,7 @@ extension WidgetExtensions on Widget {
     double beginOpacity = 0,
   }) {
     return _animate(
-      type: AnimateType.fade,
+      type: .fade,
       duration: duration,
       curve: curve,
       beginOpacity: beginOpacity,
@@ -230,7 +230,7 @@ extension WidgetExtensions on Widget {
     double beginScale = 0.95,
   }) {
     return _animate(
-      type: AnimateType.scale,
+      type: .scale,
       duration: duration,
       curve: curve,
       beginScale: beginScale,
@@ -245,7 +245,7 @@ extension WidgetExtensions on Widget {
     Offset? beginOffset,
   }) {
     return _animate(
-      type: AnimateType.slideUp,
+      type: .slideUp,
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(0, 12),
@@ -260,7 +260,7 @@ extension WidgetExtensions on Widget {
     Offset? beginOffset,
   }) {
     return _animate(
-      type: AnimateType.slideDown,
+      type: .slideDown,
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(0, -12),
@@ -275,7 +275,7 @@ extension WidgetExtensions on Widget {
     Offset? beginOffset,
   }) {
     return _animate(
-      type: AnimateType.slideLeft,
+      type: .slideLeft,
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(12, 0),
@@ -290,7 +290,7 @@ extension WidgetExtensions on Widget {
     Offset? beginOffset,
   }) {
     return _animate(
-      type: AnimateType.slideRight,
+      type: .slideRight,
       duration: duration,
       curve: curve,
       beginOffset: beginOffset ?? const Offset(-12, 0),
@@ -305,7 +305,7 @@ extension WidgetExtensions on Widget {
     double beginAngle = 0.05,
   }) {
     return _animate(
-      type: AnimateType.rotate,
+      type: .rotate,
       duration: duration,
       curve: curve,
       beginAngle: beginAngle,
@@ -324,8 +324,7 @@ extension WidgetExtensions on Widget {
     FloatingActionButtonLocation? floatingActionButtonLocation,
     FloatingActionButtonAnimator? floatingActionButtonAnimator,
     List<Widget>? persistentFooterButtons,
-    AlignmentDirectional persistentFooterAlignment =
-        AlignmentDirectional.centerEnd,
+    AlignmentDirectional persistentFooterAlignment = .centerEnd,
     BoxDecoration? persistentFooterDecoration,
     Widget? drawer,
     void Function(bool)? onDrawerChanged,
@@ -336,7 +335,7 @@ extension WidgetExtensions on Widget {
     Color? backgroundColor,
     bool? resizeToAvoidBottomInset,
     bool primary = true,
-    DragStartBehavior drawerDragStartBehavior = DragStartBehavior.start,
+    DragStartBehavior drawerDragStartBehavior = .start,
     bool extendBody = false,
     bool drawerBarrierDismissible = true,
     bool extendBodyBehindAppBar = false,
@@ -408,8 +407,7 @@ extension WidgetExtensions on Widget {
     String? semanticsLabel,
     String? semanticsValue,
     double strokeWidth = RefreshProgressIndicator.defaultStrokeWidth,
-    RefreshIndicatorTriggerMode triggerMode =
-        RefreshIndicatorTriggerMode.onEdge,
+    RefreshIndicatorTriggerMode triggerMode = .onEdge,
     double elevation = 2.0,
   }) {
     return RefreshIndicator(
@@ -432,16 +430,16 @@ extension WidgetExtensions on Widget {
   /// Returns a new scrollable widget.
   SingleChildScrollView scrollable({
     Key? key,
-    Axis scrollDirection = Axis.vertical,
+    Axis scrollDirection = .vertical,
     bool reverse = false,
     EdgeInsetsGeometry? padding,
     bool? primary,
     ScrollPhysics? physics,
     ScrollController? controller,
     Widget? child,
-    DragStartBehavior dragStartBehavior = DragStartBehavior.start,
-    Clip clipBehavior = Clip.hardEdge,
-    HitTestBehavior hitTestBehavior = HitTestBehavior.opaque,
+    DragStartBehavior dragStartBehavior = .start,
+    Clip clipBehavior = .hardEdge,
+    HitTestBehavior hitTestBehavior = .opaque,
     String? restorationId,
     ScrollViewKeyboardDismissBehavior? keyboardDismissBehavior,
   }) {
@@ -472,7 +470,7 @@ extension WidgetExtensions on Widget {
     List<BoxShadow>? boxShadow,
     Gradient? gradient,
     BlendMode? backgroundBlendMode,
-    BoxShape shape = BoxShape.rectangle,
+    BoxShape shape = .rectangle,
   }) {
     return Container(
       key: key,
@@ -494,14 +492,14 @@ extension WidgetExtensions on Widget {
   ClipRRect rounded({
     Key? key,
     double radius = 8,
-    Clip clipBehavior = Clip.antiAlias,
+    Clip clipBehavior = .antiAlias,
     CustomClipper<RRect>? clipper,
   }) {
     return ClipRRect(
       key: key,
       clipBehavior: clipBehavior,
       clipper: clipper,
-      borderRadius: BorderRadius.circular(radius),
+      borderRadius: .circular(radius),
       child: this,
     );
   }
@@ -510,14 +508,14 @@ extension WidgetExtensions on Widget {
   ClipRRect roundedTop({
     Key? key,
     double radius = 8,
-    Clip clipBehavior = Clip.antiAlias,
+    Clip clipBehavior = .antiAlias,
     CustomClipper<RRect>? clipper,
   }) {
     return ClipRRect(
       key: key,
       clipBehavior: clipBehavior,
       clipper: clipper,
-      borderRadius: BorderRadius.vertical(top: Radius.circular(radius)),
+      borderRadius: .vertical(top: .circular(radius)),
       child: this,
     );
   }
@@ -526,14 +524,14 @@ extension WidgetExtensions on Widget {
   ClipRRect roundedBottom({
     Key? key,
     double radius = 8,
-    Clip clipBehavior = Clip.antiAlias,
+    Clip clipBehavior = .antiAlias,
     CustomClipper<RRect>? clipper,
   }) {
     return ClipRRect(
       key: key,
       clipBehavior: clipBehavior,
       clipper: clipper,
-      borderRadius: BorderRadius.vertical(bottom: Radius.circular(radius)),
+      borderRadius: .vertical(bottom: .circular(radius)),
       child: this,
     );
   }
@@ -543,7 +541,7 @@ extension WidgetExtensions on Widget {
   /// Returns a new aligned widget with the given alignment.
   Align align({
     Key? key,
-    AlignmentGeometry alignment = Alignment.center,
+    AlignmentGeometry alignment = .center,
     double? widthFactor,
     double? heightFactor,
   }) {
@@ -587,16 +585,13 @@ extension WidgetExtensions on Widget {
 
   /// Returns a new widget with the given margin.
   Container marginAll(double margin) {
-    return Container(margin: EdgeInsets.all(margin), child: this);
+    return Container(margin: .all(margin), child: this);
   }
 
   /// Returns a new widget with the given margin.
   Container marginSymmetric({double? vertical = 0, double? horizontal = 0}) {
     return Container(
-      margin: EdgeInsets.symmetric(
-        vertical: vertical!,
-        horizontal: horizontal!,
-      ),
+      margin: .symmetric(vertical: vertical!, horizontal: horizontal!),
       child: this,
     );
   }
@@ -609,12 +604,7 @@ extension WidgetExtensions on Widget {
     double? bottom = 0,
   }) {
     return Container(
-      margin: EdgeInsets.only(
-        left: left!,
-        top: top!,
-        right: right!,
-        bottom: bottom!,
-      ),
+      margin: .only(left: left!, top: top!, right: right!, bottom: bottom!),
       child: this,
     );
   }
@@ -623,16 +613,13 @@ extension WidgetExtensions on Widget {
 
   /// Returns a new widget with the given padding.
   Padding paddingAll(double padding) {
-    return Padding(padding: EdgeInsets.all(padding), child: this);
+    return Padding(padding: .all(padding), child: this);
   }
 
   /// Returns a new widget with the given padding.
   Padding paddingSymmetric({double? vertical = 0, double? horizontal = 0}) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: vertical!,
-        horizontal: horizontal!,
-      ),
+      padding: .symmetric(vertical: vertical!, horizontal: horizontal!),
       child: this,
     );
   }
@@ -645,12 +632,7 @@ extension WidgetExtensions on Widget {
     double? bottom = 0,
   }) {
     return Padding(
-      padding: EdgeInsets.only(
-        left: left!,
-        top: top!,
-        right: right!,
-        bottom: bottom!,
-      ),
+      padding: .only(left: left!, top: top!, right: right!, bottom: bottom!),
       child: this,
     );
   }
