@@ -33,36 +33,28 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xff6a87e3),
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '${_counter.half}',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
+    // list of widgets
+    return [
+          const Text('You have pushed the button this many times:'),
+          Text('${_counter.half}', style: context.textTheme.headlineMedium),
+        ]
+        // convert to column
+        .toColumn(mainAxisAlignment: .center)
+        // center it
+        .center()
+        // contain it inside the scaffold
+        .scaffold(
+          appBar: AppBar(
+            backgroundColor: 0xFF6A87E3.toColor,
+            title: Text(widget.title),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () => setState(() => _counter++),
+            tooltip: 'Increment',
+            child: const Icon(Icons.add),
+          ),
+        );
   }
 }

@@ -276,6 +276,10 @@ map1.containsAnyKeys(['name']); // true
 8.quarter; // 2.0
 8.square; // 64.0
 8.sqRoot; // 2.8284271247461903
+8.area; // 201.06192982974676 (circle area)
+8.perimeter; // 50.26548245743669 (circle perimeter)
+8.sphere; // 201.06192982974676 (sphere surface area)
+8.cubeVolume; // 512.0 (cube volume)
 
 300.misec; // Duration(microseconds: 300)
 300.msec; // Duration(milliseconds: 300)
@@ -297,6 +301,8 @@ map1.containsAnyKeys(['name']); // true
 20.isDivisibleBy(5); // true
 30.isBetween(20, 40); // true
 50.isEven; // true
+
+0xFF000000.toColor; // Color(0xFF000000)
 ```
 
 ### String extensions

@@ -24,9 +24,30 @@ extension NumExtensions on num {
 
   /// Returns the square root (√) of this number.
   ///
-  /// Note: for negative values, `sqrt` returns `NaN`.
+  /// **Note:** for negative values, `sqrt` returns `NaN`.
+  ///
   /// Example: `81.sqRoot` -> `9.0`.
   double get sqRoot => sqrt(this);
+
+  /// Returns the area of a circle with this number as radius.
+  ///
+  /// Example: `12.area` -> `452.3893421169302`
+  double get area => pi * square;
+
+  /// Returns the perimeter of a circle with this number as radius.
+  ///
+  /// Example: `12.perimeter` -> `75.39822368615503`
+  double get perimeter => 2 * pi * this;
+
+  /// Returns the surface area of a sphere with this number as radius.
+  ///
+  /// Example: `12.sphere` -> `7,718.4`
+  double get sphere => 4 * pi * square;
+
+  /// Returns the cube volume with this number as radius.
+  ///
+  /// Example: `2.cubeVolume` -> `8.0`
+  double get cubeVolume => toDouble() * toDouble() * toDouble();
 
   // ? =================== Durations ========================
 
@@ -166,4 +187,11 @@ extension NumExtensions on num {
   ///
   /// Example: `12.isEven` -> `true`.
   bool get isEven => toInt() % 2 == 0;
+
+  // ? =================== Converters ========================
+
+  /// Converts this number to a `Color` with the alpha channel set to this number.
+  ///
+  /// Example: `0xff6a87e3.toColor` -> `Color(0xff6a87e3)`.
+  Color get toColor => Color(toInt());
 }

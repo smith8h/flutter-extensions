@@ -1,3 +1,13 @@
+# 1.4.0
+
+## Added
+### NumberExtensions
+- `area` returns the area of a circle with this number as radius.
+- `perimeter` returns the perimeter of a circle with this number as radius.
+- `sphere` returns the surface area of a sphere with this number as radius.
+- `cubeVolume` returns the cube volume with this number as radius.
+- `toColor` returns the color value of this number.
+
 # 1.3.0
 
 ## Added
