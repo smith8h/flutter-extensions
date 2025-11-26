@@ -78,15 +78,15 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | ------------------ | :----------: | :--------: | :--------: |
 | **Bool**           |    5         |   2        |    0       |
 | **BuildContext**   |    20        |   4        |    0       |
-| **Color**          |    6 (+6)    |   0        |    0       |
+| **Color**          |    6         |   0        |    0       |
 | **DateTime**       |    21        |   0        |    2       |
 | **List**           |    17        |   4        |    1       |
 | **Map**            |    14        |   2        |    0       |
-| **Number**         |    18        |   2        |    0       |
-| **String**         |    20 (+5)   |   1 (+1)   |    0       |
-| **Widget**         |    29 (+1)   |   1        |    0       |
-| **Total Of Each**  |    **150**   |   **16**   |    **3**   |
-| **All Extensions** |    **169**   |
+| **Number**         |    23 (+5)   |   2        |    0       |
+| **String**         |    20        |   1        |    0       |
+| **Widget**         |    29        |   1        |    0       |
+| **Total Of Each**  |    **155**   |   **16**   |    **3**   |
+| **All Extensions** |    **174**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
