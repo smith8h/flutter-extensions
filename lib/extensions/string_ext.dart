@@ -104,6 +104,33 @@ extension StringExtensions on String {
     }
   }
 
+  /// Checks if this string is a valid UUID v4 format.
+  ///
+  /// Example: `"123e4567-e89b-12d3-a456-426614174000".isUUID` -> `true`.
+  bool get isUUID => RegExp(
+    r'^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$',
+  ).hasMatch(this);
+
+  /// Checks if this string contains any of the given [values].
+  ///
+  /// Example: `"123e4567-e89b-12d3-a456-426614174000".containsAny(['123', '456'])` -> `true`.
+  bool containsAny(List<String> values) =>
+      values.any((value) => contains(value));
+
+  /// Checks if this string contains all the given [values].
+  ///
+  /// Example: `"123e4567-e89b-12d3-a456-426614174000".containsAll(['123', '456'])` -> `true`.
+  bool containsAll(List<String> values) =>
+      values.every((value) => contains(value));
+
+  /// Matches this string against the given [pattern].
+  ///
+  /// ```dart
+  /// final text = "123e4567-e89b-12d3-a456-426614174000";
+  /// final pattern = RegExp(r'[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}');
+  /// bool hasMatch = text.match(pattern); // true.
+  bool match(RegExp pattern) => pattern.hasMatch(this);
+
   // ? ================== Operators ========================
 
   /// Truncates the `String` when more than `length` characters exist.
@@ -162,6 +189,8 @@ extension StringExtensions on String {
   /// Example: `'{"name": "John", "age": 30}'.parseJson` -> `{'name': 'John', 'age': 30}`.
   Map<String, dynamic>? get parseJson =>
       jsonDecode(this) as Map<String, dynamic>?;
+
+  // ? ================== Functions ========================
 
   /// Copies this string to the clipboard.
   void copyToClipboard() => Clipboard.setData(ClipboardData(text: this));

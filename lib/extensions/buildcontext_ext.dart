@@ -12,11 +12,17 @@ extension BuildContextExt on BuildContext {
   /// Example: `context.pop()`
   void pop() => Navigator.of(this).pop();
 
-  /// Push a new page with MaterialPageRoute
+  /// Push a new page with MaterialPageRoute and the given widget.
   ///
   /// Example: `context.push(MyPage())`
   void push(Widget page) =>
       Navigator.of(this).push(MaterialPageRoute(builder: (context) => page));
+
+  /// Push a new page with MaterialPageRoute and the given arguments
+  ///
+  /// Example: `context.pushNamedArgs(MyPage.routeName, arguments: {'id': 1})`
+  void pushNamedArgs(String routeName, {Object? arguments}) =>
+      Navigator.of(this).pushNamed(routeName, arguments: arguments);
 
   /// Push a new page with MaterialPageRoute and the given name
   ///
@@ -79,6 +85,29 @@ extension BuildContextExt on BuildContext {
   /// Example: `context.widgetPosition`
   Offset get widgetPosition => MediaQuery.of(this).size.topLeft(.zero);
 
+  /// Returns the shortest screen dimension.
+  ///
+  /// ```dart
+  /// double shortestSide = context.shortestSide;
+  /// bool isThinScreen = shortestSide <= 400;
+  /// ```
+  double get shortestSide => MediaQuery.of(this).size.shortestSide;
+
+  /// Returns the longest screen dimension.
+  ///
+  /// Example: `context.longestSide`
+  double get longestSide => MediaQuery.of(this).size.longestSide;
+
+  /// Get the arguments passed to the current route.
+  ///
+  /// ```dart
+  /// var args = context.arguments;
+  /// if (args != null) {
+  ///   // Use the arguments
+  /// }
+  /// ```
+  Object? get arguments => ModalRoute.of(this)?.settings.arguments;
+
   // ? =============== Validators ===============
   /// Get the device dark mode
   ///
@@ -113,7 +142,7 @@ extension BuildContextExt on BuildContext {
   /// Check if the device is tablet-sized (shortestSide ≥ 600)
   ///
   /// Example: `context.isTablet`
-  bool get isTablet => MediaQuery.of(this).size.shortestSide >= 600;
+  bool get isTablet => shortestSide >= 600;
 
   /// Returns true if device accessibility high contrast is enabled.
   ///
@@ -122,6 +151,16 @@ extension BuildContextExt on BuildContext {
 
   /// Returns true if width < 360px (useful for responsive).
   ///
-  /// Example: `context.isScreenSmall`
-  bool get isScreenSmall => MediaQuery.of(this).size.width < 360;
+  /// Example: `context.isSmallScreen`
+  bool get isSmallScreen => MediaQuery.of(this).size.width < 360;
+
+  /// Returns true if the navigator can pop.
+  ///
+  /// Example: `context.canPop`
+  bool get canPop => Navigator.of(this).canPop();
+
+  /// Returns true if system's animations are disabled by the user.
+  ///
+  /// Example: `context.isAnimationsDisabled`
+  bool get isAnimationsDisabled => MediaQuery.of(this).disableAnimations;
 }

@@ -77,16 +77,16 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 |         On         |  Extensions  | Functions  | Operations |
 | ------------------ | :----------: | :--------: | :--------: |
 | **Bool**           |    5         |   2        |    0       |
-| **BuildContext**   |    20        |   4        |    0       |
+| **BuildContext**   |    25        |   5        |    0       |
 | **Color**          |    6         |   0        |    0       |
 | **DateTime**       |    21        |   0        |    2       |
 | **List**           |    17        |   4        |    1       |
 | **Map**            |    14        |   2        |    0       |
-| **Number**         |    23 (+5)   |   2        |    0       |
-| **String**         |    20        |   1        |    0       |
+| **Number**         |    23        |   2        |    0       |
+| **String**         |    24        |   1        |    0       |
 | **Widget**         |    29        |   1        |    0       |
-| **Total Of Each**  |    **155**   |   **16**   |    **3**   |
-| **All Extensions** |    **174**   |
+| **Total Of Each**  |    **164**   |   **17**   |    **3**   |
+| **All Extensions** |    **184**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -142,6 +142,7 @@ context.hideKeyboard(); // hides the keyboard
 context.pop(); // pops the current route
 context.push(HomeScreen()); // pushes a new route with the given page
 context.pushNamed(AppRoutes.homeScreen); // pushes a new route with the given name
+context.pushNamedArgs(AppRoutes.homeScreen, arguments: {"id": 123}); // pushes a new route with the given name and arguments
 
 context.orientation; // returns the device orientation
 context.keyboardHeight; // returns the height of the keyboard
@@ -154,6 +155,9 @@ context.devicePixelRatio; // returns the device pixel ratio
 context.brightness; // returns the brightness of the app
 context.widgetSize; // returns the size of the widget tied to this context
 context.widgetPosition; // returns the global position of the widget
+context.longestSide; // returns the longest screen dimension
+context.shortestSide; // returns the shortest screen dimension
+context.arguments; // returns the arguments passed to the current route
 
 context.isDarkMode; // returns true if the device is in dark mode
 context.isKeyboardVisible; // returns true if the keyboard is visible
@@ -162,8 +166,10 @@ context.isPortrait; // returns true if the device orientation is portrait
 context.isRTL; // returns true if the device is in right-to-left mode
 context.isLTR; // returns true if the device is in left-to-right mode
 context.isTablet; // returns if the device is tablet-sized (shortestSide ≥ 600)
-context.isScreenSmall; // returns if width < 360px (useful for responsive)
+context.isSmallScreen; // returns if width < 360px (useful for responsive)
 context.isHighContrast; // returns if device accessibility high contrast is enabled
+context.canPop; // returns true if the navigator can pop
+context.isAnimationsDisabled; // returns true if system's animations are disabled by the user
 ```
 
 ### Color extensions
@@ -330,6 +336,10 @@ map1.containsAnyKeys(['name']); // true
 '123'.isDigit; // true
 'abc'.isAlpha; // true
 'abc123'.isAlphaNumeric; // true
+'123e4567-e89b-12d3-a456-426614174000'.isUUID; // true
+'123e456'.match(RegExp(r'[0-9a-z0-9]*')); // true
+'abc123'.containsAny(['a', '7', 'c']); // true
+'abc123'.containsAll(['a', 'b', 'c']); // true
 ```
 
 ### Widget extensions

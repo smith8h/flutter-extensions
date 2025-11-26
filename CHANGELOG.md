@@ -1,5 +1,27 @@
-# 1.4.0
+# 1.5.0
+## Added
+### BuildContextExtensions
+- `arguments` returns the arguments passed to the current route.
+- `canPop` returns true if the navigator can pop.
+- `isAnimationsDisabled` returns true if system's animations are disabled by the user.
+- `longestSide` returns the longest screen dimension.
+- `shortestSide` returns the shortest screen dimension.
+- `pushNamedArgs` pushes a new page with MaterialPageRoute and the given arguments.
 
+### StringExtensions
+- `isUUID` returns `true` if this string is a valid UUID v4 format.
+- `containsAny` returns `true` if this string contains any of the given [values].
+- `containsAll` returns `true` if this string contains all the given [values].
+- `match` returns `true` if this string matches the given [pattern].
+
+## Changed
+- `isScreenSmall` changed to `isSmallScreen` to match the new naming convention.
+
+# 1.4.1
+## Hotfix - Example
+- Update the missing examples in the README.md file.
+
+# 1.4.0
 ## Added
 ### NumberExtensions
 - `area` returns the area of a circle with this number as radius.
@@ -9,7 +31,6 @@
 - `toColor` returns the color value of this number.
 
 # 1.3.0
-
 ## Added
 ### StringExtensions
 - `isDigit` returns `true` if this string is digit only.
@@ -35,7 +56,6 @@
 - `isBlank` was going in loop when checking for blank string.
 
 # 1.2.0
-
 ## Added
 ### ListExtensions
 - `toSet` returns a set with all the unique elements in this list (removes duplicates).
@@ -54,7 +74,6 @@
 - `wrapWith` wraps each element with a widget builder.
 
 # 1.1.0
-
 ## Added
 ### BoolExtensions
 - `toInt` returns `1` if this boolean is `true`, and `0` if this boolean is `false`.
@@ -84,7 +103,6 @@
 - `widgetPosition` gets the global position of the widget.
 
 # 1.0.1
-
 ## Added
 ### MapExtensions
 - `mergeWith` merges two maps, applying a custom combine function when keys overlap.
@@ -113,7 +131,6 @@ Version `1.0.0` includes a hotfix for the animations extensions for widgets.
 This version includes all the extensions and utils from the previous versions.
 
 # 0.0.9
-
 ## Added
 ### DateTimeExtensions
 - `formatHrMin12` formats the time in 12-hour format.
@@ -131,7 +148,6 @@ This version includes all the extensions and utils from the previous versions.
 - `yyyyMMddHHmm` changed to `formatYearMonthDayHrMin` for better readability.
 
 # 0.0.8
-
 ## Added
 ### WidgetExtensions
 - `fade` fades the widget.
@@ -143,7 +159,6 @@ This version includes all the extensions and utils from the previous versions.
 - `rotate` rotates the widget.
 
 # 0.0.7
-
 ## Added
 ### StringExtensions
 - `removeNumbers` removes all the numbers from the `String`.
@@ -173,7 +188,6 @@ This version includes all the extensions and utils from the previous versions.
 - `gestures` returns a new [GestureDetector] widget with the given gestures.
 
 # 0.0.6
-
 ## Added
 ### StringExtensions
 - `isPalindrome` returns `true` if this string is a palindrome.
@@ -186,7 +200,6 @@ This version includes all the extensions and utils from the previous versions.
 - `isPortrait` returns `true` if the device orientation is portrait.
 
 # 0.0.5
-
 ## Added
 ### BuildContextExtensions
 - `hideKeyboard` hides the keyboard.
@@ -194,7 +207,6 @@ This version includes all the extensions and utils from the previous versions.
 - `isDarkMode` returns `true` if the device is in dark mode.
 
 # 0.0.4
-
 ## Added
 ### DateTimeExtensions
 - `operator +` ads this duration of time to this date and returns the result.
@@ -211,7 +223,6 @@ This version includes all the extensions and utils from the previous versions.
 - `isYesterday` returns `true` if this date is yesterday.
 
 # 0.0.3
-
 ## Added
 ### StringExtensions
 - `reverse` returns the reversed version of this string.
@@ -250,19 +261,16 @@ This version includes all the extensions and utils from the previous versions.
 - `toInt` returns `int?` to handle invalid formats.
 
 # 0.0.2
-
 ## Added
 - `NumberExtensions`:  with format helper `format`.
 - `DateTimeExtensions`: with format helpers `format`, `yyyyMMdd`, `yyyyMMddHHmm`, `yyyyMMddHHmmss`, `HHmm`.
 
 # 0.0.1
-
 ## Added
 - `StringExtensions`: `toDate`.
 - `NumberExtensions`: `fixed00`, `fixed0`.
 
 # 0.0.0
-
 ## Added
 - `NumExtensions` with numeric helpers: `half`, `quarter`, `square`, `sqRoot`.
 - Duration helpers: `misec`, `msec`, `sec`, `min`, `hr`, `day`.
