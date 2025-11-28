@@ -143,6 +143,31 @@ extension WidgetExtensions on Widget {
     );
   }
 
+  /// Returns a new [GestureDetector] widget with the given [onTap] callback.
+  GestureDetector onTap(void Function()? onTap) {
+    return GestureDetector(onTap: onTap, child: this);
+  }
+
+  /// Returns a new [GestureDetector] widget with the given [onDoubleTap] callback.
+  GestureDetector onDoubleTap(void Function()? onDoubleTap) {
+    return GestureDetector(onDoubleTap: onDoubleTap, child: this);
+  }
+
+  /// Returns a new [GestureDetector] widget with the given [onTouch] callback.
+  GestureDetector onTouch(void Function(TapDownDetails tapDetails)? onTouch) {
+    return GestureDetector(onTapDown: onTouch, child: this);
+  }
+
+  /// Returns a new [GestureDetector] widget with the given [onLongPress] callback.
+  GestureDetector onLongPress(void Function()? onLongPress) {
+    return GestureDetector(onLongPress: onLongPress, child: this);
+  }
+
+  /// Returns a new [InkWell] widget with the given [onTap] callback, and optional [radius] for the ink splash.
+  Widget ink({VoidCallback? onTap, BorderRadius? radius}) {
+    return InkWell(onTap: onTap, borderRadius: radius, child: this);
+  }
+
   // ? ================ Animations ================
 
   /// Animates the widget with the given type.
@@ -314,6 +339,132 @@ extension WidgetExtensions on Widget {
   }
 
   // ? ================ Shapes & Boxes ================
+
+  /// Returns a new IntrinsicHeight widget.
+  IntrinsicHeight intrinsicHeight({Key? key, double? stepHeight}) {
+    return IntrinsicHeight(key: key, child: this);
+  }
+
+  /// Returns a new IntrinsicWidth widget.
+  ///
+  /// The [stepWidth] and [stepHeight] parameters are used to set the width and height of the widget.
+  IntrinsicWidth intrinsicWidth({
+    Key? key,
+    double? stepWidth,
+    double? stepHeight,
+  }) {
+    return IntrinsicWidth(
+      key: key,
+      stepHeight: stepHeight,
+      stepWidth: stepWidth,
+      child: this,
+    );
+  }
+
+  /// Returns a new Tooltip widget with the given message.
+  Tooltip tooltip({
+    Key? key,
+    String? message,
+    InlineSpan? richMessage,
+    BoxConstraints? constraints,
+    EdgeInsetsGeometry? padding,
+    EdgeInsetsGeometry? margin,
+    double? verticalOffset,
+    bool? preferBelow,
+    bool? excludeFromSemantics,
+    Decoration? decoration,
+    TextStyle? textStyle,
+    TextAlign? textAlign,
+    Duration? waitDuration,
+    Duration? showDuration,
+    Duration? exitDuration,
+    bool enableTapToDismiss = true,
+    TooltipTriggerMode? triggerMode,
+    bool? enableFeedback,
+    void Function()? onTriggered,
+    MouseCursor? mouseCursor,
+    bool? ignorePointer,
+  }) {
+    return Tooltip(
+      key: key,
+      message: message,
+      richMessage: richMessage,
+      constraints: constraints,
+      padding: padding,
+      margin: margin,
+      verticalOffset: verticalOffset,
+      preferBelow: preferBelow,
+      excludeFromSemantics: excludeFromSemantics,
+      decoration: decoration,
+      textStyle: textStyle,
+      textAlign: textAlign,
+      waitDuration: waitDuration,
+      showDuration: showDuration,
+      exitDuration: exitDuration,
+      enableTapToDismiss: enableTapToDismiss,
+      triggerMode: triggerMode,
+      enableFeedback: enableFeedback,
+      onTriggered: onTriggered,
+      mouseCursor: mouseCursor,
+      ignorePointer: ignorePointer,
+      child: this,
+    );
+  }
+
+  /// Returns a new Hero widget with the given tag.
+  Hero hero({
+    Key? key,
+    required Object tag,
+    Tween<Rect?> Function(Rect?, Rect?)? createRectTween,
+    Widget Function(
+      BuildContext,
+      Animation<double>,
+      HeroFlightDirection,
+      BuildContext,
+      BuildContext,
+    )?
+    flightShuttleBuilder,
+    Widget Function(BuildContext, Size, Widget)? placeholderBuilder,
+    bool transitionOnUserGestures = false,
+  }) {
+    return Hero(
+      key: key,
+      tag: tag,
+      createRectTween: createRectTween,
+      flightShuttleBuilder: flightShuttleBuilder,
+      placeholderBuilder: placeholderBuilder,
+      transitionOnUserGestures: transitionOnUserGestures,
+      child: this,
+    );
+  }
+
+  /// Returns a new Card widget with the given child.
+  Card card({
+    Key? key,
+    bool borderOnForeground = true,
+    bool semanticContainer = true,
+    Color? surfaceTintColor,
+    EdgeInsetsGeometry? margin,
+    Color? color,
+    Color? shadowColor,
+    double? elevation,
+    ShapeBorder? shape,
+    Clip? clipBehavior,
+  }) {
+    return Card(
+      key: key,
+      borderOnForeground: borderOnForeground,
+      semanticContainer: semanticContainer,
+      surfaceTintColor: surfaceTintColor,
+      clipBehavior: clipBehavior,
+      color: color,
+      elevation: elevation,
+      margin: margin,
+      shadowColor: shadowColor,
+      shape: shape,
+      child: this,
+    );
+  }
 
   /// Returns a new Scaffold widget with the given body.
   Scaffold scaffold({
@@ -536,7 +687,81 @@ extension WidgetExtensions on Widget {
     );
   }
 
+  /// Returns a new rounded widget from left with the given radius.
+  ClipRRect roundedLeft({
+    Key? key,
+    double radius = 8,
+    Clip clipBehavior = .antiAlias,
+    CustomClipper<RRect>? clipper,
+  }) {
+    return ClipRRect(
+      key: key,
+      clipBehavior: clipBehavior,
+      clipper: clipper,
+      borderRadius: .horizontal(left: .circular(radius)),
+      child: this,
+    );
+  }
+
+  /// Returns a new rounded widget from right with the given radius.
+  ClipRRect roundedRight({
+    Key? key,
+    double radius = 8,
+    Clip clipBehavior = .antiAlias,
+    CustomClipper<RRect>? clipper,
+  }) {
+    return ClipRRect(
+      key: key,
+      clipBehavior: clipBehavior,
+      clipper: clipper,
+      borderRadius: .horizontal(right: .circular(radius)),
+      child: this,
+    );
+  }
+
   // ? ================ Alignment ================
+
+  /// Returns a new directional positioned widget with the given position.
+  PositionedDirectional positionedDirectional({
+    Key? key,
+    double? start,
+    double? top,
+    double? end,
+    double? bottom,
+    double? width,
+    double? height,
+  }) => PositionedDirectional(
+    key: key,
+    start: start,
+    top: top,
+    end: end,
+    bottom: bottom,
+    width: width,
+    height: height,
+    child: this,
+  );
+
+  /// Returns a new positioned widget with the given position.
+  Positioned positioned({
+    Key? key,
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+    double? width,
+    double? height,
+  }) {
+    return Positioned(
+      key: key,
+      left: left,
+      top: top,
+      right: right,
+      bottom: bottom,
+      width: width,
+      height: height,
+      child: this,
+    );
+  }
 
   /// Returns a new aligned widget with the given alignment.
   Align align({
@@ -584,6 +809,29 @@ extension WidgetExtensions on Widget {
   // ? ================ Margin =================
 
   /// Returns a new widget with the given margin.
+  Container margin({
+    double? all,
+    double? horizontal,
+    double? vertical,
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return Container(
+      margin: all != null
+          ? .all(all)
+          : .only(
+              left: left ?? (horizontal ?? 0),
+              right: right ?? (horizontal ?? 0),
+              top: top ?? (vertical ?? 0),
+              bottom: bottom ?? (vertical ?? 0),
+            ),
+      child: this,
+    );
+  }
+
+  /// Returns a new widget with the given margin.
   Container marginAll(double margin) {
     return Container(margin: .all(margin), child: this);
   }
@@ -610,6 +858,29 @@ extension WidgetExtensions on Widget {
   }
 
   // ? ================ Padding ================
+
+  /// Returns a new widget with the given padding.
+  Widget padded({
+    double? all,
+    double? horizontal,
+    double? vertical,
+    double? left,
+    double? top,
+    double? right,
+    double? bottom,
+  }) {
+    return Padding(
+      padding: all != null
+          ? .all(all)
+          : .only(
+              left: left ?? (horizontal ?? 0),
+              right: right ?? (horizontal ?? 0),
+              top: top ?? (vertical ?? 0),
+              bottom: bottom ?? (vertical ?? 0),
+            ),
+      child: this,
+    );
+  }
 
   /// Returns a new widget with the given padding.
   Padding paddingAll(double padding) {

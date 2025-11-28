@@ -1,3 +1,23 @@
+# 1.6.0
+## Added
+### WidgetExtensions
+- `padding` returns a new widget with the given padding for all attributes.
+- `margin` returns a new widget with the given margin for all attributes.
+- `positioned` returns a new widget with the given position.
+- `positionedDirectional` returns a new widget with the given position.
+- `roundedRight` returns a new widget with the given radius for the right side.
+- `roundedLeft` returns a new widget with the given radius for the left side.
+- `card` wrap current widget with card.
+- `hero` make a hero widget with the given tag.
+- `tooltip` returns a new widget with the given tooltip.
+- `intrinsicHeight` returns a new widget with the given height.
+- `intrinsicWidth` returns a new widget with the given width.
+- `onTap` returns a new widget with the given tap callback.
+- `onDoubleTap` returns a new widget with the given double tap callback.
+- `onLongPress` returns a new widget with the given long press callback.
+- `onTouch` returns a new widget with the given touch callback.
+- `ink` returns a new widget with the given ink splash radius.
+
 # 1.5.0
 ## Added
 ### BuildContextExtensions

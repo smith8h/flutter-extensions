@@ -74,19 +74,19 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 
 ---
 
-|         On         |  Extensions  | Functions  | Operations |
-| ------------------ | :----------: | :--------: | :--------: |
-| **Bool**           |    5         |   2        |    0       |
-| **BuildContext**   |    25        |   5        |    0       |
-| **Color**          |    6         |   0        |    0       |
-| **DateTime**       |    21        |   0        |    2       |
-| **List**           |    17        |   4        |    1       |
-| **Map**            |    14        |   2        |    0       |
-| **Number**         |    23        |   2        |    0       |
-| **String**         |    24        |   1        |    0       |
-| **Widget**         |    29        |   1        |    0       |
-| **Total Of Each**  |    **164**   |   **17**   |    **3**   |
-| **All Extensions** |    **184**   |
+|       **On**       |**Extensions**|**Functions**|**Operations**|
+| ------------------ | :----------: | :---------: | :----------: |
+| **Bool**           |    5         |    2        |     0        |
+| **BuildContext**   |    25        |    5        |     0        |
+| **Color**          |    6         |    0        |     0        |
+| **DateTime**       |    21        |    0        |     2        |
+| **List**           |    17        |    4        |     1        |
+| **Map**            |    14        |    2        |     0        |
+| **Number**         |    23        |    2        |     0        |
+| **String**         |    24        |    1        |     0        |
+| **Widget**         |    45        |    1        |     0        |
+| **Total Of Each**  |    **180**   |    **17**   |     **3**    |
+| **All Extensions** |    **200**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -346,11 +346,13 @@ map1.containsAnyKeys(['name']); // true
 ```dart
 [
   // margin extensions
+  Text('Hello World!').margin(horizontal: 16.0),
   Text('Hello World!').marginAll(16.0),
   Text('Hello World!').marginSymmetric(vertical: 16.0, horizontal: 16.0),
   Text('Hello World!').marginOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
 
   // padding extensions
+  Text('Hello World!').padding(left: 16.0),
   Text('Hello World!').paddingAll(16.0),
   Text('Hello World!').paddingSymmetric(vertical: 16.0, horizontal: 16.0),
   Text('Hello World!').paddingOnly(left: 16.0, top: 16.0, right: 16.0, bottom: 16.0),
@@ -359,7 +361,8 @@ map1.containsAnyKeys(['name']); // true
   [
     Text('Hello World!').expanded(),
     Text('Hello World!').expanded(),
-  ].toColumn(spacer: 16),
+  ].toColumn(spacer: 16)
+    .intrinsicHeight(),
   Text('Hello World!').flexible(),
 
   // customizations
@@ -374,7 +377,14 @@ map1.containsAnyKeys(['name']); // true
       .decoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16.0),
-      ),
+      )
+      .positioned(left: 16.0, top: 16.0),
+
+    Icon(Icons.add)
+      .card()
+      .hero(tag: 'add')
+      .tooltip('Add')
+      .positionedDirectional(end: 16.0, bottom: 16.0),
   ].toStack(),
 
   // shape extensions & gestures
@@ -386,19 +396,37 @@ map1.containsAnyKeys(['name']); // true
     .roundedTop(radius: 16.0),
   Text('Hello World!')
     .width(100.0)
+    .roundedRight(radius: 16.0),
+  Text('Hello World!')
+    .width(100.0)
+    .roundedLeft(radius: 16.0),
+  Text('Hello World!')
+    .width(100.0)
     .roundedBottom(radius: 16.0)
     .gestures(
       onTap: () => print('tap'),
     ),
 
   // animation extensions
-  Text('Hello World!').fade(),
-  Text('Hello World!').scale(beginScale: 0.9),
-  Text('Hello World!').slideUp(),
-  Text('Hello World!').slideDown(),
-  Text('Hello World!').slideLeft(),
-  Text('Hello World!').slideRight(),
-  Text('Hello World!').rotate(beginAngle: 0.05),
+  [
+    Text('Hello World!')
+      .onTap(() => print('tap'))
+      .fade(),
+    Text('Hello World!')
+      .onTouch(() => print('touch'))
+      .scale(beginScale: 0.9),
+    Text('Hello World!')
+      .onDoubleTap(() => print('double tap'))
+      .slideUp(),
+    Text('Hello World!')
+      .onLongPress(() => print('long press'))
+      .slideDown(),
+    Text('Hello World!')
+      .ink(onTap: () => print('ink tap'))
+      .slideLeft(),
+    Text('Hello World!').slideRight(),
+    Text('Hello World!').rotate(beginAngle: 0.05),
+  ].toRow(spacer: 16).intrinsicWidth(),
 
   // scroll and refresh extensions
   [
