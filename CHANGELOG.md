@@ -1,3 +1,14 @@
+# 1.7.0
+## Added
+### BuildContextExtensions
+- `deviceInfo` returns the device info.
+- `androidInfo` returns the android device info.
+- `iosInfo` returns the ios device info.
+- `macOsInfo` returns the macos device info.
+- `windowsInfo` returns the windows device info.
+- `linuxInfo` returns the linux device info.
+- `webBrowserInfo` returns the web browser info.
+
 # 1.6.0
 ## Added
 ### WidgetExtensions

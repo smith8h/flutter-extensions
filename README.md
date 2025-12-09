@@ -1,7 +1,7 @@
 <div align="center">
   <h1 style="font-size: 45px;">✨ S-Extensions ✨</h1>
 
-  <img src="assets/1.png" alt="Screenshot" width="220" />
+  <img src="package-images/0.png" alt="Screenshot" width="220" />
 
   <p>
 🚀 A dart package aiming to provide useful extensions and helper functions to ease and speed up development.
@@ -77,7 +77,7 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 |       **On**       |**Extensions**|**Functions**|**Operations**|
 | ------------------ | :----------: | :---------: | :----------: |
 | **Bool**           |    5         |    2        |     0        |
-| **BuildContext**   |    25        |    5        |     0        |
+| **BuildContext**   |    32        |    5        |     0        |
 | **Color**          |    6         |    0        |     0        |
 | **DateTime**       |    21        |    0        |     2        |
 | **List**           |    17        |    4        |     1        |
@@ -85,8 +85,8 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | **Number**         |    23        |    2        |     0        |
 | **String**         |    24        |    1        |     0        |
 | **Widget**         |    45        |    1        |     0        |
-| **Total Of Each**  |    **180**   |    **17**   |     **3**    |
-| **All Extensions** |    **200**   |
+| **Total Of Each**  |    **187**   |    **17**   |     **3**    |
+| **All Extensions** |    **207**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -170,6 +170,14 @@ context.isSmallScreen; // returns if width < 360px (useful for responsive)
 context.isHighContrast; // returns if device accessibility high contrast is enabled
 context.canPop; // returns true if the navigator can pop
 context.isAnimationsDisabled; // returns true if system's animations are disabled by the user
+
+c.deviceInfo; // get the device info
+c.androidInfo; // get the android device info
+c.iosInfo; // get the ios device info
+c.macOsInfo; // get the macos device info
+c.windowsInfo; // get the windows device info
+c.linuxInfo; // get the linux device info
+c.webBrowserInfo; // get the web browser info
 ```
 
 ### Color extensions
