@@ -24,3 +24,4 @@ migrate_working_dir/
 build/
 example/test/
 example/pubspec.lock
+.flutter-plugins-dependencies

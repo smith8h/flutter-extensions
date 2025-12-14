@@ -1,3 +1,4 @@
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 
 extension BuildContextExt on BuildContext {
@@ -163,4 +164,40 @@ extension BuildContextExt on BuildContext {
   ///
   /// Example: `context.isAnimationsDisabled`
   bool get isAnimationsDisabled => MediaQuery.of(this).disableAnimations;
+
+  // ? =============== Device Info ===============
+  /// Get the device info
+  ///
+  /// Example: `context.deviceInfo`
+  Future<BaseDeviceInfo> get deviceInfo async => await DeviceInfoPlugin().deviceInfo;
+
+  /// Get the android device info
+  ///
+  /// Example: `context.androidInfo`
+  Future<AndroidDeviceInfo> get androidInfo async => await DeviceInfoPlugin().androidInfo;
+
+  /// Get the ios device info
+  ///
+  /// Example: `context.iosInfo`
+  Future<IosDeviceInfo> get iosInfo async => await DeviceInfoPlugin().iosInfo;
+
+  /// Get the windows device info
+  ///
+  /// Example: `context.windowsInfo`
+  Future<WindowsDeviceInfo> get windowsInfo async => await DeviceInfoPlugin().windowsInfo;
+
+  /// Get the macos device info
+  ///
+  /// Example: `context.macosInfo`
+  Future<MacOsDeviceInfo> get macosInfo async => await DeviceInfoPlugin().macOsInfo;
+
+  /// Get the web browser info
+  ///
+  /// Example: `context.webBrowserInfo`
+  Future<WebBrowserInfo> get webBrowserInfo async => await DeviceInfoPlugin().webBrowserInfo;
+
+  /// Get the Linux device info
+  ///
+  /// Example: `context.linuxInfo`
+  Future<LinuxDeviceInfo> get linuxInfo async => await DeviceInfoPlugin().linuxInfo;
 }
