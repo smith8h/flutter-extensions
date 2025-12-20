@@ -39,4 +39,36 @@ extension BoolExtensions on bool {
   void whenFalse(void Function() action) {
     if (!this) action();
   }
+
+  /// Returns [whenTrue] if this boolean is `true`, and [whenFalse] if this boolean is `false`.
+  ///
+  /// ```dart
+  /// bool isDark = true;
+  /// String result = isDark.fold('dark', 'light');
+  /// print(result); // 'dark'
+  /// ```
+  T fold<T>(T whenTrue, T whenFalse) => this ? whenTrue : whenFalse;
+
+  /// Lazily evaluates and returns the result of [whenTrue] if this boolean is `true`,
+  /// or the result of [whenFalse] if this boolean is `false`.
+  ///
+  /// This is useful when the values for the true/false branches are expensive to compute
+  /// and you only want to compute the one that will actually be used.
+  ///
+  /// ```dart
+  /// isLoggedIn.lazyFold(
+  ///   () => heavyComputation(),
+  ///   () => fallback(),
+  /// );
+  ///
+  /// bool isDark = true;
+  /// String status = isDark.lazyFold(
+  ///   () => 'dark',
+  ///   () => 'light',
+  /// );
+  /// print(status); // 'dark'
+  /// ```
+  T lazyFold<T>(T Function() whenTrue, T Function() whenFalse) {
+    return this ? whenTrue() : whenFalse();
+  }
 }
