@@ -77,7 +77,7 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 
 |       **On**       |**Extensions**|**Functions**|**Operations**|
 | ------------------ | :----------: | :---------: | :----------: |
-| **Bool**           |    5         |    2        |     0        |
+| **Bool**           |    7         |    2        |     0        |
 | **BuildContext**   |    34        |    5        |     0        |
 | **Color**          |    6         |    0        |     0        |
 | **DateTime**       |    21        |    0        |     2        |
@@ -87,8 +87,8 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | **Object**         |    2         |    0        |     0        |
 | **String**         |    25        |    1        |     0        |
 | **Widget**         |    46        |    1        |     0        |
-| **Total Of Each**  |    **195**   |    **17**   |     **3**    |
-| **All Extensions** |    **215**   |
+| **Total Of Each**  |    **197**   |    **17**   |     **3**    |
+| **All Extensions** |    **217**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -115,7 +115,15 @@ import 'package:s_extensions/s_extensions.dart';
 > **From 1.8.0 and above**:
 > This action is required to use `screenWidth`, `screenHeight`, `w` and `h` extensions and for better initialization process.
 
-Wrap your app with `SExtensionsScreenUtils`
+Wrap your app with `SExtensionsScreenUtil` and provide the screen size from design (e.g., Figma, ...):
+```dart
+SExtensionsScreenUtil(
+  screenSize: const Size(390.0, 844.0), // screen size from design (e.g., Figma, ...)
+  app: MaterialApp(
+    home: const MyHomePage(),
+  ),
+);
+```
 
 > **From 1.7.0 and below**:
 Recommended initialization (supports hot reload and navigation changes)
@@ -144,15 +152,24 @@ isLoaded.toYesNo; // "yes"
 isLoaded.toEnabledDisabled; // "enabled"
 isLoaded.whenTrue(() => print("loaded")); // "loaded"
 isLoaded.whenFalse(() => print("not loaded")); // "not loaded"
+isLoaded.fold(
+  whenTrue: () => print("loaded"),
+  whenFalse: () => print("not loaded"),
+);
+isLoaded.lazyFold(
+  whenTrue: () async => print("loaded"),
+  whenFalse: () async => print("not loaded"),
+);
 ```
 
 ### BuildContext extensions
 ```dart
 context.hideKeyboard(); // hides the keyboard
-context.pop(); // pops the current route
+context.pop(result: true); // pops the current route
 context.push(HomeScreen()); // pushes a new route with the given page
 context.pushNamed(AppRoutes.homeScreen); // pushes a new route with the given name
-context.pushNamedArgs(AppRoutes.homeScreen, arguments: {"id": 123}); // pushes a new route with the given name and arguments
+context.pushReplacement(SettingsScreen()); // replace current page with provided one
+context.pushReplacementNamed(AppRoutes.homeScreen); // replace current route with provided one
 
 context.orientation; // returns the device orientation
 context.keyboardHeight; // returns the height of the keyboard
@@ -314,8 +331,8 @@ map1.containsAnyKeys(['name']); // true
 
 0.5.screenWidth; // half of the screen width
 0.5.screenHeight; // half of the screen height
-24.w; // dynamic width calculated based on screen size provided in SExtensionsScreenUtils
-24.h; // dynamic height calculated based on screen size provided in SExtensionsScreenUtils
+24.w; // dynamic width calculated based on screen size provided in SExtensionsScreenUtil
+24.h; // dynamic height calculated based on screen size provided in SExtensionsScreenUtil
 
 123.456.fixed00; // 123.46
 123.456.fixed0; // 123.5
@@ -333,6 +350,9 @@ map1.containsAnyKeys(['name']); // true
 
 ### Object extensions
 ```dart
+Object obj = ClassA(); // or any other object
+obj.isNull; // false
+obj.isNotNull; // true
 ```
 
 ### String extensions
@@ -361,7 +381,10 @@ map1.containsAnyKeys(['name']); // true
 'abc'.isAlpha; // true
 'abc123'.isAlphaNumeric; // true
 '123e4567-e89b-12d3-a456-426614174000'.isUUID; // true
-'123e456'.match(RegExp(r'[0-9a-z0-9]*')); // true
+' '.isBlank; // true
+' a '.isNotBlank; // true
+
+'123e456'.match(r'[0-9a-z0-9]*'); // true
 'abc123'.containsAny(['a', '7', 'c']); // true
 'abc123'.containsAll(['a', 'b', 'c']); // true
 ```
@@ -460,10 +483,23 @@ map1.containsAnyKeys(['name']); // true
     .refreshable(onRefresh: () async {
       await Future.delayed(2.seconds),
     }),
-].toColumn(separator: 16);
+].toColumn(separator: 16)
+  .safeArea()
+  .scaffold();
 ```
 
 ## 🔧 Static Context Manager
+
+From `1.8.0` and above.. there is no need for calling `FlutterSExtensions.update(context)` in `MaterialApp.builder`. **(but it's still can be called in tests.)**
+You can now wrap your app with `SExtensionsScreenUtil` for better dynamic scaling and responsive UI usage:
+```dart
+SExtensionsScreenUtil(
+  screenSize: const Size(390.0, 844.0), // screen size from design (e.g., Figma, ...)
+  app: MaterialApp(
+    home: const MyHomePage(),
+  ),
+);
+```
 
 `FlutterSExtensions` is a tiny singleton managing a `FlutterView` and a cached `MediaQueryData`. It powers property access like `0.9.screenWidth` and `0.9.screenHeight` without explicitly passing `BuildContext`.
 

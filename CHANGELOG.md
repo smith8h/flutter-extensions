@@ -1,5 +1,9 @@
 # 1.8.0
 ## Added
+### BoolExtensions
+- `fold` do some logic according to the state of this bool.
+- `lazyFold` do some async logic according to the state of this bool.
+
 ### BuildContextExtensions
 - `pushReplacement` push and replace the current route with a new widget.
 - `pushReplacementNamed` push and replace the current route with a new named route.
@@ -19,6 +23,9 @@
 - `safeArea` wrap current widget with SafeArea.
 
 ## Changes and Migrations
+### BuildContextExtensions
+- `pushNamedArgs` removed as the `pushNamed` do the same work now.
+
 ### StringExtensions
 - `matches` is now accepts `r'String'` directly without the need for `RegExp(r'String')`.
 
@@ -27,7 +34,7 @@ From `1.8.0` on.. there is no need for calling `FlutterSExtensions.update(contex
 You can now wrap your app with `SExtensionsScreenUtil` for better dynamic scaling and responsive UI usage:
 ```dart
 SExtensionsScreenUtil(
-  screenSize: const Size(390.0, 844.0), // screen size from design (e.g., Figma ...)
+  screenSize: const Size(390.0, 844.0), // screen size from design (e.g., Figma, ...)
   app: MaterialApp(
     home: const MyHomePage(),
   ),

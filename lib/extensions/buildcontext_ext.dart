@@ -16,7 +16,7 @@ extension BuildContextExt on BuildContext {
   /// Push a new page with the given widget directly.
   ///
   /// Example: `context.push(MyPage())`
-  void push(Widget page) =>
+  Future<T?> push<T extends Object?>(Widget page) =>
       Navigator.of(this).push(MaterialPageRoute(builder: (context) => page));
 
   /// Push a named route onto the navigator.

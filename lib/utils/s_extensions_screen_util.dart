@@ -12,7 +12,7 @@ class SExtensionsScreenUtil extends StatelessWidget {
   ///
   /// [screenSize] is the design-time size (in logical pixels) used for
   /// scaling utilities such as responsive dimensions.
-  /// 
+  ///
   /// [app] is the root widget of the application.
   const SExtensionsScreenUtil({
     super.key,
