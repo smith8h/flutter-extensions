@@ -1,0 +1,35 @@
+name: s_extensions
+description: A dart package aiming to provide useful extensions and helper
+  functions to ease and speed up development.
+
+version: 1.8.0
+
+repository: https://github.com/smith8h/flutter-extensions
+homepage: https://github.com/smith8h/flutter-extensions
+screenshots:
+  - description: "A playfull preview of the package."
+    path: "package-images/2.png"
+  - description: "A definition of the package."
+    path: "package-images/1.png"
+
+topics:
+  - productivity
+  - utils
+  - extensions
+  - animations
+  - tools
+
+environment:
+  sdk: ">=3.10.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  device_info_plus: ^12.3.0
+  intl: ^0.20.2
+  scolors: ^1.0.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
