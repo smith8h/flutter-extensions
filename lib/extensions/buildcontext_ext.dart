@@ -1,5 +1,7 @@
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
+import 'package:s_extensions/models/app.dart';
 
 extension BuildContextExt on BuildContext {
   // ? =============== Actions ===============
@@ -64,6 +66,58 @@ extension BuildContextExt on BuildContext {
   }) => Navigator.of(
     this,
   ).pushReplacementNamed(route, result: result, arguments: arguments);
+
+  /// Push a page and remove until a route is found.
+  ///
+  /// ```dart
+  /// // some logic..
+  /// await context.pushAndRemoveUntil(
+  ///   NextScreen(),
+  ///   (route) => route.isFirst,
+  /// );
+  /// ```
+  Future<T?> pushAndRemoveUntil<T extends Object?, TO extends Object?>(
+    Widget page,
+    bool Function(Route<dynamic>) predicate,
+  ) => Navigator.of(this).pushAndRemoveUntil(
+    MaterialPageRoute(builder: (context) => page),
+    predicate,
+  );
+
+  /// Push a named route and remove until a route is found.
+  ///
+  /// ```dart
+  /// // some logic..
+  /// await context.pushNamedAndRemoveUntil(
+  ///   AppRoutes.nextScreen,
+  ///   (route) => route.isFirst,
+  /// );
+  /// ```
+  Future<T?> pushNamedAndRemoveUntil<T extends Object?, TO extends Object?>(
+    String route,
+    bool Function(Route<dynamic>) predicate, {
+    Object? arguments,
+  }) => Navigator.of(
+    this,
+  ).pushNamedAndRemoveUntil(route, predicate, arguments: arguments);
+
+  /// Pop the current route off the navigator stack and push a new route.
+  ///
+  /// ```dart
+  /// // some logic..
+  /// await context.popAndPushNamed(
+  ///   AppRoutes.nextScreen,
+  ///   result: await getObjectRequired(),
+  ///   arguments: {"id": 1},
+  /// );
+  /// ```
+  Future<T?> popAndPushNamed<T extends Object?, TO extends Object?>(
+    String route, {
+    TO? result,
+    Object? arguments,
+  }) => Navigator.of(
+    this,
+  ).popAndPushNamed(route, result: result, arguments: arguments);
 
   // ? =============== Getters ===============
   /// Get the device orientation
@@ -199,6 +253,29 @@ extension BuildContextExt on BuildContext {
   ///
   /// Example: `context.isAnimationsDisabled`
   bool get isAnimationsDisabled => MediaQuery.of(this).disableAnimations;
+
+  // ? =============== Package Info ===============
+  /// Get the package info
+  ///
+  /// Example: `context.packageInfo`
+  Future<PackageInfo> get packageInfo async => await PackageInfo.fromPlatform();
+
+  /// Get the app info
+  ///
+  /// Example: `await context.appInfo`
+  Future<ExAppModel> get appInfo async {
+    final pInfo = await packageInfo;
+    return ExAppModel(
+      versionCode: pInfo.buildNumber,
+      versionName: pInfo.version,
+      version: '${pInfo.buildNumber} (${pInfo.version})',
+      packageName: pInfo.packageName,
+      appName: pInfo.appName,
+      installTime: pInfo.installTime,
+      updateTime: pInfo.updateTime,
+      installedFromStore: pInfo.installerStore,
+    );
+  }
 
   // ? =============== Device Info ===============
   /// Get the device info

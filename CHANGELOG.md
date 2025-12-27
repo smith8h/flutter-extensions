@@ -1,3 +1,12 @@
+# 1.9.0
+## Added
+### BuildContextExtensions
+- `appInfo` returns the app info.
+- `packageInfo` returns the package info.
+- `popAndPushNamed` pop the current route off the navigator stack and push a new route.
+- `pushNamedAndRemoveUntil` push a named route and remove until a route is found.
+- `popAndPushNamed` pop the current route off the navigator stack and push a new route.
+
 # 1.8.0
 ## Added
 ### BoolExtensions

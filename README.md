@@ -29,6 +29,16 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
     <img src="https://img.shields.io/pub/dm/s_extensions?style=flat&color=blue&logo=flutter&label=Downloads&link=https%3A%2F%2Fpub.dev%2Fpackages%2Fs_extensions"
       alt="Pub Monthly Downloads" >
   </a>
+
+  <a href="https://pubstats.dev/packages/s_extensions">
+    <img src="https://pubstats.dev/badges/packages/s_extensions/popularity.svg" alt="PubStats Popularity">
+  </a>
+  <a href="https://pubstats.dev/packages/s_extensions">
+    <img src="https://pubstats.dev/badges/packages/s_extensions/rank.svg" alt="PubStats Rank">
+  </a>
+  <a href="https://pubstats.dev/packages/s_extensions">
+    <img src="https://pubstats.dev/badges/packages/s_extensions/dependents.svg" alt="PubStats Dependents">
+  </a>
   <br/>
   <a href="https://opensource.org/licenses/Apache-2.0" target="_blank">
     <img src="https://img.shields.io/badge/License-Apache%202.0-yellow.svg?logo=Apache"
@@ -42,6 +52,7 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
     <img src="https://img.shields.io/github/last-commit/smith8h/flutter-extensions?style=flat&logo=github&label=Last-Commit"
       alt="GitHub: Last Commit" />
   </a>
+  
   <a href="https://github.com/smith8h">
     <img src="https://img.shields.io/github/followers/smith8h?label=Follow&style=social"
       alt="GitHub: Follow" />
@@ -78,7 +89,7 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 |       **On**       |**Extensions**|**Functions**|**Operations**|
 | ------------------ | :----------: | :---------: | :----------: |
 | **Bool**           |    7         |    2        |     0        |
-| **BuildContext**   |    34        |    5        |     0        |
+| **BuildContext**   |    39        |    5        |     0        |
 | **Color**          |    6         |    0        |     0        |
 | **DateTime**       |    21        |    0        |     2        |
 | **List**           |    17        |    4        |     1        |
@@ -87,8 +98,8 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | **Object**         |    2         |    0        |     0        |
 | **String**         |    25        |    1        |     0        |
 | **Widget**         |    46        |    1        |     0        |
-| **Total Of Each**  |    **197**   |    **17**   |     **3**    |
-| **All Extensions** |    **217**   |
+| **Total Of Each**  |    **202**   |    **17**   |     **3**    |
+| **All Extensions** |    **222**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -170,6 +181,9 @@ context.push(HomeScreen()); // pushes a new route with the given page
 context.pushNamed(AppRoutes.homeScreen); // pushes a new route with the given name
 context.pushReplacement(SettingsScreen()); // replace current page with provided one
 context.pushReplacementNamed(AppRoutes.homeScreen); // replace current route with provided one
+context.popAndPushNamed(AppRoutes.homeScreen); // pop the current route off the navigator stack and push a new route
+context.pushAndRemoveUntil(AppRoutes.homeScreen, (route) => false); // push a route and remove until a route is found
+context.pushNamedAndRemoveUntil(AppRoutes.homeScreen, (route) => false); // push a named route and remove until a route is found
 
 context.orientation; // returns the device orientation
 context.keyboardHeight; // returns the height of the keyboard
@@ -205,6 +219,9 @@ c.macOsInfo; // get the macos device info
 c.windowsInfo; // get the windows device info
 c.linuxInfo; // get the linux device info
 c.webBrowserInfo; // get the web browser info
+
+c.appInfo; // get the app info as App Model
+c.packageInfo; // get the package info
 ```
 
 ### Color extensions
