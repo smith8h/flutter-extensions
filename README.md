@@ -94,12 +94,12 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | **DateTime**       |    21        |    0        |     2        |
 | **List**           |    17        |    4        |     1        |
 | **Map**            |    14        |    2        |     0        |
-| **Number**         |    25        |    2        |     0        |
+| **Number**         |    35        |    2        |     0        |
 | **Object**         |    2         |    0        |     0        |
 | **String**         |    25        |    1        |     0        |
 | **Widget**         |    46        |    1        |     0        |
-| **Total Of Each**  |    **202**   |    **17**   |     **3**    |
-| **All Extensions** |    **222**   |
+| **Total Of Each**  |    **212**   |    **17**   |     **3**    |
+| **All Extensions** |    **232**   |
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
@@ -345,12 +345,16 @@ map1.containsAnyKeys(['name']); // true
 300.min; // Duration(minutes: 300)
 300.hr; // Duration(hours: 300)
 300.day; // Duration(days: 300)
+3.week; // Duration(days: 21)
+3.month; // Duration(days: 90)
+1.year; // Duration(days: 365)
 
 0.5.screenWidth; // half of the screen width
 0.5.screenHeight; // half of the screen height
 24.w; // dynamic width calculated based on screen size provided in SExtensionsScreenUtil
 24.h; // dynamic height calculated based on screen size provided in SExtensionsScreenUtil
 
+123.456.fixed000; // 123.456
 123.456.fixed00; // 123.46
 123.456.fixed0; // 123.5
 123.456.format('0.00'); // 123.46
@@ -361,6 +365,12 @@ map1.containsAnyKeys(['name']); // true
 20.isDivisibleBy(5); // true
 30.isBetween(20, 40); // true
 50.isEven; // true
+50.isOdd; // false
+-5.isNegative; // true
+-5.isPositive; // false
+1.0.isZero; // false
+0.5.isDouble; // true
+1.isInt; // true
 
 0xFF000000.toColor; // Color(0xFF000000)
 ```

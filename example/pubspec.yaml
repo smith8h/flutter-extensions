@@ -9,18 +9,16 @@ environment:
   sdk: ">=3.10.0 <4.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   s_extensions:
-    path: ../
-
-  cupertino_icons: ^1.0.2
+    git: https://github.com/smith8h/flutter-extensions.git
 
 dev_dependencies:
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-
-  flutter_lints: ^6.0.0
 
 flutter:
   uses-material-design: true
