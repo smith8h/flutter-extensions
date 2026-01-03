@@ -1,3 +1,18 @@
+# 1.10.0
+
+## Added
+### NumberExtensions
+- `fixed000` returns a string representation of this number with 3 decimal places.
+- `isOdd` returns `true` if this number is a odd number.
+- `week` returns the duration of weeks in this number.
+- `month` returns the duration of months in this number.
+- `year` returns the duration of years in this number.
+- `isNegative` returns `true` if this number is a negative number.
+- `isPositive` returns `true` if this number is a positive number.
+- `isZero` returns `true` if this number is a zero number.
+- `isDouble` returns `true` if this number is a double number.
+- `isInt` returns `true` if this number is an integer number.
+
 # 1.9.0
 ## Added
 ### BuildContextExtensions

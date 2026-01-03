@@ -89,6 +89,24 @@ extension NumExtensions on num {
   /// Example: `2.day` -> `Duration(days: 2)` for news cache TTL.
   Duration get day => Duration(days: toInt());
 
+  /// Converts this number to a `Duration` in weeks.
+  ///
+  /// Fractional values are truncated with `toInt()`.
+  /// Example: `2.week` -> `Duration(days: 14)` for news cache TTL.
+  Duration get week => Duration(days: toInt() * 7);
+
+  /// Converts this number to a `Duration` in months.
+  ///
+  /// Fractional values are truncated with `toInt()`.
+  /// Example: `2.month` -> `Duration(days: 60)` for news cache TTL.
+  Duration get month => Duration(days: toInt() * 30);
+
+  /// Converts this number to a `Duration` in years.
+  ///
+  /// Fractional values are truncated with `toInt()`.
+  /// Example: `2.year` -> `Duration(days: 730)` for news cache TTL.
+  Duration get year => Duration(days: toInt() * 365);
+
   // ? =================== Spaces & Fixed Values ========================
 
   /// Get the logical screen width multiplied by this number.
@@ -166,6 +184,11 @@ extension NumExtensions on num {
 
   // ? =================== Formaters ========================
 
+  /// Returns a string representation of this number with 3 decimal places.
+  ///
+  /// Example: `123.4567.fixed000` -> `123.457`.
+  String get fixed000 => toStringAsFixed(3);
+
   /// Returns a string representation of this number with 2 decimal places.
   ///
   /// Example: `123.456.fixed00` -> `123.46`.
@@ -198,6 +221,36 @@ extension NumExtensions on num {
   ///
   /// Example: `12.isEven` -> `true`.
   bool get isEven => toInt() % 2 == 0;
+
+  /// Returns `true` if this number is a odd number.
+  ///
+  /// Example: `12.isOdd` -> `false`.
+  bool get isOdd => toInt() % 2 != 0;
+
+  /// Returns `true` if this number is a negative number.
+  ///
+  /// Example: `-12.isNegative` -> `true`.
+  bool get isNegative => this < 0;
+
+  /// Returns `true` if this number is a positive number.
+  ///
+  /// Example: `12.isPositive` -> `true`.
+  bool get isPositive => this > 0;
+
+  /// Returns `true` if this number is a zero number.
+  ///
+  /// Example: `0.isZero` -> `true`.
+  bool get isZero => this == 0;
+
+  /// Returns `true` if this number is a double number.
+  ///
+  /// Example: `123.456.isDouble` -> `true`.
+  bool get isDouble => this is double;
+
+  /// Returns `true` if this number is an integer number.
+  ///
+  /// Example: `123.isInt` -> `true`.
+  bool get isInt => this is int;
 
   // ? =================== Converters ========================
 
