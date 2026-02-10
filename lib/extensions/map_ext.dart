@@ -178,6 +178,22 @@ extension MapExtensions<K, V> on Map<K, V> {
     }
   }
 
+  /// Updates only if the key already exists. Else, do nothing.
+  ///
+  /// Example:
+  /// ```dart
+  /// final map = {'a': 1, 'b': 2, 'c': 3};
+  /// map.safeUpdate('b', 4);
+  /// print(map); // Output: {'a': 1, 'b': 4, 'c': 3}
+  /// ```
+  V? safeGet(K key) {
+    if (containsKey(key)) {
+      return this[key];
+    } else {
+      return null;
+    }
+  }
+
   /// Ensure that the map contains the [key].
   /// If not, add it with the [value] to prevent null or overriding values.
   ///

@@ -1,3 +1,20 @@
+# 1.11.0
+
+## Added
+### NumberExtensions
+- `k` returns the number as thousand.
+- `m` returns the number as million.
+- `b` returns the number as billion.
+
+### DateTimeExtensions
+- `isAfterBy` check if a date is after x by a given parameter.
+- `isAfterAndUpBy` check if a date is after x and up.. by a given parameter.
+- `isBeforeBy` check if a date is before x by a given parameter.
+- `isBeforeAndUpBy` check if a date is before x and up.. by a given parameter.
+
+### MapExtensions
+- `safeGet` safely gets a key in map, and returns null if it's not there.
+
 # 1.10.0
 
 ## Added

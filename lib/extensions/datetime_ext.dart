@@ -2,6 +2,7 @@
 
 import 'package:intl/intl.dart';
 import 'package:s_extensions/extensions/number_ext.dart';
+import 'package:s_extensions/extensions/object_ext.dart';
 
 extension DateTimeExtensions on DateTime {
   // ? =================== Formaters ========================
@@ -124,6 +125,146 @@ extension DateTimeExtensions on DateTime {
   /// Example: `DateTime.now().isInNextYear` -> `true`.
   bool get isInNextYear =>
       year == DateTime.now().year + 1 && month == DateTime.now().month;
+
+  /// Returns `true` if "this (a)" is after "b" by the given parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// final a = DateTime.now();
+  /// final b = DateTime.now() - 5.sec;
+  /// final check = a.isAfterBy(b, bySeconds: 5);
+  /// print(check); // true
+  /// ```
+  bool isAfterBy(
+    DateTime b, {
+    int? byMilliseconds,
+    int? byMicroseconds,
+    int? bySeconds,
+    int? byMinutes,
+    int? byHours,
+    int? byDays,
+  }) {
+    final d = difference(b);
+    final diff = byMilliseconds.isNotNull
+        ? d.inMilliseconds == byMilliseconds
+        : byMicroseconds.isNotNull
+        ? d.inMicroseconds == byMicroseconds
+        : bySeconds.isNotNull
+        ? d.inSeconds == bySeconds
+        : byMinutes.isNotNull
+        ? d.inMinutes == byMinutes
+        : byHours.isNotNull
+        ? d.inHours == byHours
+        : byDays.isNotNull
+        ? d.inDays == byDays
+        : false;
+    return isAfter(b) && diff;
+  }
+
+  /// Returns `true` if "this (a)" is after "b" and more by the given parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// final a = DateTime.now();
+  /// final b = a - 8.sec;
+  /// final check = a.isAfterAndUpBy(b, bySeconds: 5);
+  /// print(check); // true
+  /// ```
+  bool isAfterAndUpBy(
+    DateTime b, {
+    int? byMilliseconds,
+    int? byMicroseconds,
+    int? bySeconds,
+    int? byMinutes,
+    int? byHours,
+    int? byDays,
+  }) {
+    final d = difference(b);
+    final diff = byMilliseconds.isNotNull
+        ? d.inMilliseconds >= byMilliseconds!
+        : byMicroseconds.isNotNull
+        ? d.inMicroseconds >= byMicroseconds!
+        : bySeconds.isNotNull
+        ? d.inSeconds >= bySeconds!
+        : byMinutes.isNotNull
+        ? d.inMinutes >= byMinutes!
+        : byHours.isNotNull
+        ? d.inHours >= byHours!
+        : byDays.isNotNull
+        ? d.inDays >= byDays!
+        : false;
+    return isAfter(b) && diff;
+  }
+
+  /// Returns `true` if "this (a)" is before "b" by the given parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// final a = DateTime.now();
+  /// final b = DateTime.now() + 7.sec;
+  /// final check = a.isBeforeBy(b, bySeconds: 7);
+  /// print(check); // true
+  /// ```
+  bool isBeforeBy(
+    DateTime b, {
+    int? byMilliseconds,
+    int? byMicroseconds,
+    int? bySeconds,
+    int? byMinutes,
+    int? byHours,
+    int? byDays,
+  }) {
+    final d = b.difference(this);
+    final diff = byMilliseconds.isNotNull
+        ? d.inMilliseconds == byMilliseconds
+        : byMicroseconds.isNotNull
+        ? d.inMicroseconds == byMicroseconds
+        : bySeconds.isNotNull
+        ? d.inSeconds == bySeconds
+        : byMinutes.isNotNull
+        ? d.inMinutes == byMinutes
+        : byHours.isNotNull
+        ? d.inHours == byHours
+        : byDays.isNotNull
+        ? d.inDays == byDays
+        : false;
+    return isBefore(b) && diff;
+  }
+
+  /// Returns `true` if "this (a)" is before "b" by the given parameter.
+  ///
+  /// Example:
+  /// ```dart
+  /// final a = DateTime.now();
+  /// final b = DateTime.now() + 78.sec;
+  /// final check = a.isBeforeAndUpBy(b, bySeconds: 50);
+  /// print(check); // true
+  /// ```
+  bool isBeforeAndUpBy(
+    DateTime b, {
+    int? byMilliseconds,
+    int? byMicroseconds,
+    int? bySeconds,
+    int? byMinutes,
+    int? byHours,
+    int? byDays,
+  }) {
+    final d = b.difference(this);
+    final diff = byMilliseconds.isNotNull
+        ? d.inMilliseconds >= byMilliseconds!
+        : byMicroseconds.isNotNull
+        ? d.inMicroseconds >= byMicroseconds!
+        : bySeconds.isNotNull
+        ? d.inSeconds >= bySeconds!
+        : byMinutes.isNotNull
+        ? d.inMinutes >= byMinutes!
+        : byHours.isNotNull
+        ? d.inHours >= byHours!
+        : byDays.isNotNull
+        ? d.inDays >= byDays!
+        : false;
+    return isBefore(b) && diff;
+  }
 
   // ? =================== Operators ========================
 

@@ -91,19 +91,23 @@ Works great for building responsive UIs - for example, **News headers**, **Marke
 | **Bool**           |    7         |    2        |     0        |
 | **BuildContext**   |    39        |    5        |     0        |
 | **Color**          |    6         |    0        |     0        |
-| **DateTime**       |    21        |    0        |     2        |
+| **DateTime**       |    25        |    0        |     2        |
 | **List**           |    17        |    4        |     1        |
-| **Map**            |    14        |    2        |     0        |
-| **Number**         |    35        |    2        |     0        |
+| **Map**            |    15        |    2        |     0        |
+| **Number**         |    38        |    2        |     0        |
 | **Object**         |    2         |    0        |     0        |
 | **String**         |    25        |    1        |     0        |
 | **Widget**         |    46        |    1        |     0        |
-| **Total Of Each**  |    **212**   |    **17**   |     **3**    |
-| **All Extensions** |    **232**   |
+| **Total Of Each**  |    **220**   |    **17**   |     **3**    |
+| **All Extensions** |    **240**   |
+
+---
 
 |  Platform   | Android | iOS | Windows| MacOS | Linux | Web |
 | ----------- | :-----: | :-: | :----: | :---: | :---: | :-: |
 | **Support** |    ✅   | ✅  |  ✅   |  ✅   |  ✅  | ✅  |
+
+---
 
 ## 📥 Installation
 
@@ -240,36 +244,42 @@ Colors.red.isLight; // false
 
 ### DateTime extensions
 ```dart
+final a = DateTime.now();
+final b = DateTime.now() + 15.sec;
+
 DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
 
-DateTime.now().formatYearMonthDay; // 2023-08-24
-DateTime.now().formatDayMonthYear; // 24-08-2023
-DateTime.now().formatYearMonthDayHrMinSec; // 2023-08-24 12:34:56
-DateTime.now().formatYearMonthDayHrMin; // 2023-08-24 12:34
-DateTime.now().formatHrMin12; // 12:34 PM
-DateTime.now().formatHrMinSec12; // 12:34:56 PM
-DateTime.now().formatHrMin24; // 15:34
-DateTime.now().formatHrMinSec24; // 15:34:56
-DateTime.now().formatDay; // Sunday
-DateTime.now().formatMonth; // August
+a.formatYearMonthDay; // "2023-08-24"
+a.formatDayMonthYear; // "24-08-2023"
+a.formatYearMonthDayHrMinSec; // "2023-08-24 12:34:56"
+a.formatYearMonthDayHrMin; // "2023-08-24 12:34"
+a.formatHrMin12; // "12:34 PM"
+a.formatHrMinSec12; // "12:34:56 PM"
+a.formatHrMin24; // "15:34"
+a.formatHrMinSec24; // "15:34:56"
+a.formatDay; // "Sunday"
+a.formatMonth; // "August"
+a.isPast; // false
+a.isFuture; // false
+a.isToday; // true
+a.isTomorrow; // false
+a.isYesterday; // false
+a.isInPreviousMonth; // false
+a.isInPreviousYear; // false
+a.isInNextMonth; // false
+a.isInNextYear; // false
+b.isAfterBy(a, bySeconds: 15); // true
+b.isAfterAndUpBy(a, byMinutes: 1); // true
+a.isBeforeBy(b, bySeconds: 15); // true
+a.isBeforeAndUpBy(b, byMinutes: 1); // true
 
-DateTime.now().isPast; // false
-DateTime.now().isFuture; // false
-DateTime.now().isToday; // true
-DateTime.now().isTomorrow; // false
-DateTime.now().isYesterday; // false
-DateTime.now().isInPreviousMonth; // false
-DateTime.now().isInPreviousYear; // false
-DateTime.now().isInNextMonth; // false
-DateTime.now().isInNextYear; // false
+operator + (duration) // Returns a new DateTime with this duration added.
+(a + 1.day); // "2023-08-25 12:34:56.000"
 
-operator +(Duration duration) // Returns a new DateTime with this duration added.
-(DateTime.now() + 1.day); // 2023-08-25 12:34:56.000
+operator - (duration) // Returns a new DateTime with this duration subtracted.
+(a - 1.day); // "2023-08-23 12:34:56.000"
 
-operator -(Duration duration) // Returns a new DateTime with this duration subtracted.
-(DateTime.now() - 1.day); // 2023-08-23 12:34:56.000
-
-(DateTime.now() - 1.day).fromNow; // Duration(days: 1)
+(a - 1.day).fromNow; // Duration(days: 1)
 ```
 
 ### List extensions
@@ -322,6 +332,7 @@ map1.toQueryString; // '?name=John&age=30'
 map2.invert; // <int, String>{1: 'a', 2: 'b'}
 
 map1.safeUpdate('name', 'Hussein'); // {'name': 'Hussein', 'age': 30}
+map2.safeGet('c'); // null
 map2.ensureKey('c', 0); // {'a': 1, 'b': 2, 'c': 0}
 
 map1.containsAllKeys(['name', 'age']); // true
@@ -373,6 +384,9 @@ map1.containsAnyKeys(['name']); // true
 1.isInt; // true
 
 0xFF000000.toColor; // Color(0xFF000000)
+2.06.k; // 2060
+2.4.m; // 2400000
+2.36.b; // 2360000000
 ```
 
 ### Object extensions

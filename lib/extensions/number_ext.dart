@@ -258,4 +258,19 @@ extension NumExtensions on num {
   ///
   /// Example: `0xff6a87e3.toColor` -> `Color(0xff6a87e3)`.
   Color get toColor => Color(toInt());
+
+  /// Get this number in thousands.
+  ///
+  /// Example: `3.k` -> `3000`.
+  num get k => this * 1000;
+
+  /// Get this number in millions.
+  ///
+  /// Example: `3.m` -> `3000000`.
+  num get m => this * 1000000;
+
+  /// Get this number in billions.
+  ///
+  /// Example: `3.b` -> `3000000000`.
+  num get b => this * 1000000000;
 }
