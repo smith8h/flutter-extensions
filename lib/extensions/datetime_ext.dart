@@ -4,7 +4,6 @@ import 'dart:ui';
 import 'package:intl/intl.dart';
 import 'package:s_extensions/extensions/number_ext.dart';
 import 'package:s_extensions/extensions/object_ext.dart';
-import 'package:s_extensions/utils/extensions_context.dart';
 
 extension DateTimeExtensions on DateTime {
   // ? =================== Formaters ========================
@@ -15,7 +14,7 @@ extension DateTimeExtensions on DateTime {
   /// Example: `DateTime.now().format('yyyy-MM-dd')` -> `2023-08-24`.
   String format(String formatStr, {Locale? locale}) => DateFormat(
     formatStr,
-    locale?.languageCode ?? FlutterSExtensions.locale?.languageCode,
+    locale?.languageCode /* ?? FlutterSExtensions.locale?.languageCode */,
   ).format(this);
 
   /// Returns a string representation of this date with the format

@@ -39,7 +39,7 @@ class FlutterSExtensions with WidgetsBindingObserver {
   static bool _observerRegistered = false;
   static double designWidth = 390.0;
   static double designHeight = 844.0;
-  static Locale? locale;
+  // static Locale? locale;
 
   /// Initialize the shared context.
   ///
@@ -98,9 +98,9 @@ class FlutterSExtensions with WidgetsBindingObserver {
   }
 
   /// Sets the current locale.
-  static void setLocale(Locale locale) {
-    FlutterSExtensions.locale = locale;
-  }
+  // static void setLocale(Locale locale) {
+  //   FlutterSExtensions.locale = locale;
+  // }
 
   /// Returns whether initialization has happened and the data is ready.
   static bool get isInitialized => _initialized && _media != null;

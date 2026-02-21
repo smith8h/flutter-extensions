@@ -1,3 +1,9 @@
+# 1.12.1
+
+## Changed
+### FlutterSExtensions
+- `locale` is removed temporarily.
+
 # 1.12.0
 
 ## Changed
