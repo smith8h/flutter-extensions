@@ -247,7 +247,8 @@ Colors.red.isLight; // false
 final a = DateTime.now();
 final b = DateTime.now() + 15.sec;
 
-DateTime.now().format('yyyy-MM-dd'); // 2023-08-24
+DateTime.now().format('EEE, dd MMM yyyy', locale: const Locale('ar')); // "الإثنين, 24 أغسطس 2023"
+DateTime.now().format('EEE, dd MMM yyyy', locale: const Locale('en')); // "Tuesday, 24 Aug 2023"
 
 a.formatYearMonthDay; // "2023-08-24"
 a.formatDayMonthYear; // "24-08-2023"
@@ -259,6 +260,8 @@ a.formatHrMin24; // "15:34"
 a.formatHrMinSec24; // "15:34:56"
 a.formatDay; // "Sunday"
 a.formatMonth; // "August"
+a.format('yyyy-MM-dd'); // "2023-08-24"
+
 a.isPast; // false
 a.isFuture; // false
 a.isToday; // true
@@ -534,8 +537,12 @@ obj.isNotNull; // true
 From `1.8.0` and above.. there is no need for calling `FlutterSExtensions.update(context)` in `MaterialApp.builder`. **(but it's still can be called in tests.)**
 You can now wrap your app with `SExtensionsScreenUtil` for better dynamic scaling and responsive UI usage:
 ```dart
+// ? set locale before using SExtensionsScreenUtil (optional) (make date time format extensions get the date by locale)
+FlutterSExtensions.setLocale(const Locale('ar'));
+// ...
 SExtensionsScreenUtil(
-  screenSize: const Size(390.0, 844.0), // screen size from design (e.g., Figma, ...)
+  // screen size from design (e.g., Figma, ...)
+  screenSize: const Size(390.0, 844.0), 
   app: MaterialApp(
     home: const MyHomePage(),
   ),

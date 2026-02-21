@@ -1,3 +1,12 @@
+# 1.12.0
+
+## Changed
+### DateTimeExtensions
+- `format` now accepts a `Locale` parameter.
+
+### FlutterSExtensions
+- `locale` is now a static property, and can be set using `setLocale`.
+
 # 1.11.0
 
 ## Added

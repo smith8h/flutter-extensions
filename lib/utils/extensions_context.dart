@@ -33,12 +33,13 @@ class FlutterSExtensions with WidgetsBindingObserver {
 
   static final _singleton = FlutterSExtensions._internal();
 
-  static bool _observerRegistered = false;
   static FlutterView? _view;
   static MediaQueryData? _media;
   static bool _initialized = false;
+  static bool _observerRegistered = false;
   static double designWidth = 390.0;
   static double designHeight = 844.0;
+  static Locale? locale;
 
   /// Initialize the shared context.
   ///
@@ -94,6 +95,11 @@ class FlutterSExtensions with WidgetsBindingObserver {
   static void setDesignSize(Size size) {
     designWidth = size.width;
     designHeight = size.height;
+  }
+
+  /// Sets the current locale.
+  static void setLocale(Locale locale) {
+    FlutterSExtensions.locale = locale;
   }
 
   /// Returns whether initialization has happened and the data is ready.
