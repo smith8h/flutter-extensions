@@ -1,3 +1,8 @@
+# 1.12.2
+
+## Updated
+- internal libs updates.
+
 # 1.12.1
 
 ## Changed
