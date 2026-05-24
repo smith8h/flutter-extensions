@@ -188,8 +188,7 @@ extension WidgetExtensions on Widget {
           duration: duration,
           curve: curve,
           child: child,
-          builder: (context, value, child) =>
-              Opacity(opacity: value, child: child),
+          builder: (context, value, child) => Opacity(opacity: value, child: child),
         );
       case .scale:
         return TweenAnimationBuilder<double>(
@@ -197,8 +196,7 @@ extension WidgetExtensions on Widget {
           duration: duration,
           curve: curve,
           child: this,
-          builder: (context, value, child) =>
-              Transform.scale(scale: value, child: child),
+          builder: (context, value, child) => Transform.scale(scale: value, child: child),
         );
       case .slideUp:
       case .slideDown:
@@ -338,6 +336,78 @@ extension WidgetExtensions on Widget {
     );
   }
 
+  /// Fades and slides the widget.
+  Widget fadeAndSlideLeft({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    Offset? beginOffset,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).slideLeft(duration: duration, curve: curve, beginOffset: beginOffset);
+
+  /// Fades and slides the widget.
+  Widget fadeAndSlideRight({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    Offset? beginOffset,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).slideRight(duration: duration, curve: curve, beginOffset: beginOffset);
+
+  /// Fades and slides the widget.
+  Widget fadeAndSlideUp({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    Offset? beginOffset,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).slideUp(duration: duration, curve: curve, beginOffset: beginOffset);
+
+  /// Fades and slides the widget.
+  Widget fadeAndSlideDown({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    Offset? beginOffset,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).slideDown(duration: duration, curve: curve, beginOffset: beginOffset);
+
+  /// Fades and slides the widget.
+  Widget fadeAndRotate({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    double beginAngle = 0.05,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).rotate(duration: duration, curve: curve, beginAngle: beginAngle);
+
+  /// Fades and scales the widget.
+  Widget fadeAndScale({
+    Duration duration = const Duration(milliseconds: 300),
+    Curve curve = Curves.easeOut,
+    double beginOpacity = 0,
+    double beginScale = 0.95,
+  }) => fade(
+    duration: duration,
+    curve: curve,
+    beginOpacity: beginOpacity,
+  ).scale(duration: duration, curve: curve, beginScale: beginScale);
+
   // ? ================ Shapes & Boxes ================
 
   /// Wrap this widget with safe area.
@@ -368,11 +438,7 @@ extension WidgetExtensions on Widget {
   /// Returns a new IntrinsicWidth widget.
   ///
   /// The [stepWidth] and [stepHeight] parameters are used to set the width and height of the widget.
-  IntrinsicWidth intrinsicWidth({
-    Key? key,
-    double? stepWidth,
-    double? stepHeight,
-  }) {
+  IntrinsicWidth intrinsicWidth({Key? key, double? stepWidth, double? stepHeight}) {
     return IntrinsicWidth(
       key: key,
       stepHeight: stepHeight,

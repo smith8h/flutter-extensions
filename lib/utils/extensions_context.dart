@@ -97,11 +97,6 @@ class FlutterSExtensions with WidgetsBindingObserver {
     designHeight = size.height;
   }
 
-  /// Sets the current locale.
-  // static void setLocale(Locale locale) {
-  //   FlutterSExtensions.locale = locale;
-  // }
-
   /// Returns whether initialization has happened and the data is ready.
   static bool get isInitialized => _initialized && _media != null;
 

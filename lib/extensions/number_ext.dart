@@ -163,24 +163,24 @@ extension NumExtensions on num {
   ///
   /// Example: `100.w` -> `100.0` on a 390px screen.
   /// Example: `100.w` -> `200.0` on a 780px screen.
-  double get w => (toDouble() / FlutterSExtensions.designWidth) * screenWidth;
+  double get width => (toDouble() / FlutterSExtensions.designWidth) * screenWidth;
 
   /// Dynamic height helper to support various screen sizes.
   ///
   /// Example: `100.h` -> `100.0` on a 844px screen.
-  double get h => (toDouble() / FlutterSExtensions.designHeight) * screenHeight;
+  double get height => (toDouble() / FlutterSExtensions.designHeight) * screenHeight;
 
   // ? =================== Widgets ========================
 
   /// Returns a `SizedBox` widget with the width set to this number.
   ///
   /// Example: `100.horizontalSpace` -> `SizedBox(width: 100.0)`.
-  SizedBox get horizontalSpace => SizedBox(width: toDouble());
+  SizedBox get hSpace => SizedBox(width: toDouble());
 
   /// Returns a `SizedBox` widget with the height set to this number.
   ///
   /// Example: `100.verticalSpace` -> `SizedBox(height: 100.0)`.
-  SizedBox get verticalSpace => SizedBox(height: toDouble());
+  SizedBox get vSpace => SizedBox(height: toDouble());
 
   // ? =================== Formaters ========================
 
@@ -198,6 +198,11 @@ extension NumExtensions on num {
   ///
   /// Example: `123.456.fixed0` -> `123.5`.
   String get fixed0 => toStringAsFixed(1);
+
+  /// Returns a string representation of this number with x decimal place.
+  ///
+  /// Example: `123.456.fixed(2)` -> `123.46`.
+  String fixed(int x) => toStringAsFixed(x);
 
   /// Returns a string representation of this number with the format
   /// provided as a parameter.
@@ -261,16 +266,16 @@ extension NumExtensions on num {
 
   /// Get this number in thousands.
   ///
-  /// Example: `3.k` -> `3000`.
-  num get k => this * 1000;
+  /// Example: `3.kilo` -> `3_000`.
+  num get kilo => this * 1_000;
 
   /// Get this number in millions.
   ///
-  /// Example: `3.m` -> `3000000`.
-  num get m => this * 1000000;
+  /// Example: `3.million` -> `3_000_000`.
+  num get million => this * 1_000_000;
 
   /// Get this number in billions.
   ///
-  /// Example: `3.b` -> `3000000000`.
-  num get b => this * 1000000000;
+  /// Example: `3.billion` -> `3_000_000_000`.
+  num get billion => this * 1_000_000_000;
 }

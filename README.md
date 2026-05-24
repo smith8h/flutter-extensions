@@ -365,16 +365,17 @@ map1.containsAnyKeys(['name']); // true
 
 0.5.screenWidth; // half of the screen width
 0.5.screenHeight; // half of the screen height
-24.w; // dynamic width calculated based on screen size provided in SExtensionsScreenUtil
-24.h; // dynamic height calculated based on screen size provided in SExtensionsScreenUtil
+24.width; // dynamic width calculated based on screen size provided in SExtensionsScreenUtil
+24.height; // dynamic height calculated based on screen size provided in SExtensionsScreenUtil
 
 123.456.fixed000; // 123.456
 123.456.fixed00; // 123.46
 123.456.fixed0; // 123.5
+123.456.fixed(4); // 123.5000
 123.456.format('0.00'); // 123.46
 
-16.verticalSpace; // SizedBox(height: 16.0)
-16.horizontalSpace; // SizedBox(width: 16.0)
+16.vSpace; // SizedBox(height: 16.0)
+16.hSpace; // SizedBox(width: 16.0)
 
 20.isDivisibleBy(5); // true
 30.isBetween(20, 40); // true
@@ -387,16 +388,21 @@ map1.containsAnyKeys(['name']); // true
 1.isInt; // true
 
 0xFF000000.toColor; // Color(0xFF000000)
-2.06.k; // 2060
-2.4.m; // 2400000
-2.36.b; // 2360000000
+2.06.kilo; // 2_060
+2.4.million; // 2_400_000
+2.36.billion; // 2_360_000_000
 ```
 
 ### Object extensions
 ```dart
-Object obj = ClassA(); // or any other object
+dynamic obj = 8; // or any other object
 obj.isNull; // false
 obj.isNotNull; // true
+obj.isInList([3,5,7,8,9]) // true
+obj.isInListWithValidation( // add two check steps
+  [3,5,7,8,9], // true
+  (e) => e.isEven // true
+) // true
 ```
 
 ### String extensions
@@ -517,6 +523,13 @@ obj.isNotNull; // true
       .slideLeft(),
     Text('Hello World!').slideRight(),
     Text('Hello World!').rotate(beginAngle: 0.05),
+
+    Text('Hello World!').fadeAndSlideLeft(),
+    Text('Hello World!').fadeAndSlideRight(),
+    Text('Hello World!').fadeAndSlideUp(),
+    Text('Hello World!').fadeAndSlideDown(),
+    Text('Hello World!').fadeAndScale(),
+    Text('Hello World!').fadeAndRotate(),
   ].toRow(spacer: 16).intrinsicWidth(),
 
   // scroll and refresh extensions
@@ -532,14 +545,25 @@ obj.isNotNull; // true
   .scaffold();
 ```
 
+## Static DateTime Formatter Locale
+To ensure datetime formatter support your desired locales, add the static function:
+
+``` Dart
+void main() async {
+  // ...
+  await SExtensionsInitializers.initDateTimeFormatterLocale("ar");
+  // ...
+  runApp(const MyApp());
+}
+```
+
+to set a locale before formatting `DateTime`, and before building you app inside `main` void.
+
 ## 🔧 Static Context Manager
 
 From `1.8.0` and above.. there is no need for calling `FlutterSExtensions.update(context)` in `MaterialApp.builder`. **(but it's still can be called in tests.)**
 You can now wrap your app with `SExtensionsScreenUtil` for better dynamic scaling and responsive UI usage:
 ```dart
-// ? set locale before using SExtensionsScreenUtil (optional) (make date time format extensions get the date by locale)
-FlutterSExtensions.setLocale(const Locale('ar'));
-// ...
 SExtensionsScreenUtil(
   // screen size from design (e.g., Figma, ...)
   screenSize: const Size(390.0, 844.0), 

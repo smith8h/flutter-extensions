@@ -1,3 +1,37 @@
+# 1.13.0
+
+## Updated
+### Core Updates
+- Core dependencies for flutter inner compatibility.
+
+### NumberExtensions
+- `w` to `width`.
+- `h` to `height`.
+- `horizontalSpace` to `hSpace`.
+- `verticalSpace` to `vSpace`.
+- `k` to `kilo`.
+- `m` to `million`.
+- `b` to `billion`.
+
+## Added
+### `SExtensionsInitializers` Class
+- static `SExtensionsInitializers.initDateTimeFormatterLocale` to set a locale before formatting `DateTime`.
+
+### NumberExtensions
+- `fixed(x)`: returns fixed x string of a number.
+
+### ObjectExtensions
+- `isInList`: checks if this object is in a given list.
+- `isInListWithValidation`: checks if this object is in a given list with validator.
+
+### WidgetExtensions
+- `fadeAndSlideLeft`: create a fade and slide effects on same time for the given widget.
+- `fadeAndSlideUp`: create a fade and slide effects on same time for the given widget.
+- `fadeAndSlideRight`: create a fade and slide effects on same time for the given widget.
+- `fadeAndSlideBottom`: create a fade and slide effects on same time for the given widget.
+- `fadeAndScale`: create a fade and scale effects on same time for the given widget.
+- `fadeAndRotate`: create a fade and rotate effects on same time for the given widget.
+
 # 1.12.2
 
 ## Updated
